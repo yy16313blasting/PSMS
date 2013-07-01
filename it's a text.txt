@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 2010
 new file
+=======
+>>>>>>> parent of 731972b... today is a sunny day
