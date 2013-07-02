@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="866f3a60-911e-4962-a9a0-1b6ad4dc5bbf" name="UMLUseCaseDiagram1" linkedPackageId="d7f37862-8eb9-4a93-9c64-8b0812c6a0f6" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="2ad78d79-e479-4e4b-aa16-d76dd06aef6f">
+      <profileInstance Id="512acf89-8b83-499f-8e7f-d21b03bdd0cc" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="379cdbfa-de4d-474d-86ae-34cbcfe7c4cd">
+      <profileInstance Id="82ba319e-2858-47f9-8c1c-d80f3b0969b6" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="54eb0005-ec2f-4a4d-9736-f4b4cdc32813" name="学生" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d3a03615-4c6a-4557-9af1-bbdbb1ae7954" />
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="d7f37862-8eb9-4a93-9c64-8b0812c6a0f6" name="PSMS">
+    <elementDefinition Id="e4b8bedb-4bc9-4e78-b8d0-30700ca0baca" />
+  </package>
+</useCaseModelRoot>

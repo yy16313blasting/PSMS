@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLUseCaseDiagram1">
+  <useCaseModelRootMoniker Id="866f3a60-911e-4962-a9a0-1b6ad4dc5bbf" />
+  <nestedChildShapes>
+    <actorShape Id="6177ef90-91f9-44ed-bf93-8f75043b5061" absoluteBounds="2.75, 1.875, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="54eb0005-ec2f-4a4d-9736-f4b4cdc32813" LastKnownName="学生" />
+      <relativeChildShapes />
+    </actorShape>
+  </nestedChildShapes>
+</useCaseDiagram>

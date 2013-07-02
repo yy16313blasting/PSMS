@@ -1,0 +1,2017 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e4b8bedb-4bc9-4e78-b8d0-30700ca0baca"
+  name="PSMS" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="4671aa0c-a0d3-4d6d-a12d-13400e72110c"
+        name="UserDA"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="e52f1322-17c7-47d7-b278-8e30b1045d2a"
+            name="User GetUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6fc5031c-dc76-4241-83e3-6db3730c44fa"
+                  name="string name"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2b0c9f10-0680-4c74-8516-2cb77d6c3be0"
+            name="Record AddDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a6e35dbe-d06f-4c39-a1b2-5376d6d0b47b"
+                  name="DateRemind dateRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="08d490c6-c26d-4c15-99ee-f7c8d035825e"
+            name="Record AddDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3e893138-566a-472a-853e-74d5ec44385f"
+                  name="Diary diary"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="395a3501-b3e2-4f09-81be-d45785a36eef"
+            name="Record AddMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a56a3e8d-af05-4a10-bde9-6ecbdcaea75a"
+                  name="Memo memo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="804cbd15-14b5-4dcb-ad8f-7c06e93f464f"
+            name="Record AddTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="39f852ac-abfe-4eb9-aa98-e71eeddbf1c1"
+                  name="TimeRemind timeRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ae669470-9ab5-46d5-a40d-a5df70df5df9"
+            name="Record RemoveDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c42ee5e7-959f-418d-9194-c903460aae25"
+                  name="DateRemind dateRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5c1f561a-5b01-42ce-bf31-c0f52b47b28f"
+            name="Record RemoveDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d0997b48-e513-402a-9631-ff76a41615ef"
+                  name="Diary diary"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ce8ea9ec-34c2-413b-93be-abef0fddd23f"
+            name="Record RemoveMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6e5335c2-b8bb-489d-aca9-60dd8096ad26"
+                  name="Memo memo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c7f98540-3275-4f7b-820a-fc849f881406"
+            name="Record RemoveTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="77005f67-19e1-4e04-b4a8-4bf0bd9034ed"
+                  name="TimeRemind timeRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="afb8d36b-d2f3-40eb-a737-2db3e30242c4"
+            name="Record UpdateDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fa70719a-e329-41d7-9d26-7dc3d97c8efa"
+                  name="DateRemind dateRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f926e645-248a-40d3-9fc5-62250abe0987"
+            name="Record UpdateDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fb7c9dc3-14d2-4f09-a462-4d34aa37ef22"
+                  name="Diary diary"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6da9b6c9-2c25-4a4c-a56f-b9292fa6f012"
+            name="Record UpdateMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f9e25cc2-6084-4b00-81c2-07deff7ef6f8"
+                  name="Memo memo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0ec36ba8-e1f4-4f8d-999b-699b58a0f3f3"
+            name="Record UpdateTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a5dd7a48-272b-4c70-9032-2f856a90dd8e"
+                  name="TimeRemind timeRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="01ae003d-b16e-4db6-90d4-9486f7f4bf03"
+            name="RecordList GetAllDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="38f912e9-26f5-4477-9107-4c1dae292837"
+            name="RecordList GetAllDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="12a0ff78-4488-43fd-bf5e-ff56c28c9e5e"
+            name="RecordList GetAllMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="cab0c41a-cb00-40c1-829f-e03d87acfb4f"
+            name="RecordList GetAllTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4970d930-405a-438e-9f99-b918d61dbb7e"
+            name="void PurgeDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="467940e8-e542-4e3d-9bfd-a4d0c5680630"
+            name="void PurgeDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4e961d0b-b3e1-4821-96d7-5ed504d1e6c0"
+            name="void PurgeMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f79a9db5-b15d-429a-ad02-13853038416a"
+            name="void PurgeTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c88bb698-da3f-4964-9721-6565b75c6918"
+        name="Memo"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="4ae0d0c8-e9f9-455f-b594-2775cd8a9098"
+            isSubstitutable="false">
+            <classMoniker
+              Id="d67ed4d9-8913-42ab-823d-92d5cc5c26bc"
+              LastKnownName="Record"
+              LastKnownLocation="PSMS.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="73f9304a-6333-4fe3-8c85-aa0e5bc60e1e"
+        name="Task"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="aad0fad5-6f33-4a18-addf-0533b92144a1"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c88bb698-da3f-4964-9721-6565b75c6918"
+              LastKnownName="Memo"
+              LastKnownLocation="PSMS.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="22f43b5f-d032-4213-9b91-862b4d46afe8"
+        name="NormalNotice"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="73eab153-6c1e-4da1-8d93-d9f09a81acde"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c88bb698-da3f-4964-9721-6565b75c6918"
+              LastKnownName="Memo"
+              LastKnownLocation="PSMS.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f3cb8b26-c436-419e-b441-6e8e9742e7ab"
+        name="Record"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="99e0da90-7c46-4222-9c5b-b43929a54dc5"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c88bb698-da3f-4964-9721-6565b75c6918"
+              LastKnownName="Memo"
+              LastKnownLocation="PSMS.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4f0db586-1087-412c-9fff-1722145b4477"
+        name="FIxedNotice"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="9017c0bf-daf0-4f32-847c-6701e9b7f538"
+            isSubstitutable="false">
+            <classMoniker
+              Id="c88bb698-da3f-4964-9721-6565b75c6918"
+              LastKnownName="Memo"
+              LastKnownLocation="PSMS.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="ce98eab4-04b6-4c27-a818-afb0d0e5ebe3"
+            name="string"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e0597c54-810a-4f8c-9594-66f9e8036122"
+        name="User"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="c5e9f265-c444-4c6b-a9f3-6f2d36d16f16"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="RemindDlg"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b6a86111-88e1-437b-a388-6fa99b83cc89"
+              LastKnownName="RemindDlg"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4e27c499-d514-4fef-92b0-54ee2984469b"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4b0aa9fa-0135-48b5-a43b-acac11686bc9"
+                  name="RemindDlg"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ac9035c5-c019-4171-9aa3-b6d72d47dec0"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="RecordList"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="771a0f23-0769-45d8-bf81-103db0a54414"
+              LastKnownName="RecordManager"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d55d511f-98b9-4af6-8700-fb8ae39e478a"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="21b182f0-1c02-4b9d-92f3-76b901ecdf9b"
+                  name="RecordList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4082d9de-84df-4770-b785-523717864596"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="UserDA"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="4671aa0c-a0d3-4d6d-a12d-13400e72110c"
+              LastKnownName="UserDA"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="efb7587a-fe73-46ad-a711-c505c1df591d"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d47b136a-73b2-48bd-b763-7f57528544dc"
+                  name="UserDA"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="16209f0d-bb3b-4f3d-813b-bbe75b3d7a81"
+            name="string m_szName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="2f871305-f29a-405a-8f2b-0bef772f5c9b"
+            name="string m_szPassword"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="6dbc7c19-950f-4db3-8253-a7b7f1c2279b"
+            name="bool isOnline"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="8b4ad519-eb62-4c87-ba7a-e97e4612c30a"
+            name="Record AddDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3369c2d5-5945-421e-a536-bb3f3fb5c8df"
+                  name="Diary diary"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4b728b92-d5e5-4a33-bafb-bc2ae737e1c8"
+            name="Record AddMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6989bf56-fa41-4983-a907-99174f74d15a"
+                  name="Memo memo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="79897855-a0f9-4331-ad78-e1a69beca9b6"
+            name="Record AddTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="998bc68c-6d02-4d40-a133-bc3eaa36e9ab"
+                  name="TimeRemind timeRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="49faf0ea-86ac-4a2f-bda9-f5b54fa670f8"
+            name="Record AddDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="beb4681b-aa55-4cfe-a1f6-a57902bb287c"
+                  name="DateRemind dateRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="87161ff4-a839-46c4-8920-4bcac92761dc"
+            name="Record RemoveDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5db6f535-887c-43ff-b9ad-6f78929e6948"
+                  name="Diary diary"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c9ab9a19-e2e7-48d2-99a7-de8b8f8bbe0b"
+            name="Record RemoveMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="90d76d5a-6cf9-4d92-9b9a-41ac47441431"
+                  name="Memo memo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2ecbd7fa-bdd8-40c0-98c5-692ac346580d"
+            name="Record RemoveDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="656fc8fb-7f29-4685-899a-810536241fdd"
+                  name="DateRemind dateRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="94116b35-59c6-42ab-a8ba-d5fb7fa27d27"
+            name="Record RemoveTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7b68620e-227a-4720-b12c-5ede355284d8"
+                  name="TimeRemind timeRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="eeaba4bf-4c80-4370-8018-d6fcaa0f516f"
+            name="string GetName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="78bc17ff-0b90-4b6d-83e8-178236146b3f"
+            name="string GetPassWord"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a0df7ea9-1c7c-41ce-8199-5955d376bc1b"
+            name="Record UpdateDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bf369071-1817-41cc-9f28-b5d3ae44c0cd"
+                  name="Diary diary"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="01de2831-7f4b-4d4e-b8b1-630f8881f522"
+            name="Record UpdateMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4e278b9e-1a68-4329-a6c3-de6ded487ef9"
+                  name="Memo memo"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0ff688b4-8616-4542-b14c-d2c5cc842957"
+            name="Record UpdateDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7ed2e109-3dce-421e-9a4b-c491e8db0e5a"
+                  name="DateRemind dateRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="17add725-c278-4ec2-8070-ccc0e61281ad"
+            name="Record UpdateTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53ee07ca-8f26-4243-89c9-9f535a8c469a"
+                  name="TimeRemind timeRemind"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="650f266d-5692-4906-af33-d918fc3f4a35"
+            name="RecordList GetAllDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1994ae9b-ed61-4310-82ac-e1e9bd345b1c"
+            name="RecordList GetAllMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ba4e586b-ec47-4df5-a493-959558f07ec7"
+            name="RecordList GetAllTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ab2466b1-2fb1-47de-93aa-e23c9dfe000c"
+            name="RecordList GetAllDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="92190776-cbee-4e05-a4f3-a479ee62ae67"
+            name="void PurgeDateRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="b16d04f4-2a5c-4799-962a-b28509cd83bb"
+            name="void PurgeTimeRemind"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a74e94e5-9dbe-4978-8af9-00261d9d435d"
+            name="void PurgeDiary"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="36fd2550-bb88-48f4-b104-da62a70e52b6"
+            name="void PurgeMemo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="68b83cfd-764c-4bc0-b7ee-b467f7ca1502"
+        name="HolidayNotice"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="17002dcd-606a-43d6-a20d-96d155580843"
+        name="Message"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="9c58d0db-8f9b-44c5-8122-ed13d79f5011"
+        name="Activity1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="41f32f2b-d6d0-4c1d-bf63-16c5b8cb4af0"
+            name="Initial1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4eca2a1c-077a-4bb4-b8ac-11f50424010a"
+        name="Diary"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="5aca8ed2-777a-4135-80b3-71a8dcbda979"
+            isSubstitutable="false">
+            <classMoniker
+              Id="d67ed4d9-8913-42ab-823d-92d5cc5c26bc"
+              LastKnownName="Record"
+              LastKnownLocation="PSMS.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6f991e6b-a560-4286-9262-3bc9f8ca20b4"
+        name="Class2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="abc1718f-270c-489a-a488-52099ad23cf2"
+        name="Record"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9d30ebe8-4e5c-482e-8098-2b66d6d0a420"
+        name="RecordList"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="088cd4b6-28a4-4c61-86b0-6e56b70cbad9"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1da09656-b4ba-4c19-b0c5-fe26eae6bbff"
+        name="MusicPlayer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b6a86111-88e1-437b-a388-6fa99b83cc89"
+        name="RemindDlg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="8eda17fa-b51c-4e57-b327-845100373ec7"
+            name="void Show"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ee0d540f-a483-4ef4-b15d-2cd5fd88f115"
+            name="void SetContent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="2252d54a-e8f7-4d26-b616-037356e6c3af"
+            name="void MusicOn"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="148f4f9e-bef2-41f4-961e-ebaddf6fdcfc"
+            name="void OnOKBtnClicked"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="fc87e164-a123-4a7c-80b7-b51d667db123"
+        name="MainDlg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e173ff04-ce7c-4802-a487-4ac681f3ea7f"
+        name="TimeRemind"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="50c002eb-457b-4d63-847b-5486124b9119"
+            isSubstitutable="false">
+            <classMoniker
+              Id="d67ed4d9-8913-42ab-823d-92d5cc5c26bc"
+              LastKnownName="Record"
+              LastKnownLocation="PSMS.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="83f4f6f7-6e0c-4598-a08a-6c96595f20c5"
+            name="int m_nHour"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="4b82293a-8578-4fe8-88e8-69035da5b884"
+            name="int m_nMinute"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5445dcb9-e974-4946-8ee2-4f7e760f047f"
+            name="int m_nRemindFrequency"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="c8f3167a-440e-4f11-994a-9bdd15567fbe"
+            name="int GetHour"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="952f7111-3bf7-4683-8e50-49baa396e1e7"
+            name="int GetMinute"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="2b754821-796c-4aa3-8de9-cd2ab081764c"
+            name="int GetFrequency"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4a1e22de-b8f2-49bd-955e-3bfc8b69b204"
+            name="void SetTime"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="30fc8e46-3bea-4e16-b4ea-12a47aebaa6a"
+                  name="int hour"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="43766322-53ad-4d3b-b5f7-e43cc114c155"
+                  name="int minute"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="58411cb8-0a78-4a0f-8018-4c9d11925722"
+            name="void SetRemindFrequency"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="185d05e5-8415-453f-bb90-8b20e0ccd1d8"
+                  name="int frequency"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3ea3865f-f9f0-45c4-8a46-0c8b43eaf0c2"
+        name="DateRemind"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="f66b4080-a8a6-450d-84fd-df50858d0c4a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="d67ed4d9-8913-42ab-823d-92d5cc5c26bc"
+              LastKnownName="Record"
+              LastKnownLocation="PSMS.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="12591235-be4c-489a-8ff6-3f9288272184"
+            name="int m_nRemindFrequency"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="5093fd3b-d9c8-47cf-8720-d72c81f80123"
+            name="int GetFrequency"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="cef945b7-29b0-43f0-bb38-367caddbe7a5"
+            name="void SetDate"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d91f525d-dc11-4722-a955-25af0464e456"
+                  name="int year"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="72601bcd-e24c-45a0-a94b-a15ff53c403b"
+                  name="int month"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b4b1eeea-8d88-432d-bd01-36abc0f5dc3f"
+                  name="int day"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2d289671-17b2-4a06-a0c3-84b5d5d445a4"
+            name="void SetRemindFrequency"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="caa65cf4-e7de-4f87-8ab7-ad5c13dab1af"
+                  name="int frequency"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d67ed4d9-8913-42ab-823d-92d5cc5c26bc"
+        name="Record"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="2d638456-bf29-4be6-9554-2d860aa8c43a"
+            name="int m_nType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="9e2ec196-25f3-4ac2-aadf-efe45f1d56f3"
+            name="string m_szTitle"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="aa0b4222-ad46-4136-a09a-68cf10ece884"
+            name="string m_szContent"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="522242b2-a990-491d-b660-3dc387246843"
+            name="int m_nYear"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d4ddcf6b-7dd2-4b15-8db1-fb0721359b8b"
+            name="int m_nMonth"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fa0f2d9b-0bc8-4f9a-bece-38d4e6275a83"
+            name="int m_nDay"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="40fb5985-1d9c-4c3d-b2a2-a83b7af279f3"
+            name="string GetContent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="bea3f53b-08be-4fd3-aefb-2e7567a71241"
+            name="string GetTitle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4f846a22-59e9-4789-8bbf-f2a6d58283e8"
+            name="int GetType"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4ac0f53c-c385-487c-97fe-c85140bf1dfd"
+            name="int SetContent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="7d33356e-b8a4-4464-8846-dbd196d1f3a9"
+            name="int GetDay"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="52ff9360-ac3b-4430-b81e-56e92250d842"
+            name="int GetMonth"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4bc8ade8-1a24-4810-944a-9a537ad43613"
+            name="int GetYear"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="bafff6da-dce7-4460-bf22-d894252af73b"
+            name="virtual void SetDate"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40e32a44-2adc-4710-92d2-5c3eb1d6ac8f"
+                  name="int year"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="18495db9-e4c5-439d-b458-30903b65a1eb"
+                  name="int month"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="da95e236-f620-4b0e-a068-6baca9caafd6"
+                  name="int day"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="37605ce4-bef3-44fb-9837-7baec272027f"
+            name="int SetTitle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="771a0f23-0769-45d8-bf81-103db0a54414"
+        name="RecordManager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="764cb5eb-3bfc-4a93-b051-7b67d695cb91"
+            name="Record m_RecordList[]"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="4ffef2a8-56e4-407f-934f-3a3c6159c250"
+            name="int m_nRecordNum"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="90a5576d-5071-4aa6-aef2-2ff6604a2b98"
+            name="Record Get"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2de28c3b-0704-461b-9a5b-ac925f51be1a"
+                  name="int n"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1486ce71-0c0b-4221-8670-07d345cacd34"
+            name="Record Add"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c2fe3430-2e77-4b48-8b28-8bdbc50a667b"
+                  name="Record record"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="211efe15-00e0-4c81-bca4-119877e8723c"
+            name="Record Remove"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bc601119-555b-458f-8e76-c56f565df675"
+                  name="Record record"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="16c97e0a-f60d-441f-a3c3-60f7c7d38cd1"
+            name="Record GetByTitle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="10a005ca-8a81-4a44-b4dc-33382c7e4c45"
+                  name="string title"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="127703a8-840e-48e6-ae9c-f9147aec27bd"
+            name="int GetRecordNum"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5d6d808e-612b-4ca8-8ca9-aa3dbe674f5c"
+        name="RecordList"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="fa1bd431-ccf0-4b98-b4d1-4efe07fec28e"
+            name="int m_nLength"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="ac7b71e8-7356-4ca0-80d9-5231d854ebcc"
+            name="struct ptrRecord* head;"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="e6621291-dc27-4dc0-9111-fc7115d4d30c"
+            name="struct ptrRecord* tail"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="c885eb42-5782-4af5-a040-05581872170a"
+            name="Record Add"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2e3f5399-42f7-4047-82a3-ce00b2db8644"
+                  name="Record record"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ae5a591c-3615-4f93-81f6-a39855e2cb8f"
+            name="Record Get"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3b030675-f8d9-4400-93eb-34e98a0e3129"
+                  name="int i"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="05bf9013-47a7-4eed-9714-4b4a42a74349"
+            name="int GetLength"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="068c061a-4532-4d68-bb64-d30d5dc77fbb"
+        name="MainDlg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="c9b36ff3-35c0-49cd-8e54-8341fdedcc3b"
+            isDerived="false"
+            sourceEndRoleName="MainView"
+            targetEndRoleName="TrayDlg"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a268302e-3b9f-4962-a27f-bac23c8c0329"
+              LastKnownName="TrayDlg"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5e05ccb8-aca7-4181-b9c7-0801215495ce"
+                  name="MainView"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0f67424b-8a00-459d-a13c-c053188a264f"
+                  name="TrayDlg"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8b8119a4-c7f2-46e4-a840-b04fdd4c37a4"
+            isDerived="false"
+            sourceEndRoleName="MainView"
+            targetEndRoleName="LoginDlg"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="28681cab-f02c-4e9c-91d4-ab0e09be9f0a"
+              LastKnownName="LoginDlg"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d7df48e5-9f00-4082-97a4-25c9e2acab39"
+                  name="MainView"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8ba969fa-88dc-4046-9e63-4bcfe3b07f8c"
+                  name="LoginDlg"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="77589f63-4703-4669-9ed6-900da30d84e8"
+            isDerived="false"
+            sourceEndRoleName="MainView"
+            targetEndRoleName="RemindDlg"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9c1e34c4-4f20-418e-8396-7f1cf56fbf7c"
+              LastKnownName="RemindDlg"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="44fd0421-8627-4fac-8992-4ef66183ade1"
+                  name="MainView"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d389fd46-a004-457e-8ecb-b541a946b253"
+                  name="RemindDlg"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="041c92c3-f84a-4c67-aec1-913035ba18f6"
+            isDerived="false"
+            sourceEndRoleName="MainView"
+            targetEndRoleName="SignUpDlg"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="ab0e5cf5-f87b-4a72-a8e8-2acb415fb9b1"
+              LastKnownName="SignUpDlg"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e3e008ed-4330-4edd-9995-391186bc2c46"
+                  name="MainView"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3143f3b2-13e4-47b3-aeae-112ef53a47b4"
+                  name="SignUpDlg"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6165f507-c47f-4478-a7f9-3eb04001557a"
+            isDerived="false"
+            sourceEndRoleName="MainView"
+            targetEndRoleName="EditorDlg"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="15182b29-04cc-4af5-b420-5e3f6c074f51"
+              LastKnownName="EditorDlg"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5be38d83-3585-4b08-b9be-81625774fff9"
+                  name="MainView"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f98b3dbd-6242-4f74-b4a1-cc54b79ea8bd"
+                  name="EditorDlg"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="aa37a649-83af-403d-bb72-b5ec6636f529"
+            name="int m_nRecordType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="93d9c916-cfd4-4f49-9010-c0ca5967d0a3"
+            name="void OnLoginBtnClicked"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="2029e5f6-1564-4d0b-a268-897ca437c6df"
+            name="void OnAddBtnClicked"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="d6bf5bc0-039c-4c3d-904a-51ad2b4264a6"
+            name="void OnRemoveBtnClicked"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="73d21d91-b576-4786-9c4c-e04ecec3082d"
+            name="void OnUpdateBtnClicked"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="64c9c261-f82f-4230-8017-a12dd2934550"
+            name="void On"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="28681cab-f02c-4e9c-91d4-ab0e09be9f0a"
+        name="LoginDlg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a268302e-3b9f-4962-a27f-bac23c8c0329"
+        name="TrayDlg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9c1e34c4-4f20-418e-8396-7f1cf56fbf7c"
+        name="RemindDlg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="7972a4ac-7fbc-47df-ad34-bb348afba27b"
+            isDerived="false"
+            sourceEndRoleName="RemindDlg"
+            targetEndRoleName="MusicPlayer"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a64ec696-9efb-4d81-a812-2e3bc4586f42"
+              LastKnownName="MusicPlayer"
+              LastKnownLocation="PSMS.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="edfcb1bd-557d-4ebd-8e89-bbc4d46627e8"
+                  name="RemindDlg"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f42a2a92-107c-440d-92d4-3e08b3d16555"
+                  name="MusicPlayer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ab0e5cf5-f87b-4a72-a8e8-2acb415fb9b1"
+        name="SignUpDlg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="15182b29-04cc-4af5-b420-5e3f6c074f51"
+        name="EditorDlg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a64ec696-9efb-4d81-a812-2e3bc4586f42"
+        name="MusicPlayer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="77bb84bf-74db-4614-b995-90e85324374c"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

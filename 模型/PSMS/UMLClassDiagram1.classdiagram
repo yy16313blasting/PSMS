@@ -1,0 +1,769 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="75ef3b86-55ed-49ee-85e7-095b8d8c81b6" name="UMLClassDiagram1" linkedPackageId="1f9f355d-9171-4740-b52a-6ef8d3523cf9" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="338703ab-d6ef-4fe0-ac03-d81defd97c69" name="UserDA" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4671aa0c-a0d3-4d6d-a12d-13400e72110c" />
+        <ownedOperationsInternal>
+          <operation Id="9ffbfca2-eb66-4d4a-8e9c-f9703c24ba29" name="User GetUser" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e52f1322-17c7-47d7-b278-8e30b1045d2a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e8a8d213-2e86-47ed-adda-4eba04150c58" name="string name" direction="In" isUnique="false">
+                  <elementDefinition Id="6fc5031c-dc76-4241-83e3-6db3730c44fa" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a62d1f41-a41e-4dc1-b55d-e7df7d9eb539" name="Record AddDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2b0c9f10-0680-4c74-8516-2cb77d6c3be0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4e1dfeaa-d70c-4f4b-affe-f09b3a45bceb" name="DateRemind dateRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="a6e35dbe-d06f-4c39-a1b2-5376d6d0b47b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="41150b47-93b9-4159-ade5-85aaa7e4d7cc" name="Record AddDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="08d490c6-c26d-4c15-99ee-f7c8d035825e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b83e1461-be4e-4b25-8a27-95d8371d65ee" name="Diary diary" direction="In" isUnique="false">
+                  <elementDefinition Id="3e893138-566a-472a-853e-74d5ec44385f" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="67c6a7ac-75bc-4723-a168-752d335b96f3" name="Record AddMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="395a3501-b3e2-4f09-81be-d45785a36eef" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a8b5a3b5-60ff-4d5b-bf18-3c8f92bd2755" name="Memo memo" direction="In" isUnique="false">
+                  <elementDefinition Id="a56a3e8d-af05-4a10-bde9-6ecbdcaea75a" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="8cfc394a-1552-4b78-b567-adc3f9b5a5aa" name="Record AddTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="804cbd15-14b5-4dcb-ad8f-7c06e93f464f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dcf12da6-8893-4363-aa27-1e5e375382cf" name="TimeRemind timeRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="39f852ac-abfe-4eb9-aa98-e71eeddbf1c1" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="514d72c9-fe4b-4e07-9c9b-91170ff62437" name="Record RemoveDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ae669470-9ab5-46d5-a40d-a5df70df5df9" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6e79bc5d-891a-4912-8369-7c3e69f14c31" name="DateRemind dateRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="c42ee5e7-959f-418d-9194-c903460aae25" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="841eb7e0-f3c6-4e3f-83e6-3377a8e95908" name="Record RemoveDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5c1f561a-5b01-42ce-bf31-c0f52b47b28f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="40f41e42-9e03-436c-b614-ab128622cdb6" name="Diary diary" direction="In" isUnique="false">
+                  <elementDefinition Id="d0997b48-e513-402a-9631-ff76a41615ef" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="798b08c3-24aa-4fc8-a6a1-c60763b10ea8" name="Record RemoveMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ce8ea9ec-34c2-413b-93be-abef0fddd23f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cdbd530a-bb07-4f13-9716-0802d9453606" name="Memo memo" direction="In" isUnique="false">
+                  <elementDefinition Id="6e5335c2-b8bb-489d-aca9-60dd8096ad26" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="4fce6d56-6396-4fb1-99bc-2802df131594" name="Record RemoveTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c7f98540-3275-4f7b-820a-fc849f881406" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6d9dd189-9802-4d71-bdd9-5344b587057e" name="TimeRemind timeRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="77005f67-19e1-4e04-b4a8-4bf0bd9034ed" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="9268dfd5-1761-4901-b53e-e6adae0c6d7d" name="Record UpdateDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="afb8d36b-d2f3-40eb-a737-2db3e30242c4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c2b5007b-d10b-4c00-b82a-014570a0c6c2" name="DateRemind dateRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="fa70719a-e329-41d7-9d26-7dc3d97c8efa" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a17bbe17-9b8e-464f-8861-2b02cfceb386" name="Record UpdateDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f926e645-248a-40d3-9fc5-62250abe0987" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ba7ed0f4-bacb-4cff-a9c6-7410f21eab53" name="Diary diary" direction="In" isUnique="false">
+                  <elementDefinition Id="fb7c9dc3-14d2-4f09-a462-4d34aa37ef22" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="39a1e705-201a-4592-a904-3bb42d84cbd6" name="Record UpdateMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6da9b6c9-2c25-4a4c-a56f-b9292fa6f012" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="03b4025d-e9c7-4610-897b-7e68fdf98f97" name="Memo memo" direction="In" isUnique="false">
+                  <elementDefinition Id="f9e25cc2-6084-4b00-81c2-07deff7ef6f8" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="576145bf-5039-42c5-aa5b-6132f411411e" name="Record UpdateTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0ec36ba8-e1f4-4f8d-999b-699b58a0f3f3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c2d7b535-ce71-4607-b203-8170694e8f94" name="TimeRemind timeRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="a5dd7a48-272b-4c70-9032-2f856a90dd8e" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="ceba4507-0f1b-4e79-8921-cf82241d6404" name="RecordList GetAllDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="01ae003d-b16e-4db6-90d4-9486f7f4bf03" />
+          </operation>
+          <operation Id="e08015ce-fef5-4445-b7a7-5beba1036c8d" name="RecordList GetAllDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="38f912e9-26f5-4477-9107-4c1dae292837" />
+          </operation>
+          <operation Id="2f4c969e-c06f-4d32-b2b6-064ea4f3e300" name="RecordList GetAllMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="12a0ff78-4488-43fd-bf5e-ff56c28c9e5e" />
+          </operation>
+          <operation Id="00fcd546-aff6-45f4-9404-653534a091f2" name="RecordList GetAllTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cab0c41a-cb00-40c1-829f-e03d87acfb4f" />
+          </operation>
+          <operation Id="5d316427-e1c0-4e85-aa4f-25c5d59d4679" name="void PurgeDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4970d930-405a-438e-9f99-b918d61dbb7e" />
+          </operation>
+          <operation Id="5fdb712f-9f3f-4f5c-b9de-59b1f931e638" name="void PurgeDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="467940e8-e542-4e3d-9bfd-a4d0c5680630" />
+          </operation>
+          <operation Id="dedf3d51-1c68-40b9-929b-719e242661fe" name="void PurgeMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4e961d0b-b3e1-4821-96d7-5ed504d1e6c0" />
+          </operation>
+          <operation Id="50073a59-ec50-4479-86f3-a2eb32d9aa53" name="void PurgeTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f79a9db5-b15d-429a-ad02-13853038416a" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9eff4872-2fd2-45ca-b8f2-4b157eddc4a0" name="Memo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c88bb698-da3f-4964-9721-6565b75c6918" />
+        <generalsInternal>
+          <generalization Id="762e9af9-9a11-4d92-bcbb-948e5e3fc326" isSubstitutable="false">
+            <classMoniker Id="66df615a-291f-490b-b914-a20722b0c73d" LastKnownName="Record" />
+            <elementDefinition Id="4ae0d0c8-e9f9-455f-b594-2775cd8a9098" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8769fb7e-63bd-4449-98d8-4fc1c3300e45" name="User" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e0597c54-810a-4f8c-9594-66f9e8036122" />
+        <targetEnds>
+          <association Id="fca76ad7-b302-45a0-a872-dc01f665e12c" isDerived="false" sourceEndRoleName="User" targetEndRoleName="UserDA" isLeaf="false" isAbstract="false">
+            <classMoniker Id="338703ab-d6ef-4fe0-ac03-d81defd97c69" LastKnownName="UserDA" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c6ccaa4b-79db-4629-aa02-45eb0a4e94dd" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="efb7587a-fe73-46ad-a711-c505c1df591d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c80632ba-0285-4395-a31a-61ca061d98e8" name="UserDA" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d47b136a-73b2-48bd-b763-7f57528544dc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4082d9de-84df-4770-b785-523717864596" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="e253516b-ffbd-4a4d-a18e-f22326cf83ad" name="string m_szName" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="16209f0d-bb3b-4f3d-813b-bbe75b3d7a81" />
+          </property>
+          <property Id="77af7ace-b7cf-41e8-91a6-e3190acb5858" name="string m_szPassword" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2f871305-f29a-405a-8f2b-0bef772f5c9b" />
+          </property>
+          <property Id="f4d33a18-8183-4607-84c9-6a6bb24ab325" name="bool isOnline" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6dbc7c19-950f-4db3-8253-a7b7f1c2279b" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="047cfcc4-8a0a-4229-9e04-8dd56e3fcd42" name="Record AddDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8b4ad519-eb62-4c87-ba7a-e97e4612c30a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4f280d4a-aa76-4b53-ab8e-83663dbbb2e6" name="Diary diary" direction="In" isUnique="false">
+                  <elementDefinition Id="3369c2d5-5945-421e-a536-bb3f3fb5c8df" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="3d4d8a1f-d8bb-49bc-afad-1694b6934631" name="Record AddMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4b728b92-d5e5-4a33-bafb-bc2ae737e1c8" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3e8052ff-4dd3-426d-8bfa-e2bcfe04f768" name="Memo memo" direction="In" isUnique="false">
+                  <elementDefinition Id="6989bf56-fa41-4983-a907-99174f74d15a" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="3f1458e4-3420-4106-9c05-98154d08f850" name="Record AddTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="79897855-a0f9-4331-ad78-e1a69beca9b6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7a67c515-61f5-4f72-92c6-18a4bad24667" name="TimeRemind timeRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="998bc68c-6d02-4d40-a133-bc3eaa36e9ab" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6e674452-9f2a-4a83-ba89-9ccd2051dd48" name="Record AddDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="49faf0ea-86ac-4a2f-bda9-f5b54fa670f8" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1ce54700-1356-4f7e-96fc-83dc10887fd8" name="DateRemind dateRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="beb4681b-aa55-4cfe-a1f6-a57902bb287c" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e8ec24f8-5cd5-4053-a8be-0e1eebc166b2" name="Record RemoveDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="87161ff4-a839-46c4-8920-4bcac92761dc" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5f9787c2-6cca-4bb5-85fc-a860d0c5bda2" name="Diary diary" direction="In" isUnique="false">
+                  <elementDefinition Id="5db6f535-887c-43ff-b9ad-6f78929e6948" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2e855a2f-467e-4df1-bc66-2d3f62c1fa13" name="Record RemoveMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c9ab9a19-e2e7-48d2-99a7-de8b8f8bbe0b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0aa2d49d-b9da-4655-ba73-0ca74b3334bf" name="Memo memo" direction="In" isUnique="false">
+                  <elementDefinition Id="90d76d5a-6cf9-4d92-9b9a-41ac47441431" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="63e55307-bd82-4708-8f87-1b60e4aa9bad" name="Record RemoveDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2ecbd7fa-bdd8-40c0-98c5-692ac346580d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="403336b2-ad63-48a1-a6a9-506199bee3d1" name="DateRemind dateRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="656fc8fb-7f29-4685-899a-810536241fdd" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="562c053c-ece5-4437-a2af-a8181537736e" name="Record RemoveTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="94116b35-59c6-42ab-a8ba-d5fb7fa27d27" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ed4ae9fa-6bcc-4816-b3ba-87b0293fe010" name="TimeRemind timeRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="7b68620e-227a-4720-b12c-5ede355284d8" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0686d411-4ab4-4297-bb20-005ca9a045e1" name="string GetName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="eeaba4bf-4c80-4370-8018-d6fcaa0f516f" />
+          </operation>
+          <operation Id="d2a07651-c806-4dcb-aa29-6cab69680039" name="string GetPassWord" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="78bc17ff-0b90-4b6d-83e8-178236146b3f" />
+          </operation>
+          <operation Id="06498486-9808-4728-b244-2b295b9f240d" name="Record UpdateDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a0df7ea9-1c7c-41ce-8199-5955d376bc1b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="079d6fc7-c639-409f-9306-caba2c02698f" name="Diary diary" direction="In" isUnique="false">
+                  <elementDefinition Id="bf369071-1817-41cc-9f28-b5d3ae44c0cd" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="04d3b003-3842-4d3d-961e-9a78c3b19004" name="Record UpdateMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="01de2831-7f4b-4d4e-b8b1-630f8881f522" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="12e4aefb-7b69-4579-9fd6-e9c3e35fb031" name="Memo memo" direction="In" isUnique="false">
+                  <elementDefinition Id="4e278b9e-1a68-4329-a6c3-de6ded487ef9" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="ad5b3633-a2e7-4dcb-a7bf-4081288fbf85" name="Record UpdateDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0ff688b4-8616-4542-b14c-d2c5cc842957" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="290828c6-87a7-41bf-8557-e425c969d7f7" name="DateRemind dateRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="7ed2e109-3dce-421e-9a4b-c491e8db0e5a" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="71eb62bc-2395-41fb-a165-16014a266fe3" name="Record UpdateTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="17add725-c278-4ec2-8070-ccc0e61281ad" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="67f0f0c3-5df9-4a23-b258-e0cf70761488" name="TimeRemind timeRemind" direction="In" isUnique="false">
+                  <elementDefinition Id="53ee07ca-8f26-4243-89c9-9f535a8c469a" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b974ef57-8495-464d-a282-0c6509999f96" name="RecordList GetAllDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="650f266d-5692-4906-af33-d918fc3f4a35" />
+          </operation>
+          <operation Id="49f99a1c-f75e-4531-be02-fa14e2a84178" name="RecordList GetAllMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1994ae9b-ed61-4310-82ac-e1e9bd345b1c" />
+          </operation>
+          <operation Id="02ce07f1-2030-4231-b330-d08a2f8e6969" name="RecordList GetAllTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ba4e586b-ec47-4df5-a493-959558f07ec7" />
+          </operation>
+          <operation Id="0e59efdd-efce-4396-9a86-dfbbcf3c52ab" name="RecordList GetAllDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ab2466b1-2fb1-47de-93aa-e23c9dfe000c" />
+          </operation>
+          <operation Id="ec192531-aed6-4ae4-b9ed-1430a4e28f44" name="void PurgeDateRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="92190776-cbee-4e05-a4f3-a479ee62ae67" />
+          </operation>
+          <operation Id="9d38aa7d-5f6c-4e05-8e4b-33af16df50c2" name="void PurgeTimeRemind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b16d04f4-2a5c-4799-962a-b28509cd83bb" />
+          </operation>
+          <operation Id="6db3a599-c966-457e-a6da-d6490f51d107" name="void PurgeDiary" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a74e94e5-9dbe-4978-8af9-00261d9d435d" />
+          </operation>
+          <operation Id="e064ee5a-60a4-4421-b325-93e0f2cc3eb0" name="void PurgeMemo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="36fd2550-bb88-48f4-b104-da62a70e52b6" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="58a9b806-c1cd-4d8c-bc2f-3cbc067d5618" name="Diary" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4eca2a1c-077a-4bb4-b8ac-11f50424010a" />
+        <generalsInternal>
+          <generalization Id="5f617581-0b87-4279-a689-735a7f888f17" isSubstitutable="false">
+            <classMoniker Id="66df615a-291f-490b-b914-a20722b0c73d" LastKnownName="Record" />
+            <elementDefinition Id="5aca8ed2-777a-4135-80b3-71a8dcbda979" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b18d32a4-2280-426d-9b5f-e5703f2a1ed3" name="TimeRemind" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e173ff04-ce7c-4802-a487-4ac681f3ea7f" />
+        <generalsInternal>
+          <generalization Id="19dbb005-2507-44b7-96bd-911d55b96ccf" isSubstitutable="false">
+            <classMoniker Id="66df615a-291f-490b-b914-a20722b0c73d" LastKnownName="Record" />
+            <elementDefinition Id="50c002eb-457b-4d63-847b-5486124b9119" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="f6af917d-f68a-4c09-a0f0-01542b76595d" name="int m_nHour" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="83f4f6f7-6e0c-4598-a08a-6c96595f20c5" />
+          </property>
+          <property Id="07b48ce1-37aa-4dee-ab17-bc247a5461b9" name="int m_nMinute" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4b82293a-8578-4fe8-88e8-69035da5b884" />
+          </property>
+          <property Id="fc6032c3-885e-4537-ad03-75dfe2a1f985" name="int m_nRemindFrequency" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5445dcb9-e974-4946-8ee2-4f7e760f047f" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="6eddda59-0c00-4687-b72a-02850ee1263f" name="int GetHour" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c8f3167a-440e-4f11-994a-9bdd15567fbe" />
+          </operation>
+          <operation Id="24d3929c-fb0c-48ee-a922-212be7ac1687" name="int GetMinute" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="952f7111-3bf7-4683-8e50-49baa396e1e7" />
+          </operation>
+          <operation Id="8b6777ae-829d-41d5-8def-4d6d38585c49" name="int GetFrequency" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2b754821-796c-4aa3-8de9-cd2ab081764c" />
+          </operation>
+          <operation Id="74a02be9-d94b-4c38-9b13-5a807c297542" name="void SetTime" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4a1e22de-b8f2-49bd-955e-3bfc8b69b204" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="df6467f4-9416-4969-a621-a6abe1acf02f" name="int hour" direction="In" isUnique="false">
+                  <elementDefinition Id="30fc8e46-3bea-4e16-b4ea-12a47aebaa6a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ce57fd4c-9a19-4a72-a74c-dcc6293a68e2" name="int minute" direction="In" isUnique="false">
+                  <elementDefinition Id="43766322-53ad-4d3b-b5f7-e43cc114c155" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="206f228c-16e8-41b8-a21d-9c4efb67d573" name="void SetRemindFrequency" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="58411cb8-0a78-4a0f-8018-4c9d11925722" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="17bc2e21-e6a0-454d-adcb-3520f20bb607" name="int frequency" direction="In" isUnique="false">
+                  <elementDefinition Id="185d05e5-8415-453f-bb90-8b20e0ccd1d8" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a72c75c8-703a-40df-956a-30f8f1229aa2" name="DateRemind" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3ea3865f-f9f0-45c4-8a46-0c8b43eaf0c2" />
+        <generalsInternal>
+          <generalization Id="cc34bc14-a0da-4ee4-b894-f70784b56b13" isSubstitutable="false">
+            <classMoniker Id="66df615a-291f-490b-b914-a20722b0c73d" LastKnownName="Record" />
+            <elementDefinition Id="f66b4080-a8a6-450d-84fd-df50858d0c4a" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="42237447-3d0a-4e5d-b734-79cd8da74183" name="int m_nRemindFrequency" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="12591235-be4c-489a-8ff6-3f9288272184" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="c69dc9bc-085f-4c3e-9859-2754365b2715" name="int GetFrequency" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5093fd3b-d9c8-47cf-8720-d72c81f80123" />
+          </operation>
+          <operation Id="77d35227-4d60-44bd-b03a-187d564b6a95" name="void SetDate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cef945b7-29b0-43f0-bb38-367caddbe7a5" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e3ca0cdd-072c-4ba0-b172-22a8aa0700fe" name="int year" direction="In" isUnique="false">
+                  <elementDefinition Id="d91f525d-dc11-4722-a955-25af0464e456" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="575ef3ae-90aa-41d9-8f8f-453331be3ecc" name="int month" direction="In" isUnique="false">
+                  <elementDefinition Id="72601bcd-e24c-45a0-a94b-a15ff53c403b" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6708224f-1a3e-4d24-b60d-db11f4f47a46" name="int day" direction="In" isUnique="false">
+                  <elementDefinition Id="b4b1eeea-8d88-432d-bd01-36abc0f5dc3f" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c1915b2d-0b80-4703-b671-48e4da5261f3" name="void SetRemindFrequency" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2d289671-17b2-4a06-a0c3-84b5d5d445a4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cc302323-4037-4c81-98e6-f1ec65813b21" name="int frequency" direction="In" isUnique="false">
+                  <elementDefinition Id="caa65cf4-e7de-4f87-8ab7-ad5c13dab1af" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="66df615a-291f-490b-b914-a20722b0c73d" name="Record" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d67ed4d9-8913-42ab-823d-92d5cc5c26bc" />
+        <ownedAttributesInternal>
+          <property Id="6e50e4fb-212b-47af-a701-aa1054acd01c" name="int m_nType" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2d638456-bf29-4be6-9554-2d860aa8c43a" />
+          </property>
+          <property Id="7aa0cb80-7936-4f8c-afe1-3e5d9be6c8c0" name="string m_szTitle" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9e2ec196-25f3-4ac2-aadf-efe45f1d56f3" />
+          </property>
+          <property Id="8a32a4fd-deef-482a-a83e-eaddaf902652" name="string m_szContent" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="aa0b4222-ad46-4136-a09a-68cf10ece884" />
+          </property>
+          <property Id="e6101335-b8da-4fad-b09d-ed5bfec57ddb" name="int m_nYear" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="522242b2-a990-491d-b660-3dc387246843" />
+          </property>
+          <property Id="fe36de8c-4172-4d9b-8aa9-1ff33ad1c1c2" name="int m_nMonth" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d4ddcf6b-7dd2-4b15-8db1-fb0721359b8b" />
+          </property>
+          <property Id="24439883-4fc7-4847-86be-0ad7ff5c680d" name="int m_nDay" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fa0f2d9b-0bc8-4f9a-bece-38d4e6275a83" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="6cdcde77-ebc8-42a3-b171-0c0317e169c7" name="string GetContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="40fb5985-1d9c-4c3d-b2a2-a83b7af279f3" />
+          </operation>
+          <operation Id="34fa72f6-d35b-4580-b965-7615b1dc7760" name="string GetTitle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bea3f53b-08be-4fd3-aefb-2e7567a71241" />
+          </operation>
+          <operation Id="551d57ee-5b77-41d6-9582-83ce47f72bd6" name="int GetType" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4f846a22-59e9-4789-8bbf-f2a6d58283e8" />
+          </operation>
+          <operation Id="5d3865c1-35ea-4f49-a54c-8f94ca7a6550" name="int SetContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4ac0f53c-c385-487c-97fe-c85140bf1dfd" />
+          </operation>
+          <operation Id="93b1368e-1ff1-4df7-953b-178394028542" name="int GetDay" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7d33356e-b8a4-4464-8846-dbd196d1f3a9" />
+          </operation>
+          <operation Id="6d239109-8412-4640-9ec4-090afc2f747f" name="int GetMonth" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="52ff9360-ac3b-4430-b81e-56e92250d842" />
+          </operation>
+          <operation Id="9bde08ad-18b8-4ec9-aa8e-a9dfdb6d8829" name="int GetYear" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4bc8ade8-1a24-4810-944a-9a537ad43613" />
+          </operation>
+          <operation Id="c9664b7a-e9bc-49a0-b779-e94aace31884" name="virtual void SetDate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bafff6da-dce7-4460-bf22-d894252af73b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="104487fb-1987-49dd-9acc-1e7dadbeb213" name="int year" direction="In" isUnique="false">
+                  <elementDefinition Id="40e32a44-2adc-4710-92d2-5c3eb1d6ac8f" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="202e4cf6-07da-4ed6-b1a6-b29915517c15" name="int month" direction="In" isUnique="false">
+                  <elementDefinition Id="18495db9-e4c5-439d-b458-30903b65a1eb" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="375329e5-d34a-4e4c-a95d-c010643b6ed1" name="int day" direction="In" isUnique="false">
+                  <elementDefinition Id="da95e236-f620-4b0e-a068-6baca9caafd6" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="14455f94-eb83-4da9-8ae5-1da3bba940da" name="int SetTitle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="37605ce4-bef3-44fb-9837-7baec272027f" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="47cc0a62-2095-44e0-bfb7-a3d590375b74" name="RecordList" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5d6d808e-612b-4ca8-8ca9-aa3dbe674f5c" />
+        <ownedAttributesInternal>
+          <property Id="76126de7-438c-40ca-9e5e-2ccc72d4a32f" name="int m_nLength" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fa1bd431-ccf0-4b98-b4d1-4efe07fec28e" />
+          </property>
+          <property Id="18564e34-8e81-4926-9949-6a6cafb0aec8" name="struct ptrRecord* head;" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ac7b71e8-7356-4ca0-80d9-5231d854ebcc" />
+          </property>
+          <property Id="a6eb2f3c-16b6-44b7-b841-c34c15abec1f" name="struct ptrRecord* tail" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e6621291-dc27-4dc0-9111-fc7115d4d30c" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="3321f423-1686-404e-9dd6-4ea1cd097210" name="Record Add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c885eb42-5782-4af5-a040-05581872170a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="2ec22cc7-ce16-46b7-bdda-eaafea70ad57" name="Record record" direction="In" isUnique="false">
+                  <elementDefinition Id="2e3f5399-42f7-4047-82a3-ce00b2db8644" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f8d6c72b-d9a3-4db3-a092-2be4aaf05b97" name="Record Get" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ae5a591c-3615-4f93-81f6-a39855e2cb8f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fc5d65e2-c44d-4826-91fb-bb70d4c1b023" name="int i" direction="In" isUnique="false">
+                  <elementDefinition Id="3b030675-f8d9-4400-93eb-34e98a0e3129" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="185f0a8b-fb1b-4fc6-9193-2809faf6316c" name="int GetLength" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="05bf9013-47a7-4eed-9714-4b4a42a74349" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ba33ceb9-c069-4ddd-931c-fca6969f50a6" name="MainDlg" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="068c061a-4532-4d68-bb64-d30d5dc77fbb" />
+        <targetEnds>
+          <association Id="78154c75-4b56-4db1-978c-faba12eaf674" isDerived="false" sourceEndRoleName="MainView" targetEndRoleName="TrayDlg" isLeaf="false" isAbstract="false">
+            <classMoniker Id="b62c91d7-a6d8-4d3d-9c3e-47423fbabf9c" LastKnownName="TrayDlg" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a6e4f140-f5c4-4f42-9d22-d350500f3298" name="MainView" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5e05ccb8-aca7-4181-b9c7-0801215495ce" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e102846b-5bcc-4448-8006-f8c5757ffdd8" name="TrayDlg" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0f67424b-8a00-459d-a13c-c053188a264f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c9b36ff3-35c0-49cd-8e54-8341fdedcc3b" />
+          </association>
+          <association Id="8d76908a-3ffa-45b3-afc1-9a2d26a75b65" isDerived="false" sourceEndRoleName="MainView" targetEndRoleName="LoginDlg" isLeaf="false" isAbstract="false">
+            <classMoniker Id="f9326874-6b14-4a2b-acad-3dcd354eb92a" LastKnownName="LoginDlg" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5be2ef91-fcfa-427a-aad8-a97ccbe82ad2" name="MainView" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d7df48e5-9f00-4082-97a4-25c9e2acab39" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f59191b5-f1fe-4436-bed0-65f3083175c4" name="LoginDlg" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8ba969fa-88dc-4046-9e63-4bcfe3b07f8c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8b8119a4-c7f2-46e4-a840-b04fdd4c37a4" />
+          </association>
+          <association Id="b05187d9-497f-416a-9478-13e2e861b68f" isDerived="false" sourceEndRoleName="MainView" targetEndRoleName="RemindDlg" isLeaf="false" isAbstract="false">
+            <classMoniker Id="361a54a5-134e-413b-ac4d-d9ebcc67a1cd" LastKnownName="RemindDlg" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ff440ae7-7751-4d0f-811b-921e11275302" name="MainView" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="44fd0421-8627-4fac-8992-4ef66183ade1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cdc065e2-0dbc-462e-8dbc-91279420ec42" name="RemindDlg" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d389fd46-a004-457e-8ecb-b541a946b253" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="77589f63-4703-4669-9ed6-900da30d84e8" />
+          </association>
+          <association Id="5c245ef4-115d-41f6-b924-dcd36a3db62c" isDerived="false" sourceEndRoleName="MainView" targetEndRoleName="SignUpDlg" isLeaf="false" isAbstract="false">
+            <classMoniker Id="6ff90072-8c87-44e8-93c1-f4be57758739" LastKnownName="SignUpDlg" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="24baf0c4-633a-47a3-8799-7bce2de19acb" name="MainView" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e3e008ed-4330-4edd-9995-391186bc2c46" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="470de69a-4842-4b15-954b-c3b00decbad5" name="SignUpDlg" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3143f3b2-13e4-47b3-aeae-112ef53a47b4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="041c92c3-f84a-4c67-aec1-913035ba18f6" />
+          </association>
+          <association Id="2d71bc13-94b9-44cc-b7b0-a860a0f21980" isDerived="false" sourceEndRoleName="MainView" targetEndRoleName="EditorDlg" isLeaf="false" isAbstract="false">
+            <classMoniker Id="f64ab35f-3cbe-4c90-ad63-7575096d2477" LastKnownName="EditorDlg" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9dffa70c-1840-4f07-9e20-ec3d477a3656" name="MainView" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5be38d83-3585-4b08-b9be-81625774fff9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8850f221-9e1a-4358-a822-c434facaefb8" name="EditorDlg" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f98b3dbd-6242-4f74-b4a1-cc54b79ea8bd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6165f507-c47f-4478-a7f9-3eb04001557a" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="d3eab78b-f487-4090-aa17-03bd97659bba" name="int m_nRecordType" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="aa37a649-83af-403d-bb72-b5ec6636f529" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="01f1d491-dd02-43d7-995e-1887df64a4c6" name="void OnLoginBtnClicked" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="93d9c916-cfd4-4f49-9010-c0ca5967d0a3" />
+          </operation>
+          <operation Id="d303f7f4-9b11-4424-afb4-4979150a1a4b" name="void OnAddBtnClicked" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2029e5f6-1564-4d0b-a268-897ca437c6df" />
+          </operation>
+          <operation Id="1588ee7e-e633-404b-9d5f-71c58f6c5aab" name="void OnRemoveBtnClicked" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d6bf5bc0-039c-4c3d-904a-51ad2b4264a6" />
+          </operation>
+          <operation Id="5c58a683-dfdf-4317-b180-f25fdaf4af86" name="void OnUpdateBtnClicked" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="73d21d91-b576-4786-9c4c-e04ecec3082d" />
+          </operation>
+          <operation Id="aaef5b19-271f-43c0-817f-2d8af3e72a0a" name="void On" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="64c9c261-f82f-4230-8017-a12dd2934550" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f9326874-6b14-4a2b-acad-3dcd354eb92a" name="LoginDlg" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="28681cab-f02c-4e9c-91d4-ab0e09be9f0a" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b62c91d7-a6d8-4d3d-9c3e-47423fbabf9c" name="TrayDlg" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a268302e-3b9f-4962-a27f-bac23c8c0329" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="361a54a5-134e-413b-ac4d-d9ebcc67a1cd" name="RemindDlg" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9c1e34c4-4f20-418e-8396-7f1cf56fbf7c" />
+        <targetEnds>
+          <association Id="516d4ff9-33fb-4c1f-a85a-cb66bb5080a5" isDerived="false" sourceEndRoleName="RemindDlg" targetEndRoleName="MusicPlayer" isLeaf="false" isAbstract="false">
+            <classMoniker Id="1cfa5d90-4ad5-4f2e-9eff-2d6a9622b3a7" LastKnownName="MusicPlayer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="32918127-0c06-46e5-8883-5abd4a3e615a" name="RemindDlg" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="edfcb1bd-557d-4ebd-8e89-bbc4d46627e8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0c053a1d-1ef3-4720-b4a0-e270a1b51559" name="MusicPlayer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f42a2a92-107c-440d-92d4-3e08b3d16555" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7972a4ac-7fbc-47df-ad34-bb348afba27b" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6ff90072-8c87-44e8-93c1-f4be57758739" name="SignUpDlg" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ab0e5cf5-f87b-4a72-a8e8-2acb415fb9b1" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f64ab35f-3cbe-4c90-ad63-7575096d2477" name="EditorDlg" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="15182b29-04cc-4af5-b420-5e3f6c074f51" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1cfa5d90-4ad5-4f2e-9eff-2d6a9622b3a7" name="MusicPlayer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a64ec696-9efb-4d81-a812-2e3bc4586f42" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="1f9f355d-9171-4740-b52a-6ef8d3523cf9" name="PSMS">
+    <elementDefinition Id="e4b8bedb-4bc9-4e78-b8d0-30700ca0baca" />
+    <profileInstances>
+      <packageHasProfileInstances Id="f6823107-55b9-4ca3-9a94-054cc24684e7">
+        <profileInstance Id="96429675-d1dd-42db-b0b9-020114edee31" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="fa2e8e0d-e51b-41ee-bf5c-713bcb44af9b">
+        <profileInstance Id="81a9b196-1aee-4706-9905-f58a24156f4a" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>
