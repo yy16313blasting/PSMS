@@ -75,6 +75,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 	}
 
+
 	if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
 		!m_wndToolBar.LoadToolBar(theApp.m_bHiColorIcons ? IDR_MAINFRAME_256 : IDR_MAINFRAME))
 	{
@@ -95,6 +96,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// 允许用户定义的工具栏操作:
 	InitUserToolbars(NULL, uiFirstUserToolBarId, uiLastUserToolBarId);
 
+
 	if (!m_wndStatusBar.Create(this))
 	{
 		TRACE0("未能创建状态栏\n");
@@ -102,12 +104,15 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
 
+
 	// TODO: 如果您不希望工具栏和菜单栏可停靠，请删除这五行
+
+	//取消工具栏可停靠
 	m_wndMenuBar.EnableDocking(CBRS_ALIGN_ANY);
-	m_wndToolBar.EnableDocking(CBRS_ALIGN_ANY);
-	EnableDocking(CBRS_ALIGN_ANY);
+	//m_wndToolBar.EnableDocking(CBRS_ALIGN_ANY);
+	//EnableDocking(CBRS_ALIGN_ANY);
 	DockPane(&m_wndMenuBar);
-	DockPane(&m_wndToolBar);
+	//DockPane(&m_wndToolBar);
 
 
 	// 启用 Visual Studio 2005 样式停靠窗口行为
