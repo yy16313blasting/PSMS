@@ -1357,12 +1357,22 @@
             isQuery="false" />
           <operation
             Id="4ac0f53c-c385-487c-97fe-c85140bf1dfd"
-            name="int SetContent"
+            name="void SetContent"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="98471d2b-9256-4950-a805-ed10f88bbb38"
+                  name="string content"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="7d33356e-b8a4-4464-8846-dbd196d1f3a9"
             name="int GetDay"
@@ -1421,12 +1431,22 @@
           </operation>
           <operation
             Id="37605ce4-bef3-44fb-9837-7baec272027f"
-            name="int SetTitle"
+            name="void SetTitle"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="50cc5547-2c16-4430-a5c5-49ae872a876d"
+                  name="string title"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1984,7 +2004,36 @@
         name="MusicPlayer"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="639c24b4-7438-401b-aa69-e1225d94dc11"
+            name="void Play"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ab652b75-fdbb-461f-8eec-84ffa7f589cf"
+            name="void SetMusicFileURL"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="480840ad-0e1b-4b93-bc7f-571269d504ef"
+                  name="string url"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class

@@ -512,8 +512,15 @@
           <operation Id="551d57ee-5b77-41d6-9582-83ce47f72bd6" name="int GetType" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="4f846a22-59e9-4789-8bbf-f2a6d58283e8" />
           </operation>
-          <operation Id="5d3865c1-35ea-4f49-a54c-8f94ca7a6550" name="int SetContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="5d3865c1-35ea-4f49-a54c-8f94ca7a6550" name="void SetContent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="4ac0f53c-c385-487c-97fe-c85140bf1dfd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ef6b29ce-cefb-42da-859f-5373bc4c35db" name="string content" direction="In" isUnique="false">
+                  <elementDefinition Id="98471d2b-9256-4950-a805-ed10f88bbb38" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="93b1368e-1ff1-4df7-953b-178394028542" name="int GetDay" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="7d33356e-b8a4-4464-8846-dbd196d1f3a9" />
@@ -544,8 +551,15 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="14455f94-eb83-4da9-8ae5-1da3bba940da" name="int SetTitle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="14455f94-eb83-4da9-8ae5-1da3bba940da" name="void SetTitle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="37605ce4-bef3-44fb-9837-7baec272027f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0f490cb4-3e05-4cae-a732-495814dd12aa" name="string title" direction="In" isUnique="false">
+                  <elementDefinition Id="50cc5547-2c16-4430-a5c5-49ae872a876d" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -746,6 +760,21 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="1cfa5d90-4ad5-4f2e-9eff-2d6a9622b3a7" name="MusicPlayer" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="a64ec696-9efb-4d81-a812-2e3bc4586f42" />
+        <ownedOperationsInternal>
+          <operation Id="89e1b80f-afbe-4be1-8d99-18b8d96a95f1" name="void Play" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="639c24b4-7438-401b-aa69-e1225d94dc11" />
+          </operation>
+          <operation Id="79557e09-96c1-4f54-b01b-3ef3526b414e" name="void SetMusicFileURL" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ab652b75-fdbb-461f-8eec-84ffa7f589cf" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="57a02f76-79b9-4982-805e-19c62715a4d4" name="string url" direction="In" isUnique="false">
+                  <elementDefinition Id="480840ad-0e1b-4b93-bc7f-571269d504ef" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
