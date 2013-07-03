@@ -9,7 +9,6 @@
 
 #include "resource.h"       // 主符号
 
-
 // CPSMSApp:
 // 有关此类的实现，请参阅 PSMS.cpp
 //

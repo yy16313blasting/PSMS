@@ -4,13 +4,15 @@
 
 
 #pragma once
-
+#include "UserDA.h"
 
 // CChildView ´°¿Ú
 
 class CChildView : public CWnd
 {
 // ¹¹Ôì
+private:
+	UserDA m_userDA;
 public:
 	CChildView();
 

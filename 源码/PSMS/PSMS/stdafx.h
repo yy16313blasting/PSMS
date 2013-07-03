@@ -4,6 +4,9 @@
 // 特定于项目的包含文件
 
 #pragma once
+#include <string>
+#include <iostream>
+using namespace std;
 
 #ifndef _SECURE_ATL
 #define _SECURE_ATL 1
@@ -40,7 +43,8 @@
 
 
 
-
+#import "msado15.dll" no_namespace\
+	rename("EOF","adoEOF")rename("BOF","adoBOF")
 
 
 
