@@ -6,6 +6,7 @@ CUserDA::CUserDA(void)
 {
 	m_pConnection=NULL;
 	m_pRecordset=NULL;
+	InitConnection();
 }
 
 
@@ -49,8 +50,6 @@ bool CUserDA::InitConnection()
 
 void CUserDA::test()
 {
-	if(m_pConnection==NULL)
-		InitConnection();
 	CString sql="SELECT * FROM Holiday";
 	
 	try
@@ -88,8 +87,6 @@ void CUserDA::test()
 
 void CUserDA::CreateTable(CString tableName)
 {
-	if(m_pConnection==NULL)
-		InitConnection();
 	_bstr_t sql="CREATE TABLE "+tableName;
 	m_pRecordset.CreateInstance(__uuidof(Recordset));
 	try
@@ -100,4 +97,51 @@ void CUserDA::CreateTable(CString tableName)
 	{
 		AfxMessageBox(e.Description());
 	}
+}
+
+CRecord CUserDA::AddDiary(CDiary diary)
+{
+	return diary;
+}
+
+CRecord CUserDA::AddMemo(CMemo memo)
+{
+	return memo;
+}
+
+CRecord CUserDA::AddTimeRemind(CTimeRemind timeRemind)
+{
+	return timeRemind;
+}
+
+CRecord CUserDA::AddDateRemind(CDateRemind dateRemind)
+{
+	return dateRemind;
+}
+
+CRecord CUserDA::RemoveDiary(CDiary diary)
+{
+	return diary;
+}
+
+CRecord CUserDA::RemoveMemo(CMemo memo)
+{
+	return memo;
+}
+
+CRecord CUserDA::RemoveTimeRemind(CTimeRemind timeRemind)
+{
+	return timeRemind;
+}
+
+
+CRecord CUserDA::RemoveDateRemind(CDateRemind dateRemiind)
+{
+	return dateRemiind;
+}
+
+
+CRecord CUserDA::UpdateDiary(CDiary diary)
+{
+	return diary;
 }
