@@ -16,24 +16,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
-    <None Include="UserImages.bmp">
-      <Filter>资源文件</Filter>
-    </None>
     <None Include="res\PSMS.rc2">
       <Filter>资源文件</Filter>
     </None>
     <None Include="res\PSMS.ico">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="res\Toolbar.bmp">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="res\Toolbar256.bmp">
-      <Filter>资源文件</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PSMS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PSMSDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -42,16 +36,7 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MainFrm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ChildView.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="UserDA.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,16 +44,10 @@
     <ClCompile Include="PSMS.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="PSMSDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MainFrm.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ChildView.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="UserDA.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
