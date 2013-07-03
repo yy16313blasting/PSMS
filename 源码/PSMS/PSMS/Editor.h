@@ -12,7 +12,7 @@ public:
 	virtual ~CEditor();
 
 // 对话框数据
-	enum { IDD = IDD_EDITOR };
+	enum { IDD = IDD_EDIT };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持

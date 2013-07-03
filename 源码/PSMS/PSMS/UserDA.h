@@ -1,5 +1,12 @@
 #pragma once
 #include "stdafx.h"
+#include "Record.h"
+#include "TimeRemind.h"
+#include "DateRemind.h"
+#include "Memo.h"
+#include "Diary.h"
+#include "Holiday.h"
+
 class CUserDA
 {
 private:
@@ -11,5 +18,10 @@ public:
 	bool InitConnection();
 	void CloseConnection();
 	void test();
+	void CreateTable(CString tableName);
+	CRecord AddDiary(CDiary diary);
+	CRecord AddMemo(CMemo memo);
+	CRecord AddTimeRemind(CTimeRemind timeRemind);
+	CRecord AddDateRemind(CDateRemind dateRemind);
 };
 

@@ -12,7 +12,7 @@ public:
 	virtual ~CSingUp();
 
 // 对话框数据
-	enum { IDD = IDD_SINGUP };
+	enum { IDD = IDD_SIGN_UP };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持

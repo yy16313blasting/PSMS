@@ -4,6 +4,8 @@
 
 CUserDA::CUserDA(void)
 {
+	m_pConnection=NULL;
+	m_pRecordset=NULL;
 }
 
 
@@ -49,28 +51,53 @@ void CUserDA::test()
 {
 	if(m_pConnection==NULL)
 		InitConnection();
-	_bstr_t sql="select * from Holiday";
-	m_pRecordset.CreateInstance(__uuidof(Recordset));
-	m_pRecordset->Open(sql,m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
-	int count=m_pRecordset->GetRecordCount();
-	if(count<=0)
+	CString sql="SELECT * FROM Holiday";
+	
+	try
 	{
-		CString str;
-		str.Format("%d",count);
-		AfxMessageBox("Holiday里的记录个数:"+str);
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
 		return;
 	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
 	while(!m_pRecordset->adoEOF)
 	{
 		CString info;
 		try
 		{
-			info=(char*)(_bstr_t)m_pRecordset->GetCollect("Title");
+			info=(char*)(_bstr_t)m_pRecordset->GetCollect("szTitle");
 		}
 		catch(_com_error e)
 		{
 			AfxMessageBox(e.Description());
 		}
 		AfxMessageBox(info);
+		m_pRecordset->MoveNext();
+	}
+}
+
+void CUserDA::CreateTable(CString tableName)
+{
+	if(m_pConnection==NULL)
+		InitConnection();
+	_bstr_t sql="CREATE TABLE "+tableName;
+	m_pRecordset.CreateInstance(__uuidof(Recordset));
+	try
+	{
+		m_pConnection->Execute(sql,NULL,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
 	}
 }
