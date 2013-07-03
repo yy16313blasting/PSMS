@@ -18,20 +18,20 @@ public:
 	bool InitConnection();
 	void test();
 	void CreateTable(CString tableName);
-	CRecord AddDiary(CDiary diary);
-	CRecord AddMemo(CMemo memo);
-	CRecord AddTimeRemind(CTimeRemind timeRemind);
-	CRecord AddDateRemind(CDateRemind dateRemind);
+	void AddDiary(CDiary diary);
+	void AddMemo(CMemo memo);
+	void AddTimeRemind(CTimeRemind timeRemind);
+	void AddDateRemind(CDateRemind dateRemind);
 
-	CRecord RemoveDiary(CDiary diary);
-	CRecord RemoveMemo(CMemo memo);
-	CRecord RemoveTimeRemind(CTimeRemind timeRemind);
-	CRecord RemoveDateRemind(CDateRemind dateRemiind);
+	void RemoveDiary(CDiary diary);
+	void RemoveMemo(CMemo memo);
+	void RemoveTimeRemind(CTimeRemind timeRemind);
+	void RemoveDateRemind(CDateRemind dateRemiind);
 
-	CRecord UpdateDiary(CDiary diary);
-	CRecord UpdateMemo(CMemo memo);
-	CRecord UpdateTimeRemind(CTimeRemind timeRemind);
-	CRecord UpdateDateRemind(CDateRemind dateRemind);
+	void UpdateDiary(CDiary diary);
+	void UpdateMemo(CMemo memo);
+	void UpdateTimeRemind(CTimeRemind timeRemind);
+	void UpdateDateRemind(CDateRemind dateRemind);
 
 
 };

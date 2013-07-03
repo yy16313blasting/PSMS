@@ -99,49 +99,52 @@ void CUserDA::CreateTable(CString tableName)
 	}
 }
 
-CRecord CUserDA::AddDiary(CDiary diary)
+void CUserDA::AddDiary(CDiary diary)
 {
-	return diary;
 }
 
-CRecord CUserDA::AddMemo(CMemo memo)
+void CUserDA::AddMemo(CMemo memo)
 {
-	return memo;
 }
 
-CRecord CUserDA::AddTimeRemind(CTimeRemind timeRemind)
+void CUserDA::AddTimeRemind(CTimeRemind timeRemind)
 {
-	return timeRemind;
 }
 
-CRecord CUserDA::AddDateRemind(CDateRemind dateRemind)
+void CUserDA::AddDateRemind(CDateRemind dateRemind)
 {
-	return dateRemind;
 }
 
-CRecord CUserDA::RemoveDiary(CDiary diary)
+void CUserDA::RemoveDiary(CDiary diary)
 {
-	return diary;
 }
 
-CRecord CUserDA::RemoveMemo(CMemo memo)
+void CUserDA::RemoveMemo(CMemo memo)
 {
-	return memo;
 }
 
-CRecord CUserDA::RemoveTimeRemind(CTimeRemind timeRemind)
+void CUserDA::RemoveTimeRemind(CTimeRemind timeRemind)
 {
-	return timeRemind;
 }
 
 
-CRecord CUserDA::RemoveDateRemind(CDateRemind dateRemiind)
+void CUserDA::RemoveDateRemind(CDateRemind dateRemiind)
 {
-	return dateRemiind;
 }
 
 
-CRecord CUserDA::UpdateDiary(CDiary diary)
+void CUserDA::UpdateDiary(CDiary diary)
 {
-	return diary;
+}
+
+void CUserDA::UpdateMemo(CMemo memo)
+{
+}
+
+void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
+{
+}
+
+void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
+{
 }
