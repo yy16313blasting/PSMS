@@ -19,6 +19,8 @@ bool UserDA::InitConnection()
 	::CoInitialize(NULL);
 	try
 	{
+		m_pConnection->Close();
+		m_pConnection->Release();
 		//创建连接对象实例
 		m_pConnection.CreateInstance(__uuidof(Connection));
 		
@@ -35,7 +37,9 @@ bool UserDA::InitConnection()
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		CString str;
+		str.Format(_T("%s"),e.Description());
+		AfxMessageBox(str);
 		return false;
 	}
 	AfxMessageBox(_T("Succeed!"));
