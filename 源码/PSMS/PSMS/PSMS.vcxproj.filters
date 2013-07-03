@@ -39,6 +39,48 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="UserDA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Record.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Diary.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Memo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeRemind.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DateRemind.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Holiday.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SignIn.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SingUp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Remind.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicPlayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PSMS.cpp">
@@ -48,6 +90,45 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDA.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Record.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Diary.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeRemind.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DateRemind.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RecordList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Holiday.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SignIn.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SingUp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Remind.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicPlayer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

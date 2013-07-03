@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "PSMS.h"
 #include "PSMSDlg.h"
+#include "UserDA.h";
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -39,6 +40,7 @@ CPSMSApp theApp;
 
 BOOL CPSMSApp::InitInstance()
 {
+
 	// 如果一个运行在 Windows XP 上的应用程序清单指定要
 	// 使用 ComCtl32.dll 版本 6 或更高版本来启用可视化方式，
 	//则需要 InitCommonControlsEx()。否则，将无法创建窗口。
@@ -89,6 +91,7 @@ BOOL CPSMSApp::InitInstance()
 
 	// 由于对话框已关闭，所以将返回 FALSE 以便退出应用程序，
 	//  而不是启动应用程序的消息泵。
+
 	return FALSE;
 }
 

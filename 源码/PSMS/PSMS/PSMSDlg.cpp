@@ -6,6 +6,7 @@
 #include "PSMS.h"
 #include "PSMSDlg.h"
 #include "afxdialogex.h"
+#include "UserDA.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -98,6 +99,10 @@ BOOL CPSMSDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+
+	CUserDA a;
+	a.InitConnection();
+	a.test();
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }

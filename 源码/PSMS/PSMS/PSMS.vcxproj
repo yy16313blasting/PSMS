@@ -99,19 +99,46 @@
     <None Include="res\PSMS.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DateRemind.h" />
+    <ClInclude Include="Diary.h" />
+    <ClInclude Include="Editor.h" />
+    <ClInclude Include="Holiday.h" />
+    <ClInclude Include="Memo.h" />
+    <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="PSMS.h" />
     <ClInclude Include="PSMSDlg.h" />
+    <ClInclude Include="Record.h" />
+    <ClInclude Include="RecordList.h" />
+    <ClInclude Include="Remind.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SignIn.h" />
+    <ClInclude Include="SingUp.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TimeRemind.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="UserDA.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DateRemind.cpp" />
+    <ClCompile Include="Diary.cpp" />
+    <ClCompile Include="Editor.cpp" />
+    <ClCompile Include="Holiday.cpp" />
+    <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="PSMS.cpp" />
     <ClCompile Include="PSMSDlg.cpp" />
+    <ClCompile Include="Record.cpp" />
+    <ClCompile Include="RecordList.cpp" />
+    <ClCompile Include="Remind.cpp" />
+    <ClCompile Include="SignIn.cpp" />
+    <ClCompile Include="SingUp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TimeRemind.cpp" />
+    <ClCompile Include="User.cpp" />
+    <ClCompile Include="UserDA.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PSMS.rc" />
@@ -119,4 +146,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="PSMS.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
