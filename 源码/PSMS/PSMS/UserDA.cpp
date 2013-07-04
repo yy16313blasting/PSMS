@@ -11,9 +11,13 @@ CUserDA::CUserDA(void)
 
 CUserDA::~CUserDA(void)
 {
-	m_pConnection->Close();
+	/*if(m_pConnection->State)
+		m_pConnection->Close();
 	if(m_pRecordset!=NULL)
+	{
 		m_pRecordset->Close();
+		m_pRecordset.Release();
+	}*/
 	::CoUninitialize();
 }
 
@@ -48,7 +52,7 @@ bool CUserDA::InitConnection()
 
 void CUserDA::test()
 {
-	CString sql="SELECT * FROM Holiday";
+	CString sql="SELECT * FROM [User]";
 	
 	try
 	{
@@ -65,6 +69,7 @@ void CUserDA::test()
 	{
 		return;
 	}
+
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
 	while(!m_pRecordset->adoEOF)
@@ -72,7 +77,7 @@ void CUserDA::test()
 		CString info;
 		try
 		{
-			info=(char*)(_bstr_t)m_pRecordset->GetCollect("szTitle");
+			info=(char*)(_bstr_t)m_pRecordset->GetCollect("szName");
 		}
 		catch(_com_error e)
 		{
@@ -273,5 +278,46 @@ bool ExistDateRemind(CDateRemind dateRemind)
 CString CUserDA::GetUserPassword(CString name)
 {
 	CString password;
+	CString sql;
+	sql.Format("SELECT * FROM [User]");
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return "";
+	}
+	//m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	while(!m_pRecordset->adoEOF)
+	{
+		CString password;
+		CString tmp_name;
+		try
+		{
+			tmp_name=(char*)(_bstr_t)m_pRecordset->GetCollect("szName");
+			if(tmp_name == name)
+			{
+				password=(char*)(_bstr_t)m_pRecordset->GetCollect("szPassword");
+				AfxMessageBox(password);
+				return password;
+			}
+		}
+		catch(_com_error e)
+		{
+			AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+	}
+	m_pRecordset->Release();
 	return password;
 }
