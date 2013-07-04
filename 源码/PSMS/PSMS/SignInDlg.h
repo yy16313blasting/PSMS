@@ -1,15 +1,15 @@
 #pragma once
 
 
-// CSignIn 对话框
+// CSignInDlg 对话框
 
-class CSignIn : public CDialog
+class CSignInDlg : public CDialog
 {
-	DECLARE_DYNAMIC(CSignIn)
+	DECLARE_DYNAMIC(CSignInDlg)
 
 public:
-	CSignIn(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CSignIn();
+	CSignInDlg(CWnd* pParent = NULL);   // 标准构造函数
+	virtual ~CSignInDlg();
 
 // 对话框数据
 	enum { IDD = IDD_SIGN_IN };

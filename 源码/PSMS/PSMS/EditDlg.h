@@ -1,15 +1,15 @@
 #pragma once
 
 
-// CEditor 对话框
+// CEditDlg 对话框
 
-class CEditor : public CDialog
+class CEditDlg : public CDialog
 {
-	DECLARE_DYNAMIC(CEditor)
+	DECLARE_DYNAMIC(CEditDlg)
 
 public:
-	CEditor(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CEditor();
+	CEditDlg(CWnd* pParent = NULL);   // 标准构造函数
+	virtual ~CEditDlg();
 
 // 对话框数据
 	enum { IDD = IDD_EDIT };

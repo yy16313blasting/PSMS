@@ -1,15 +1,15 @@
 #pragma once
 
 
-// CRemind 对话框
+// CRemindDlg 对话框
 
-class CRemind : public CDialog
+class CRemindDlg : public CDialog
 {
-	DECLARE_DYNAMIC(CRemind)
+	DECLARE_DYNAMIC(CRemindDlg)
 
 public:
-	CRemind(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CRemind();
+	CRemindDlg(CWnd* pParent = NULL);   // 标准构造函数
+	virtual ~CRemindDlg();
 
 // 对话框数据
 	enum { IDD = IDD_REMIND_DIALOG };
