@@ -12,7 +12,7 @@ public:
 	virtual ~CRemind();
 
 // 对话框数据
-	enum { IDD = IDD_REMIND };
+	enum { IDD = IDD_REMIND_DIALOG };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持

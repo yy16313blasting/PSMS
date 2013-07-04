@@ -106,14 +106,14 @@ BOOL CPSMSDlg::OnInitDialog()
 	record.SetUser("xpm");
 	record.SetDate(2013,7,4);
 	record.SetContent("This is a Sunny day");
-
+	//a.test();
 	
 	//a.AddDiary(record);
 
 	//record.SetContent("today is a Sunny day");
 	//a.UpdateDiary(record);
 
-	a.RemoveDiary(record);
+	//a.RemoveDiary(record);
 	
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }

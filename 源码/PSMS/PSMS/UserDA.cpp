@@ -4,7 +4,6 @@
 
 CUserDA::CUserDA(void)
 {
-	m_pConnection=NULL;
 	m_pRecordset=NULL;
 	InitConnection();
 }
@@ -13,7 +12,7 @@ CUserDA::CUserDA(void)
 CUserDA::~CUserDA(void)
 {
 	m_pConnection->Close();
-	if(m_pRecordset==NULL)
+	if(m_pRecordset!=NULL)
 		m_pRecordset->Close();
 	::CoUninitialize();
 }
@@ -23,8 +22,7 @@ bool CUserDA::InitConnection()
 	::CoInitialize(NULL);
 	HRESULT hr; 
 	try
-	{
-											// 实例化连接对象 
+	{								// 实例化连接对象 
 		hr = m_pConnection.CreateInstance(__uuidof(Connection)); 
 		if( SUCCEEDED( hr ) )
 		{
@@ -38,10 +36,10 @@ bool CUserDA::InitConnection()
 		}
 		//AfxMessageBox("连接成功！！");
 	}
-	catch(_com_error * e)
+	catch(_com_error e)
 	{
 		CString errormessage;
-		errormessage.Format("连接数据库失败！\r\n错误信息：%s",e->ErrorMessage());
+		errormessage.Format("连接数据库失败！\r\n错误信息：%s",e.Description());
 		AfxMessageBox(errormessage);
 		return  false;
 	}
@@ -96,6 +94,7 @@ void CUserDA::ExcuteSql(CString sql)
 	{
 		AfxMessageBox(e.Description());
 	}
+	//m_pRecordset.Release();
 }
 
 void CUserDA::CreateTable(CString tableName)
@@ -225,18 +224,30 @@ CRecordList CUserDA::GetAllHoliday()
 
 void CUserDA::PurgeDiary()
 {
+	CString sql;
+	sql.Format("delete * from Diary");
+	ExcuteSql(sql);
 }
 
 void CUserDA::PurgeMemo()
 {
+	CString sql;
+	sql.Format("delete * from Memo");
+	ExcuteSql(sql);
 }
 
 void CUserDA::PurgeTimeRemind()
 {
+	CString sql;
+	sql.Format("delete * from TimeRemind");
+	ExcuteSql(sql);
 }
 
 void CUserDA::PurgeDateRemind()
 {
+	CString sql;
+	sql.Format("delete * from DateRemind");
+	ExcuteSql(sql);
 }
 
 bool ExistDiary(CDiary diary)
