@@ -48,7 +48,6 @@ bool CUserDA::InitConnection()
 	return true;
 }
 
-
 void CUserDA::test()
 {
 	CString sql="SELECT * FROM Holiday";
@@ -150,46 +149,9 @@ void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 {
 }
 
-
-//获取Diary表里的所有记录
 CRecordList CUserDA::GetAllDiary()
 {
-	CString sql="SELECT * FROM Diary";
-	
-	try
-	{
-		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
-	}
-	catch(_com_error e)
-	{
-		AfxMessageBox(e.Description());
-	}
-	int count=m_pRecordset->GetRecordCount();
-	//count值为-1为成功
-	if(0 == count)
-	{
-		return list;
-	}
-	m_pRecordset->MoveLast();
-	m_pRecordset->MoveFirst();
-	while(!m_pRecordset->adoEOF)
-	{
-		CString info;
-		try
-		{
-			info=(char*)(_bstr_t)m_pRecordset->GetCollect("szTitle");
-		}
-		catch(_com_error e)
-		{
-			AfxMessageBox(e.Description());
-		}
-		CDiary diary;
-		diary.SetTitle((char*)(_bstr_t)m_pRecordset->GetCollect("szTitle"));
-		diary.SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
-		//diary.SetDate();
-		m_pRecordset->MoveNext();
-	}
+	return list;
 }
 
 CRecordList CUserDA::GetAllMemo()

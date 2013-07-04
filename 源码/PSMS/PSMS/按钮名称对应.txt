@@ -15,7 +15,7 @@ IDD_SIGN_UP(注册界面)
 序号	    功能点	                  功能点详细内容
 1	   确认注册按钮	              注册新用户                        IDC_SIGN_UP      
 2	   取消按钮	              返回登陆界面                      IDC_RETURN
-3          输入新用户名对话框         输入新用户名                      IDC_GREAT_USERNAME
+3          输入新用户名对话框         输入新用户名                      IDC_GREAT_USERNAME   （打错了，本来想打CREAT）
 4          输入密码对话框             输入密码                          IDC_GREAT_PASSORD
 5          确认密码对话框             确认密码                          IDC_CHECK_GREAT_PASSWORD
 
@@ -29,4 +29,46 @@ IDD_REMIND(提醒界面)
 1	   确认按钮	              提交编辑内容到数据库            IDC_CHECK
 2	   不再提醒按钮	              取消编辑                        IDC_NEVER_REMIND
 3	   选择提醒类型               选择日记、备忘录等提醒的一种    IDC_SELECT_TYPE
+
+IDD_MAIN_DIALOG(主界面)
+序号        功能点                         功能点详细内容
+1          添加按钮                    添加所选择的事件               IDC_ADD
+2          更新按钮                    更新所选择的事件               IDC_UPDATE
+3          删除按钮                    删除所选择的事件               IDC_DELETE
+4          注销按钮                    注销当前登录的账号             IDC_LOG_OFF
+5          退出按钮                    推出系统                       IDC_QUIT_SYSTEM
+6          TAB框                       选择各个子框                   IDC_TAB
+7          选择音乐按钮                选择音乐                       IDC_SELETE_MUSIC
+
+IDD_TIMEREMIND(定时提醒)
+序号        功能点                         功能点详细内容
+1          时间输入                    输入时间                       IDC_TR_TIME(TM:TIMERECORD)
+2          事件输入                    输入事件                       IDC_TR_EVENT
+3          显示栏                      输出                           IDC_TR_OUTPUT
+
+IDD_DATEREMIND(定期提醒)
+序号        功能点                         功能点详细内容
+1          时间输入                    输入时间                       IDC_DR_TIME(TM:TIMERECORD)
+2          标题输入                    输入标题                       IDC_DR_HEADLINE
+2          事件输入                    输入事件                       IDC_DR_EVENT
+3          显示栏                      输出                           IDC_DR_OUTPUT
+
+IDD_HOLYDAY(定期提醒)
+序号        功能点                         功能点详细内容
+1          时间输入                    输入时间                       IDC_HOLI_TIME(TM:TIMERECORD)
+2          标题输入                    输入标题                       IDC_HOLI_HEADLINE
+3          事件输入                    输入事件                       IDC_HOLI_EVENT
+4          显示栏                      输出                           IDC_HOLI_OUTPUT
+
+IDD_DIARY
+序号        功能点                         功能点详细内容
+1          时间输入                    输入时间                       IDC_DIARY_TIME
+2          标题输入                    输入标题                       IDC_DIARY_HEADLINE
+3          显示栏                      输出                           IDC_DIARY_OUTPUT
+
+IDD_REMIND_DIALOG
+序号        功能点                         功能点详细内容
+1          确定                        确定                           IDC_REMINDDIG_OK 
+
+
 

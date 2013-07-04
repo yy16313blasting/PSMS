@@ -1,15 +1,15 @@
 #pragma once
 
 
-// CSignUp 对话框
+// CSingUp 对话框
 
-class CSignUp : public CDialog
+class CSingUp : public CDialog
 {
-	DECLARE_DYNAMIC(CSignUp)
+	DECLARE_DYNAMIC(CSingUp)
 
 public:
-	CSignUp(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CSignUp();
+	CSingUp(CWnd* pParent = NULL);   // 标准构造函数
+	virtual ~CSingUp();
 
 // 对话框数据
 	enum { IDD = IDD_SIGN_UP };

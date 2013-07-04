@@ -69,6 +69,9 @@
     <ClInclude Include="SignIn.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SingUp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="Editor.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -76,9 +79,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MusicPlayer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SignUp.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,6 +119,9 @@
     <ClCompile Include="SignIn.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SingUp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="Editor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -128,10 +131,7 @@
     <ClCompile Include="MusicPlayer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Memo.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SignUp.cpp">
+ 	<ClCompile Include="Memo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

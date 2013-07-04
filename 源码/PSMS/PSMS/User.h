@@ -9,36 +9,41 @@
 #include "RecordList.h"
 class CUser
 {
-		private:
-			 CString m_szName;
+	private:
+			CString m_szName;
 			 CString m_szPassword;
 			 BOOL  isOnline;
- 
+             CRecordList list;
 		public:
 			CUser(void);
 			~CUser(void);
 			CString GetName();
 			CString GetPassword();
-			void  PurgeCDateRemind();
+
+			void  PurgeDateRemind();
 			void  PurgeDiary();
 			void  PurgeMemo();
 			void  PurgeTimeRemind();
-			CRecord  AddCDateRemind(CDateRemind dateRemind);
-			CRecord  AddDiary(CDiary diary);
-			CRecord  AddMemo(CMemo memo);
-			CRecord  AddTimeRemind(CTimeRemind timeRemind);
-			CRecord  RemoveCDateRemind(CDateRemind CDateRemind);
-			CRecord  RemoveDiary(CDiary diary);
-			CRecord  RemoveMemo(CMemo memo);
-			CRecord  RemoveTimeRemind(CTimeRemind timeRemind);
-			CRecord  UpdateCDateRemind(CDateRemind CDateRemind);
-			CRecord  UpdateDiary(CDiary diary);
-			CRecord  UpdateMemo(CMemo memo);
-			CRecord  UpdateTimeRemind(CTimeRemind timeRemind);
-			CRecordList GetAllCDateRemind();
+
+			void  AddDateRemind(CDateRemind dateRemind);
+			void  AddDiary(CDiary diary);
+			void  AddMemo(CMemo memo);
+			void  AddTimeRemind(CTimeRemind timeRemind);
+
+			void  RemoveDateRemind(CDateRemind CDateRemind);
+			void  RemoveDiary(CDiary diary);
+			void  RemoveMemo(CMemo memo);
+			void  RemoveTimeRemind(CTimeRemind timeRemind);
+
+			void  UpdateDateRemind(CDateRemind CDateRemind);
+			void  UpdateDiary(CDiary diary);
+			void  UpdateMemo(CMemo memo);
+			void  UpdateTimeRemind(CTimeRemind timeRemind);
+
+			CRecordList GetAllDateRemind();
 			CRecordList GetAllDiary();
 			CRecordList GetAllMemo();
 			CRecordList GetAllTimeRemind();
-
+			CRecordList GetAllHoliday();
 };
 
