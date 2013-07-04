@@ -52,6 +52,9 @@ public:
 	bool ExistDateRemind(CDateRemind dateRemind);
 
 	CString GetUserPassword(CString name);
+	
+
+	void ExcuteSql(CString sql);
 
 };
 

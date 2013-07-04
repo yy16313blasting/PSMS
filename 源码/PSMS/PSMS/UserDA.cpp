@@ -85,13 +85,12 @@ void CUserDA::test()
 	}
 }
 
-void CUserDA::CreateTable(CString tableName)
+void CUserDA::ExcuteSql(CString sql)
 {
-	_bstr_t sql="CREATE TABLE "+tableName;
 	m_pRecordset.CreateInstance(__uuidof(Recordset));
 	try
 	{
-		m_pConnection->Execute(sql,NULL,adCmdText);
+		m_pConnection->Execute((_bstr_t)sql,NULL,adCmdText);
 	}
 	catch(_com_error e)
 	{
@@ -99,54 +98,104 @@ void CUserDA::CreateTable(CString tableName)
 	}
 }
 
+void CUserDA::CreateTable(CString tableName)
+{
+	CString sql="CREATE TABLE "+tableName;
+	ExcuteSql(sql);
+}
+
 void CUserDA::AddDiary(CDiary diary)
 {
+	CString sql;
+	sql.Format("insert into Diary (szTitle,szContent,[DateTime],szUser) values ('%s','%s','%s','%s')",
+		diary.GetTitle(),diary.GetContent(),diary.GetDate(),diary.GetUser());
+	ExcuteSql(sql);
 }
 
 void CUserDA::AddMemo(CMemo memo)
 {
+	CString sql;
+	sql.Format("insert into Memo (szTitle,szContent,[DateTime],szUser) values ('%s','%s','%s','%s')",
+		memo.GetTitle(),memo.GetContent(),memo.GetDate(),memo.GetUser());
+	ExcuteSql(sql);
 }
 
 void CUserDA::AddTimeRemind(CTimeRemind timeRemind)
 {
+	CString sql;
+	sql.Format("insert into Memo (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
+		timeRemind.GetTitle(),timeRemind.GetContent(),timeRemind.GetDate(),timeRemind.GetRemindFrequency(),timeRemind.GetUser());
+	ExcuteSql(sql);
 }
 
 void CUserDA::AddDateRemind(CDateRemind dateRemind)
 {
+	CString sql;
+	sql.Format("insert into Memo (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
+		dateRemind.GetTitle(),dateRemind.GetContent(),dateRemind.GetDate(),dateRemind.GetRemindFrequency(),dateRemind.GetUser());
+	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveDiary(CDiary diary)
 {
+	CString sql;
+	sql.Format("delete * from Diary where szTitle='%s'",diary.GetTitle());
+	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveMemo(CMemo memo)
 {
+	CString sql;
+	sql.Format("delete * from Memo where szTitle = '%s'",memo.GetTitle());
+	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveTimeRemind(CTimeRemind timeRemind)
 {
+	CString sql;
+	sql.Format("delete * from TimeRemind where szTitle = '%s'",timeRemind.GetTitle());
+	ExcuteSql(sql);
 }
 
 
-void CUserDA::RemoveDateRemind(CDateRemind dateRemiind)
+void CUserDA::RemoveDateRemind(CDateRemind dateRemind)
 {
+	CString sql;
+	sql.Format("delete * from DateRemind where szTitle = '%s'",dateRemind.GetTitle());
+	ExcuteSql(sql);
 }
 
 
 void CUserDA::UpdateDiary(CDiary diary)
 {
+	CString sql;
+	sql.Format("update Diary set szContent = '%s',[DateTime] = '%s' where szTitle = '%s'",
+		diary.GetContent(),diary.GetDate(),diary.GetTitle());
+	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateMemo(CMemo memo)
 {
+	CString sql;
+	sql.Format("update Memo set szContent = '%s',[DateTime] = '%s' where szTitle = '%s'",
+		memo.GetContent(),memo.GetDate(),memo.GetTitle());
+	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
 {
+	CString sql;
+	sql.Format("update DateRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s'",
+		dateRemind.GetContent(),dateRemind.GetDate(),dateRemind.GetRemindFrequency(),dateRemind.GetTitle());
+	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 {
+	CString sql;
+	sql.Format("update TimeRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s'",
+		timeRemind.GetContent(),timeRemind.GetDate(),timeRemind.GetRemindFrequency(),timeRemind.GetTitle());
+	ExcuteSql(sql);
 }
 
 CRecordList CUserDA::GetAllDiary()

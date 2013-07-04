@@ -12,7 +12,7 @@ private:
 	int m_nMinute;
 	int m_nRemindFrequency;
 
-private:
+public:
 	int GetHour(void);
 	int GetMinute(void);
 	int GetRemindFrequency(void);

@@ -1,5 +1,3 @@
-#include "iostream"
-using namespace std;
 #pragma once
 class CRecord
 {
@@ -13,6 +11,7 @@ protected:
 	int m_nType;
 	CString m_szTitle;
 	CString m_szContent;
+	CString m_szUser;
 	bool isCanceled;
 
 public:
@@ -22,8 +21,10 @@ public:
 	int GetYear(void);
 	void SetContent(CString content);
 	void SetTitle(CString title);
+	void SetUser(CString user);
 	CString GetContent(void);
 	CString GetTitle(void);
+	CString GetUser();
 	virtual CString GetDate();
 	virtual void SetDate(int year, int month, int day);
 };

@@ -58,6 +58,16 @@ void CRecord::SetContent(CString content)
 CString CRecord::GetDate()
 {
 	CString str;
-	str.Format("%d/%d/%d 00:00:00:",m_nYear,m_nMonth,m_nDay);
+	str.Format("%d/%d/%d 00:00:00",m_nYear,m_nMonth,m_nDay);
 	return str;
+}
+
+void CRecord::SetUser(CString user)
+{
+	m_szUser=user;
+}
+
+CString CRecord::GetUser()
+{
+	return m_szUser;
 }
