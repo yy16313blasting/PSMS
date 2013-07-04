@@ -6,12 +6,14 @@
 #include "Memo.h"
 #include "Diary.h"
 #include "Holiday.h"
+#include "RecordList.h"
 
 class CUserDA
 {
 private:
 	_ConnectionPtr m_pConnection;
 	_RecordsetPtr m_pRecordset;
+	CRecordList list;
 public:
 	CUserDA(void);
 	~CUserDA(void);
@@ -33,6 +35,23 @@ public:
 	void UpdateTimeRemind(CTimeRemind timeRemind);
 	void UpdateDateRemind(CDateRemind dateRemind);
 
+	CRecordList GetAllDiary();
+	CRecordList GetAllMemo();
+	CRecordList GetAllTimeRemind();
+	CRecordList GetAllDateRemind();
+	CRecordList GetAllHoliday();
+
+	void PurgeDiary();
+	void PurgeMemo();
+	void PurgeTimeRemind();
+	void PurgeDateRemind();
+
+	bool ExistDiary(CDiary diary);
+	bool ExistMemo(CMemo memo);
+	bool ExistTimeRemind(CTimeRemind timeRemind);
+	bool ExistDateRemind(CDateRemind dateRemind);
+
+	CString GetUserPassword(CString name);
 
 };
 

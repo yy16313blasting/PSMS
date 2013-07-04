@@ -148,3 +148,70 @@ void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
 void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 {
 }
+
+CRecordList CUserDA::GetAllDiary()
+{
+	return list;
+}
+
+CRecordList CUserDA::GetAllMemo()
+{
+	return list;
+}
+
+CRecordList CUserDA::GetAllTimeRemind()
+{
+	return list;
+}
+
+CRecordList CUserDA::GetAllDateRemind()
+{
+	return list;
+}
+
+CRecordList CUserDA::GetAllHoliday()
+{
+	return list;
+}
+
+void CUserDA::PurgeDiary()
+{
+}
+
+void CUserDA::PurgeMemo()
+{
+}
+
+void CUserDA::PurgeTimeRemind()
+{
+}
+
+void CUserDA::PurgeDateRemind()
+{
+}
+
+bool ExistDiary(CDiary diary)
+{
+	return false;
+}
+
+bool ExistMemo(CMemo memo)
+{
+	return false;
+}
+
+bool ExistTimeRemind(CTimeRemind timeRemind)
+{
+	return false;
+}
+
+bool ExistDateRemind(CDateRemind dateRemind)
+{
+	return false;
+}
+
+CString CUserDA::GetUserPassword(CString name)
+{
+	CString password;
+	return password;
+}

@@ -1,0 +1,32 @@
+IDD_SIGN_IN(登陆界面)
+序号	    功能点	                   功能点详细内容
+1	   登陆按钮	              输入用户名、密码之后登陆系统      IDC_TO_SIGN_UP
+2	   注册按钮	              进入注册界面                      IDC_SIGN_IN
+3	   修改密码按钮	              修改密码                          IDC_UPDATE_PASSWORD
+4	   确认新密码按钮	      确认密码                          IDC_CHECK_PASSWORD
+5	   退出按钮	              退出系统                          IDC_QUIT
+6          输入用户名对话框           输入用户名                        IDC_INPUT_USERNAME
+7          输入用户密码对话框         输入用户名密码                    IDC_INPUT_PASSWORD
+8          修改密码框里输入密码       输入用户名密码                    IDC_INPUT_ORIGINAL_PASSWORD
+9          输入新密码对话框           输入新密码                        IDC_INPUT_NEWPASSWORD
+10         确认新密码对话框           确认新密码                        IDC_CHECK_NEWPASSWORD
+
+IDD_SIGN_UP(注册界面)
+序号	    功能点	                  功能点详细内容
+1	   确认注册按钮	              注册新用户                        IDC_SIGN_UP      
+2	   取消按钮	              返回登陆界面                      IDC_RETURN
+3          输入新用户名对话框         输入新用户名                      IDC_GREAT_USERNAME
+4          输入密码对话框             输入密码                          IDC_GREAT_PASSORD
+5          确认密码对话框             确认密码                          IDC_CHECK_GREAT_PASSWORD
+
+IDD_EDIT（编辑界面）
+序号	    功能点	                  功能点详细内容
+1	   确认按钮	              提交编辑的内容到数据库            IDC_EDIT
+2	   取消按钮	              取消编辑                          IDC_CANCEL_EDIT
+ 
+IDD_REMIND(提醒界面)
+序号	    功能点	                  功能点详细内容
+1	   确认按钮	              提交编辑内容到数据库            IDC_CHECK
+2	   不再提醒按钮	              取消编辑                        IDC_NEVER_REMIND
+3	   选择提醒类型               选择日记、备忘录等提醒的一种    IDC_SELECT_TYPE
+

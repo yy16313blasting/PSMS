@@ -1,10 +1,18 @@
+#include "iostream"
+using namespace std;
+#include "Record.h"
 #pragma once
-#include "record.h"
-class CDateRemind :
-	public CRecord
+class CDateRemind : public CRecord
 {
 public:
 	CDateRemind(void);
-	~CDateRemind(void);
-};
 
+private:
+	int m_nRemindFrequency;
+
+private:
+	int GetRemindFrequency(void);
+	void SetRemindFrequency(string frequency);
+	void SetDate(int year, int month, int day);
+
+};

@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "PSMS.h"
 #include "PSMSDlg.h"
-#include "UserDA.h";
+#include "UserDA.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

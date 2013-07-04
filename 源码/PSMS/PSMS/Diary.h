@@ -1,7 +1,6 @@
 #pragma once
 #include "record.h"
-class CDiary :
-	public CRecord
+class CDiary : public CRecord
 {
 public:
 	CDiary(void);

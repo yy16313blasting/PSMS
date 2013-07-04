@@ -124,7 +124,6 @@
     <ClCompile Include="Diary.cpp" />
     <ClCompile Include="Editor.cpp" />
     <ClCompile Include="Holiday.cpp" />
-    <ClCompile Include="Memo.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="PSMS.cpp" />
     <ClCompile Include="PSMSDlg.cpp" />
@@ -133,6 +132,7 @@
     <ClCompile Include="Remind.cpp" />
     <ClCompile Include="SignIn.cpp" />
     <ClCompile Include="SingUp.cpp" />
+	<CLCompile Include="Memo.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
