@@ -28,29 +28,36 @@ int CRecord::GetType(void)
 	return m_nType;
 }
 
-string CRecord::GetTitle(void)
+CString CRecord::GetTitle(void)
 {
 	return m_szTitle;
 }
 
-string CRecord::GetContent(void)
+CString CRecord::GetContent(void)
 {
 	return m_szContent;
 }
 
 void CRecord::SetDate(int year, int month, int day)
 {
-	this->m_nYear = m_nYear;
-	this->m_nMonth = m_nMonth;
-	this->m_nDay = m_nDay;
+	this->m_nYear = year;
+	this->m_nMonth = month;
+	this->m_nDay = day;
 }
 
-void CRecord::SetTitle(string title)
+void CRecord::SetTitle(CString title)
 {
-	this->m_szTitle = m_szTitle;
+	this->m_szTitle = title;
 }
 
-void CRecord::SetContent(string content)
+void CRecord::SetContent(CString content)
 {
-	this->m_szContent = m_szContent;
+	this->m_szContent = content;
+}
+
+CString CRecord::GetDate()
+{
+	CString str;
+	str.Format("%d/%d/%d 00:00:00:",m_nYear,m_nMonth,m_nDay);
+	return str;
 }
