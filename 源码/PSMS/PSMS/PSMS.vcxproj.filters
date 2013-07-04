@@ -66,19 +66,19 @@
     <ClInclude Include="RecordList.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SignIn.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Editor.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Remind.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MusicPlayer.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SignUp.h">
+    <ClInclude Include="SignUpDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SignInDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RemindDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EditDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -116,22 +116,22 @@
     <ClCompile Include="Holiday.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SignIn.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Editor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Remind.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="MusicPlayer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Memo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SignUp.cpp">
+    <ClCompile Include="SignInDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SignUpDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RemindDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EditDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
