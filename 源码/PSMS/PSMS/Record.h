@@ -11,8 +11,8 @@ protected:
 	int m_nMonth;
 	int m_nYear;
 	int m_nType;
-	string m_szTitle;
-	string m_szContent;
+	CString m_szTitle;
+	CString m_szContent;
 	bool isCanceled;
 
 public:
@@ -20,9 +20,9 @@ public:
 	int GetMonth(void);
 	int GetType(void);
 	int GetYear(void);
-	void SetContent(string content);
-	void SetTitle(string title);
-	string GetContent(void);
-	string GetTitle(void);
+	void SetContent(CString content);
+	void SetTitle(CString title);
+	CString GetContent(void);
+	CString GetTitle(void);
 	virtual void SetDate(int year, int month, int day);
 };

@@ -28,12 +28,12 @@ int CRecord::GetType(void)
 	return m_nType;
 }
 
-string CRecord::GetTitle(void)
+CString CRecord::GetTitle(void)
 {
 	return m_szTitle;
 }
 
-string CRecord::GetContent(void)
+CString CRecord::GetContent(void)
 {
 	return m_szContent;
 }
@@ -45,12 +45,12 @@ void CRecord::SetDate(int year, int month, int day)
 	this->m_nDay = m_nDay;
 }
 
-void CRecord::SetTitle(string title)
+void CRecord::SetTitle(CString title)
 {
 	this->m_szTitle = m_szTitle;
 }
 
-void CRecord::SetContent(string content)
+void CRecord::SetContent(CString content)
 {
 	this->m_szContent = m_szContent;
 }
