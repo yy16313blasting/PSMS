@@ -525,7 +525,7 @@ CString CUserDA::GetUserPassword(CString name)
 			if(tmp_name == name)
 			{
 				password=(char*)(_bstr_t)m_pRecordset->GetCollect("szPassword");
-				AfxMessageBox(password);
+				//AfxMessageBox(password);
 				return password;
 			}
 		}
@@ -542,7 +542,7 @@ CString CUserDA::GetUserPassword(CString name)
 bool CUserDA::ExistUser(CString name)
 {
 	CString sql;
-	sql.Format("SELECT * FROM [User] where szName='%s'",name);
+	sql.Format("SELECT * FROM [User]");
 	
 	try
 	{
