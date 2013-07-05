@@ -224,7 +224,7 @@ void CUserDA::GetAllDiary(CDiary*& list)
 	{
 		return;
 	}
-	//m_pRecordset->MoveLast();
+	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
 	int i=0;
 	while(!m_pRecordset->adoEOF)
@@ -247,22 +247,168 @@ void CUserDA::GetAllDiary(CDiary*& list)
 
 void CUserDA::GetAllMemo(CMemo*& list)
 {
-	
+	CString sql;
+	sql.Format("SWLWCT * FROM Memo");
+
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open(_variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count = m_pRecordset->GetRecordCount();
+
+	if(0 == count)
+	{
+		return;
+	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		try
+		{
+			list[i].SetTitle((char*)(_bstr_t)m_pRecordset->GetCollect("szTitle"));
+			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
+			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
+			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
+		}
+		catch(_com_error e)
+		{
+			AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+		i++;
+	}
 }
 
 void CUserDA::GetAllTimeRemind(CTimeRemind*& list)
 {
+	CString sql;
+	sql.Format("SELECT * FROM TimeRemind");
 	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return;
+	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		try
+		{
+			list[i].SetTitle((char*)(_bstr_t)m_pRecordset->GetCollect("szTitle"));
+			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
+			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
+			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
+			list[i].SetRemindFrequency(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("nRemindFrequency")));
+		}
+		catch(_com_error e)
+		{
+			AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+		i++;
+	}
 }
 
 void CUserDA::GetAllDateRemind(CDateRemind*& list)
 {
+	CString sql;
+	sql.Format("SELECT * FROM Diary");
 	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return;
+	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		try
+		{
+			list[i].SetTitle((char*)(_bstr_t)m_pRecordset->GetCollect("szTitle"));
+			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
+			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
+			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
+			list[i].SetRemindFrequency(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("nRemindFrequency")));
+		}
+		catch(_com_error e)
+		{
+			AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+		i++;
+	}
 }
 
 void CUserDA::GetAllHoliday(CHoliday*& list)
 {
+	CString sql;
+	sql.Format("SELECT * FROM Diary");
 	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return;
+	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		try
+		{
+			list[i].SetTitle((char*)(_bstr_t)m_pRecordset->GetCollect("szTitle"));
+			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
+			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
+			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
+		}
+		catch(_com_error e)
+		{
+			AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+		i++;
+	}
 }
 
 
@@ -287,7 +433,7 @@ int CUserDA::CountAllDiary()
 	{
 		return 0;
 	}
-	//m_pRecordset->MoveLast();
+	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
 	int i=0;
 	while(!m_pRecordset->adoEOF)
@@ -346,51 +492,6 @@ bool ExistDateRemind(CDateRemind dateRemind)
 	return false;
 }
 
-bool CUserDA::ExistUser(CString name)
-{
-		CString sql="SELECT * FROM [User]";
-	
-	try
-	{
-		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
-	}
-	catch(_com_error e)
-	{
-		AfxMessageBox(e.Description());
-	}
-	int count=m_pRecordset->GetRecordCount();
-	//count值为-1为成功
-	if(0 == count)
-	{
-		return "";
-	}
-
-	//m_pRecordset->MoveLast();
-	m_pRecordset->MoveFirst();
-	while(!m_pRecordset->adoEOF)
-	{
-		
-		CString tmp_name;
-		try
-		{   
-			tmp_name=(char*)(_bstr_t)m_pRecordset->GetCollect("szName");
-			if(name ==tmp_name )
-			{
-			
-				return TRUE;
-			}
-		}
-		catch(_com_error e)
-		{
-			AfxMessageBox(e.Description());
-		}
-		m_pRecordset->MoveNext();
-	}
-	return FALSE;
-	
-}
-
 CString CUserDA::GetUserPassword(CString name)
 {
 	CString password;
@@ -409,7 +510,7 @@ CString CUserDA::GetUserPassword(CString name)
 	int count=m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
-	{ 
+	{
 		return "";
 	}
 	//m_pRecordset->MoveLast();
@@ -424,6 +525,7 @@ CString CUserDA::GetUserPassword(CString name)
 			if(tmp_name == name)
 			{
 				password=(char*)(_bstr_t)m_pRecordset->GetCollect("szPassword");
+				AfxMessageBox(password);
 				return password;
 			}
 		}
@@ -435,4 +537,48 @@ CString CUserDA::GetUserPassword(CString name)
 	}
 	//m_pRecordset->Release();
 	return password;
+}
+
+bool CUserDA::ExistUser(CString name)
+{
+	CString sql;
+	sql.Format("SELECT * FROM [User] where szName='%s'",name);
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return false;
+	}
+	//m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	while(!m_pRecordset->adoEOF)
+	{
+		CString password;
+		CString tmp_name;
+		try
+		{
+			tmp_name=(char*)(_bstr_t)m_pRecordset->GetCollect("szName");
+			if(tmp_name == name)
+			{
+				return true;
+			}
+		}
+		catch(_com_error e)
+		{
+			AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+	}
+	//m_pRecordset->Release();
+	return false;
 }

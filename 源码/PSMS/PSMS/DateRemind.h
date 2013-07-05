@@ -12,7 +12,7 @@ private:
 
 public:
 	int GetRemindFrequency(void);
-	void SetRemindFrequency(string frequency);
-	void SetDate(int year, int month, int day);
+	void SetRemindFrequency(int frequency);
+	void SetDateTime(CString date);
 
 };

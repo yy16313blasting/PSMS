@@ -12,14 +12,19 @@ int CDateRemind::GetRemindFrequency(void)
 	return m_nRemindFrequency;
 }
 
-void CDateRemind::SetRemindFrequency(string frequency)
+void CDateRemind::SetRemindFrequency(int frequency)
 {
-	this->m_nRemindFrequency = m_nRemindFrequency;
+	this->m_nRemindFrequency = frequency;
 }
 
-void CDateRemind::SetDate(int year, int month, int day)
+void CDateRemind::SetDateTime(CString date)
 {
-	this->m_nYear = m_nYear;
-	this->m_nMonth = m_nMonth;
-	this->m_nDay = m_nDay;
+	COleVariant VariantTime;
+	VariantTime = date;
+	VariantTime.ChangeType(VT_DATE);
+	COleDateTime DateTime = VariantTime;
+
+	m_nYear = DateTime.GetYear();
+	m_nMonth = DateTime.GetMonth();
+	m_nDay = DateTime.GetDay();
 }
