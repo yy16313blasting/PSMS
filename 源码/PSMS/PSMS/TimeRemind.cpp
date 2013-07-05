@@ -9,7 +9,6 @@ CTimeRemind::CTimeRemind(void)
 	m_nRemindFrequency = 0;
 }
 
-
 int CTimeRemind::GetHour(void)
 {
 	return m_nHour;

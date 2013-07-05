@@ -331,7 +331,7 @@ void CUserDA::GetAllTimeRemind(CTimeRemind*& list)
 void CUserDA::GetAllDateRemind(CDateRemind*& list)
 {
 	CString sql;
-	sql.Format("SELECT * FROM Diary");
+	sql.Format("SELECT * FROM DateRemind");
 	
 	try
 	{
@@ -373,7 +373,7 @@ void CUserDA::GetAllDateRemind(CDateRemind*& list)
 void CUserDA::GetAllHoliday(CHoliday*& list)
 {
 	CString sql;
-	sql.Format("SELECT * FROM Diary");
+	sql.Format("SELECT * FROM Holiday");
 	
 	try
 	{

@@ -18,6 +18,6 @@ public:
 	int GetRemindFrequency(void);
 	void SetRemindFrequency(int frequency);
 	void SetTime(int hour, int minute);
-	void SetDateTime(CString);
+	void SetDateTime(CString date);
 };
 

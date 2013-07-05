@@ -4,7 +4,7 @@
 
 CRecord::CRecord(void)
 {
-	isCanceled=false;
+	isCanceled = false;
 }
 
 
@@ -55,7 +55,7 @@ void CRecord::SetContent(CString content)
 	this->m_szContent = content;
 }
 
-CString CRecord::GetDate()
+CString CRecord::GetDate(void)
 {
 	CString str;
 	str.Format("%d/%d/%d 00:00:00",m_nYear,m_nMonth,m_nDay);
@@ -64,10 +64,10 @@ CString CRecord::GetDate()
 
 void CRecord::SetUser(CString user)
 {
-	m_szUser=user;
+	m_szUser = user;
 }
 
-CString CRecord::GetUser()
+CString CRecord::GetUser(void)
 {
 	return m_szUser;
 }
