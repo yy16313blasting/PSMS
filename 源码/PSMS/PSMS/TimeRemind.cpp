@@ -35,3 +35,18 @@ void CTimeRemind::SetTime(int hour, int minute)
 	this->m_nHour = m_nHour;
 	this->m_nMinute = m_nMinute;
 }
+
+
+void CTimeRemind::SetDateTime(CString date)
+{
+	COleVariant VariantTime;
+	VariantTime = date;
+	VariantTime.ChangeType(VT_DATE);
+	COleDateTime DateTime = VariantTime;
+
+	m_nYear = DateTime.GetYear();
+	m_nMonth = DateTime.GetMonth();
+	m_nDay = DateTime.GetDay();
+	m_nHour = DateTime.GetHour();
+	m_nMinute = DateTime.GetMinute();
+}

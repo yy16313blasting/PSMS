@@ -71,3 +71,15 @@ CString CRecord::GetUser()
 {
 	return m_szUser;
 }
+
+void CRecord::SetDate(CString date)
+{
+	COleVariant VariantTime;
+	VariantTime = date;
+	VariantTime.ChangeType(VT_DATE);
+	COleDateTime DateTime = VariantTime;
+
+	m_nYear = DateTime.GetYear();
+	m_nMonth = DateTime.GetMonth();
+	m_nDay = DateTime.GetDay();
+}

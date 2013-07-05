@@ -35,11 +35,17 @@ public:
 	void UpdateTimeRemind(CTimeRemind timeRemind);
 	void UpdateDateRemind(CDateRemind dateRemind);
 
-	CRecordList GetAllDiary();
-	CRecordList GetAllMemo();
-	CRecordList GetAllTimeRemind();
-	CRecordList GetAllDateRemind();
-	CRecordList GetAllHoliday();
+	void GetAllDiary(CDiary*& list);
+	void GetAllMemo(CMemo*& list);
+	void GetAllTimeRemind(CTimeRemind*& list);
+	void GetAllDateRemind(CDateRemind*& list);
+	void GetAllHoliday(CHoliday*& list);
+
+	int CountAllDiary();
+	int CountAllMemo();
+	int CountAllTimeRemind();
+	int CountAllDateRemind();
+	int CountAllHoliday();
 
 	void PurgeDiary();
 	void PurgeMemo();

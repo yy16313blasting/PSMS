@@ -102,6 +102,7 @@ void CUserDA::ExcuteSql(CString sql)
 	//m_pRecordset.Release();
 }
 
+
 void CUserDA::CreateTable(CString tableName)
 {
 	CString sql="CREATE TABLE "+tableName;
@@ -202,29 +203,99 @@ void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 	ExcuteSql(sql);
 }
 
-CRecordList CUserDA::GetAllDiary()
+//将数据库中所有记录传进list数组
+void CUserDA::GetAllDiary(CDiary*& list)
 {
-	return list;
+	CString sql;
+	sql.Format("SELECT * FROM Diary");
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return;
+	}
+	//m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		try
+		{
+			list[i].SetTitle((char*)(_bstr_t)m_pRecordset->GetCollect("szTitle"));
+			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
+			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
+			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
+		}
+		catch(_com_error e)
+		{
+			AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+		i++;
+	}
 }
 
-CRecordList CUserDA::GetAllMemo()
+void CUserDA::GetAllMemo(CMemo*& list)
 {
-	return list;
+	
 }
 
-CRecordList CUserDA::GetAllTimeRemind()
+void CUserDA::GetAllTimeRemind(CTimeRemind*& list)
 {
-	return list;
+	
 }
 
-CRecordList CUserDA::GetAllDateRemind()
+void CUserDA::GetAllDateRemind(CDateRemind*& list)
 {
-	return list;
+	
 }
 
-CRecordList CUserDA::GetAllHoliday()
+void CUserDA::GetAllHoliday(CHoliday*& list)
 {
-	return list;
+	
+}
+
+
+//获取表中记录的个数
+int CUserDA::CountAllDiary()
+{
+	CString sql;
+	sql.Format("SELECT * FROM Diary");
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return 0;
+	}
+	//m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		m_pRecordset->MoveNext();
+		i++;
+	}
+	return i;
 }
 
 void CUserDA::PurgeDiary()
@@ -324,7 +395,6 @@ CString CUserDA::GetUserPassword(CString name)
 
 bool CUserDA::ExistUser(CString name)
 {
-	CString password;
 	CString sql;
 	sql.Format("SELECT * FROM [User] where szName='%s'",name);
 	
@@ -341,7 +411,7 @@ bool CUserDA::ExistUser(CString name)
 	//count值为-1为成功
 	if(0 == count)
 	{
-		return "";
+		return false;
 	}
 	//m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
