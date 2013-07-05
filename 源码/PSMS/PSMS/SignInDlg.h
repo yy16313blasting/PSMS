@@ -26,4 +26,11 @@ public:
 	afx_msg BOOL CSignInDlg::PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedQuit();
 	afx_msg void OnBnClickedToSignUp();
+	afx_msg void OnBnClickedUpdatePassword();
+private:
+	int m_nMaxWindowHeight;
+	int m_nMinWindowHeight;
+public:
+	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedCancel();
 };

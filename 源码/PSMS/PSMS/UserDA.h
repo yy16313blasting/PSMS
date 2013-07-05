@@ -25,6 +25,7 @@ public:
 	void AddMemo(CMemo memo);
 	void AddTimeRemind(CTimeRemind timeRemind);
 	void AddDateRemind(CDateRemind dateRemind);
+	void AddUser(CString name,CString password);
 
 	void RemoveDiary(CDiary diary);
 	void RemoveMemo(CMemo memo);

@@ -106,6 +106,7 @@
     <ClInclude Include="EditDlg.h" />
     <ClInclude Include="Holiday.h" />
     <ClInclude Include="HolidayDlg.h" />
+    <ClInclude Include="MD5.h" />
     <ClInclude Include="Memo.h" />
     <ClInclude Include="MemoDlg.h" />
     <ClInclude Include="MusicPlayer.h" />
@@ -132,6 +133,7 @@
     <ClCompile Include="EditDlg.cpp" />
     <ClCompile Include="Holiday.cpp" />
     <ClCompile Include="HolidayDlg.cpp" />
+    <ClCompile Include="MD5.cpp" />
     <ClCompile Include="MemoDlg.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="PSMS.cpp" />

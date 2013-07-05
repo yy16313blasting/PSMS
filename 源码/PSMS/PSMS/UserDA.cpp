@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "UserDA.h"
+#include "MD5.h"
 
 
 CUserDA::CUserDA(void)
@@ -138,6 +139,16 @@ void CUserDA::AddDateRemind(CDateRemind dateRemind)
 	CString sql;
 	sql.Format("insert into Memo (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
 		dateRemind.GetTitle(),dateRemind.GetContent(),dateRemind.GetDate(),dateRemind.GetRemindFrequency(),dateRemind.GetUser());
+	ExcuteSql(sql);
+}
+
+void CUserDA::AddUser(CString name,CString password)
+{
+	CString sql;
+	CMD5 md5;
+	md5.GenerateCMD5((unsigned char*)(LPCTSTR)password,password.GetLength());
+	password=md5.ToString();
+	sql.Format("insert into [User] ( szName,szPassword) values ('%s','%s')",name,password);
 	ExcuteSql(sql);
 }
 

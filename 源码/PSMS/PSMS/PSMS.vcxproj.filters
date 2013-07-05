@@ -96,6 +96,9 @@
     <ClInclude Include="HolidayDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MD5.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PSMS.cpp">
@@ -162,6 +165,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TimeRemindDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MD5.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
