@@ -20,6 +20,7 @@ public:
 	bool InitConnection();
 	void test();
 	void CreateTable(CString tableName);
+
 	void AddDiary(CDiary diary);
 	void AddMemo(CMemo memo);
 	void AddTimeRemind(CTimeRemind timeRemind);

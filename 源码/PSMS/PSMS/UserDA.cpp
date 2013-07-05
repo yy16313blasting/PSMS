@@ -525,7 +525,7 @@ CString CUserDA::GetUserPassword(CString name)
 			if(tmp_name == name)
 			{
 				password=(char*)(_bstr_t)m_pRecordset->GetCollect("szPassword");
-				//AfxMessageBox(password);
+			//	AfxMessageBox(password);
 				return password;
 			}
 		}
@@ -563,7 +563,7 @@ bool CUserDA::ExistUser(CString name)
 	m_pRecordset->MoveFirst();
 	while(!m_pRecordset->adoEOF)
 	{
-		CString password;
+	
 		CString tmp_name;
 		try
 		{

@@ -22,6 +22,7 @@ class CUser
 			~CUser(void);
 			CString GetUserPassword(CString name);
 			bool ExistUser(CString name);
+
 			void  PurgeDateRemind();
 			void  PurgeDiary();
 			void  PurgeMemo();
@@ -42,10 +43,23 @@ class CUser
 			void  UpdateMemo(CMemo memo);
 			void  UpdateTimeRemind(CTimeRemind timeRemind);
 
-			CRecordList GetAllDateRemind();
-			CRecordList GetAllDiary();
-			CRecordList GetAllMemo();
-			CRecordList GetAllTimeRemind();
-			CRecordList GetAllHoliday();
+			void GetAllDiary(CDiary*& list);
+			void GetAllMemo(CMemo*& list);
+			void GetAllTimeRemind(CTimeRemind*& list);
+			void GetAllDateRemind(CDateRemind*& list);
+			void GetAllHoliday(CHoliday*& list);
+
+
+			int CountAllDiary();
+			int CountAllMemo();
+			int CountAllTimeRemind();
+			int CountAllDateRemind();
+			int CountAllHoliday();
+
+			bool ExistDiary(CDiary diary);
+			bool ExistMemo(CMemo memo);
+			bool ExistTimeRemind(CTimeRemind timeRemind);
+			bool ExistDateRemind(CDateRemind dateRemind);
+			
 };
 

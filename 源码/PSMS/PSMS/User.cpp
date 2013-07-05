@@ -20,6 +20,7 @@ bool CUser::ExistUser(CString name)
  return m_ExistUser;
 }
 
+
 void CUser::AddDiary(CDiary diary)
 {
 }
@@ -81,38 +82,70 @@ void CUser::UpdateTimeRemind(CTimeRemind timeRemind)
 
 
 
-
-
-
-CRecordList CUser::GetAllDiary()
+void CUser::GetAllDiary(CDiary*& list)
 {
-	return list;
 }
 
-CRecordList CUser::GetAllMemo()
+void CUser::GetAllMemo(CMemo*& list)
 {
-	return list;
 }
 
-CRecordList CUser::GetAllTimeRemind()
+void CUser::GetAllTimeRemind(CTimeRemind*& list)
 {
-	return list;
 }
 
-CRecordList CUser::GetAllDateRemind()
+void CUser::GetAllDateRemind(CDateRemind*& list)
 {
-	return list;
 }
 
-CRecordList CUser::GetAllHoliday()
+void CUser::GetAllHoliday(CHoliday*& list)
 {
-	return list;
 }
 
 
 
+int CUser::CountAllDiary()
+{return 0;
+}
+
+int CUser::CountAllMemo()
+{return 0;
+}
+
+int CUser::CountAllTimeRemind()
+{return 0;
+}
+
+int CUser::CountAllDateRemind()
+{return 0;
+}
+
+int CUser::CountAllHoliday()
+{return 0;
+}
 
 
+
+
+bool CUser:: ExistDiary(CDiary diary)
+{
+	return false;
+}
+
+bool CUser:: ExistMemo(CMemo memo)
+{
+	return false;
+}
+
+bool CUser:: ExistTimeRemind(CTimeRemind timeRemind)
+{
+	return false;
+}
+
+bool CUser:: ExistDateRemind(CDateRemind dateRemind)
+{
+	return false;
+}
 
 
 void CUser::PurgeDiary()
