@@ -67,7 +67,7 @@ void CSignInDlg::OnBnClickedSignIn()
 	else 
 	{ 
 		if(m_editPassWord==m_szPassword)
-	{AfxMessageBox("登陆成功!");
+	{//AfxMessageBox("登陆成功!");
 	} 
 	else 
 	{  AfxMessageBox("登录密码不正确");
