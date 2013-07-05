@@ -3,6 +3,11 @@
 //
 
 #pragma once
+#include "TimeRemindDlg.h"
+#include "DateRemindDlg.h"
+#include "MemoDlg.h"
+#include "DiaryDlg.h"
+#include "HolidayDlg.h"
 
 
 // CPSMSDlg ¶Ô»°¿ò
@@ -29,4 +34,13 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP();
+public:
+	afx_msg void OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult);
+private:
+	CTabCtrl m_tab;
+	CTimeRemindDlg m_TimeRemindDlg;
+	CDateRemindDlg m_DateRemindDlg;
+	CDiaryDlg m_DiaryDlg;
+	CMemoDlg m_MemoDlg;
+	CHolidayDlg m_HolidayDlg;
 };

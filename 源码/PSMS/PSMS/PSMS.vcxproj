@@ -100,10 +100,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DateRemind.h" />
+    <ClInclude Include="DateRemindDlg.h" />
     <ClInclude Include="Diary.h" />
+    <ClInclude Include="DiaryDlg.h" />
     <ClInclude Include="EditDlg.h" />
     <ClInclude Include="Holiday.h" />
+    <ClInclude Include="HolidayDlg.h" />
     <ClInclude Include="Memo.h" />
+    <ClInclude Include="MemoDlg.h" />
     <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="PSMS.h" />
     <ClInclude Include="PSMSDlg.h" />
@@ -116,14 +120,19 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TimeRemind.h" />
+    <ClInclude Include="TimeRemindDlg.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserDA.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DateRemind.cpp" />
+    <ClCompile Include="DateRemindDlg.cpp" />
     <ClCompile Include="Diary.cpp" />
+    <ClCompile Include="DiaryDlg.cpp" />
     <ClCompile Include="EditDlg.cpp" />
     <ClCompile Include="Holiday.cpp" />
+    <ClCompile Include="HolidayDlg.cpp" />
+    <ClCompile Include="MemoDlg.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="PSMS.cpp" />
     <ClCompile Include="PSMSDlg.cpp" />
@@ -138,6 +147,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TimeRemind.cpp" />
+    <ClCompile Include="TimeRemindDlg.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserDA.cpp" />
   </ItemGroup>

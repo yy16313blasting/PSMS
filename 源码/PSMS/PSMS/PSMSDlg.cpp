@@ -57,12 +57,14 @@ CPSMSDlg::CPSMSDlg(CWnd* pParent /*=NULL*/)
 void CPSMSDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_TAB, m_tab);
 }
 
 BEGIN_MESSAGE_MAP(CPSMSDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB, &CPSMSDlg::OnTcnSelchangeTab)
 END_MESSAGE_MAP()
 
 
@@ -98,22 +100,36 @@ BOOL CPSMSDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
-  
-	CUserDA a;
-	CDiary record;
-	record.SetTitle("hello");
-	record.SetUser("xpm");
-	record.SetDate(2013,7,4);
-	record.SetContent("This is a Sunny day");
+ // 
+	CRect tabRect;
 
-	//a.test();
-	
-	//a.AddDiary(record);
+	m_tab.InsertItem(0, _T("定时提醒"));         // 插入第一个标签“鸡啄米”   
+	m_tab.InsertItem(1, _T("定期提醒"));  // 插入第二个标签“Android开发网”  
+	m_tab.InsertItem(2, _T("个人日记"));
+	m_tab.InsertItem(3, _T("备忘录"));
+	m_tab.InsertItem(4, _T("固定节假日"));
 
-	//record.SetContent("today is a Sunny day");
-	//a.UpdateDiary(record);
+	m_TimeRemindDlg.Create(IDD_TIMEREMIND,&m_tab);
+	m_DateRemindDlg.Create(IDD_DATEREMIND,&m_tab);
+	m_DiaryDlg.Create(IDD_DIARY,&m_tab);
+	m_MemoDlg.Create(IDD_MEMODLG,&m_tab);
+	m_HolidayDlg.Create(IDD_HOLIDAY,&m_tab);
+	//ScreenToClient(&tabRect);
 
-	//a.RemoveDiary(record);
+	m_tab.GetClientRect(&tabRect);    // 获取标签控件客户区Rect   
+
+	// 调整tabRect，使其覆盖范围适合放置标签页   
+    tabRect.left += 1;                  
+    tabRect.right -= 1;   
+	tabRect.top += 25; 
+	tabRect.bottom -= 1;
+
+	// 根据调整好的tabRect放置子对话框，并设置为显示   
+	m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);  
+	m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
+	m_DiaryDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+	m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+	m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 	
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -158,6 +174,7 @@ void CPSMSDlg::OnPaint()
 	{
 		CDialogEx::OnPaint();
 	}
+
 }
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
@@ -165,4 +182,66 @@ void CPSMSDlg::OnPaint()
 HCURSOR CPSMSDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
+}
+
+void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: 在此添加控件通知处理程序代码
+	//if(0 == pNMHDR->idFrom)
+	//	GetDlgItem(IDD_TIMEREMIND)->ShowWindow(SW_SHOW);
+	//if(1 == pNMHDR->idFrom)
+	//	GetDlgItem(IDD_DATEREMIND)->ShowWindow(SW_SHOW);
+	*pResult = 0;
+
+	CRect tabRect;    // 标签控件客户区的Rect   
+	  
+	// 获取标签控件客户区Rect，并对其调整，以适合放置标签页   
+	m_tab.GetClientRect(&tabRect);   
+    tabRect.left += 1;   
+    tabRect.right -= 1;   
+    tabRect.top += 25;   
+    tabRect.bottom -= 1;   
+	  
+    switch (m_tab.GetCurSel())   
+    {   
+		// 如果标签控件当前选择标签为“鸡啄米”，则显示m_jzmDlg对话框，隐藏m_androidDlg对话框   
+		case 0:   
+			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);  
+			m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
+			m_DiaryDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+			break;   
+		// 如果标签控件当前选择标签为“Android开发网”，则隐藏m_jzmDlg对话框，显示m_androidDlg对话框   
+		case 1:   
+			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+	        m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW); 
+	        m_DiaryDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+	        m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+	        m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);   
+			break; 
+		case 2:
+			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+	        m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
+	        m_DiaryDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);  
+	        m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+	        m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
+			break;
+		case 3:
+			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
+			m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
+			m_DiaryDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);  
+			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
+			break;
+		case 4:
+			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
+			m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
+			m_DiaryDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW); 
+			break;
+		default:   
+			break;   
+	}
 }
