@@ -7,7 +7,6 @@
 #include "PSMSDlg.h"
 #include "afxdialogex.h"
 #include "UserDA.h"
-
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -99,13 +98,14 @@ BOOL CPSMSDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
-
+  
 	CUserDA a;
 	CDiary record;
 	record.SetTitle("hello");
 	record.SetUser("xpm");
 	record.SetDate(2013,7,4);
 	record.SetContent("This is a Sunny day");
+
 	//a.test();
 	
 	//a.AddDiary(record);

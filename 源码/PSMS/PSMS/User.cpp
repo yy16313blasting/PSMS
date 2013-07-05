@@ -11,7 +11,14 @@ CUser::~CUser(void)
 {
 }
 
-
+CString CUser::GetUserPassword(CString name)
+{m_szPassword=usrDA.GetUserPassword(name);
+ return m_szPassword;
+}
+bool CUser::ExistUser(CString name)
+{m_ExistUser=usrDA.ExistUser(name);
+ return m_ExistUser;
+}
 
 void CUser::AddDiary(CDiary diary)
 {

@@ -7,19 +7,21 @@
 #include "Diary.h"
 #include "Holiday.h"
 #include "RecordList.h"
+#include "UserDA.h"
 class CUser
 {
 	private:
 			CString m_szName;
 			 CString m_szPassword;
 			 BOOL  isOnline;
+			 bool m_ExistUser;
              CRecordList list;
+			 CUserDA usrDA;
 		public:
 			CUser(void);
 			~CUser(void);
-			CString GetName();
-			CString GetPassword();
-
+			CString GetUserPassword(CString name);
+			bool ExistUser(CString name);
 			void  PurgeDateRemind();
 			void  PurgeDiary();
 			void  PurgeMemo();

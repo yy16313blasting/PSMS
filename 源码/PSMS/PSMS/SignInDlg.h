@@ -1,5 +1,5 @@
 #pragma once
-
+#include "User.h"
 
 // CSignInDlg ¶Ô»°¿ò
 
@@ -19,5 +19,8 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	CUser user;
 	afx_msg void OnBnClickedSignIn();
+	CString m_editUserName;
+	CString m_editPassWord;
 };

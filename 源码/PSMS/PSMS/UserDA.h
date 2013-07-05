@@ -59,7 +59,6 @@ public:
 
 	CString GetUserPassword(CString name);
 	bool ExistUser(CString name);
-	
 
 	void ExcuteSql(CString sql);
 
