@@ -23,4 +23,7 @@ public:
 	afx_msg void OnBnClickedSignIn();
 	CString m_editUserName;
 	CString m_editPassWord;
+	afx_msg BOOL CSignInDlg::PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnBnClickedQuit();
+	afx_msg void OnBnClickedToSignUp();
 };

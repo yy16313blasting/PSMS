@@ -6,7 +6,7 @@
 #include "SignInDlg.h"
 #include "afxdialogex.h"
 #include "PSMSDlg.h"
-
+#include "SignUpDlg.h"
 
 // CSignInDlg 对话框
 
@@ -34,6 +34,8 @@ void CSignInDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CSignInDlg, CDialog)
 	ON_BN_CLICKED(IDC_SIGN_IN, &CSignInDlg::OnBnClickedSignIn)
+	ON_BN_CLICKED(IDC_QUIT, &CSignInDlg::OnBnClickedQuit)
+	ON_BN_CLICKED(IDC_TO_SIGN_UP, &CSignInDlg::OnBnClickedToSignUp)
 END_MESSAGE_MAP()
 
 
@@ -57,6 +59,9 @@ void CSignInDlg::OnBnClickedSignIn()
 	 m_szPassword=user.GetUserPassword(m_editUserName);
 	 if(ExistUser==FALSE)
 	{AfxMessageBox("没有该用户");
+	 GetDlgItem(IDC_INPUT_USERNAME)->SetWindowText(""); 
+	 GetDlgItem(IDC_INPUT_PASSWORD)->SetWindowText(""); 
+	 GetDlgItem(IDC_INPUT_USERNAME)->SetFocus();
 	  return;
 	} 
 	else 
@@ -66,6 +71,9 @@ void CSignInDlg::OnBnClickedSignIn()
 	} 
 	else 
 	{  AfxMessageBox("登录密码不正确");
+		GetDlgItem(IDC_INPUT_USERNAME)->SetWindowText(""); 
+		GetDlgItem(IDC_INPUT_PASSWORD)->SetWindowText(""); 
+		GetDlgItem(IDC_INPUT_USERNAME)->SetFocus();
 	   return;
 	}
 	}
@@ -75,4 +83,29 @@ void CSignInDlg::OnBnClickedSignIn()
 	this->ShowWindow(SW_HIDE);
 	dlg.DoModal();
 	this->DestroyWindow();
+}
+BOOL CSignInDlg::PreTranslateMessage(MSG* pMsg)
+{
+	
+
+if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
+if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_RETURN) 
+{OnBnClickedSignIn();
+}
+else
+return CDialog::PreTranslateMessage(pMsg);
+} 
+
+void CSignInDlg::OnBnClickedQuit()
+{   this->DestroyWindow();
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CSignInDlg::OnBnClickedToSignUp()
+{CSignUpDlg dlg;
+	this->ShowWindow(SW_HIDE);
+	dlg.DoModal();
+	this->DestroyWindow();
+	// TODO: 在此添加控件通知处理程序代码
 }
