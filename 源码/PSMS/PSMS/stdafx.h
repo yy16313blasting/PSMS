@@ -39,7 +39,7 @@
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
 #include <afxcontrolbars.h>     // 功能区和控件条的 MFC 支持
-
+#include "MusicPlayer.h"        // 音频控制
 
 
 

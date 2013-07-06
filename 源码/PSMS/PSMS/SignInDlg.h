@@ -23,7 +23,7 @@ public:
 	afx_msg void OnBnClickedSignIn();
 	CString m_editUserName;
 	CString m_editPassWord;
-	afx_msg BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg BOOL CSignInDlg::PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedQuit();
 	afx_msg void OnBnClickedToSignUp();
 	afx_msg void OnBnClickedUpdatePassword();
@@ -38,4 +38,6 @@ private:
 	CFont m_font;
 public:
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	afx_msg void OnEnChangeInputPassword();
+	afx_msg void OnEnChangeInputUsername();
 };
