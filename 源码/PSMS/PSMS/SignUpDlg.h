@@ -21,6 +21,7 @@ protected:
 public:
 	afx_msg void OnBnClickedSignUp();
 	afx_msg void OnBnClickedReturn();
+	afx_msg BOOL PreTranslateMessage(MSG* pMsg);
 private:
 	CFont m_font;
 public:

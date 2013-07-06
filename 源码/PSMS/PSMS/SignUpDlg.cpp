@@ -92,3 +92,13 @@ HBRUSH CSignUpDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	// TODO:  如果默认的不是所需画笔，则返回另一个画笔
 	return hbr;
 }
+BOOL CSignUpDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_RETURN) 
+	{
+		OnBnClickedSignUp();
+	}
+	else
+		return CDialog::PreTranslateMessage(pMsg);
+} 
