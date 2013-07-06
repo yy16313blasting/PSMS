@@ -12,10 +12,8 @@ class CUser
 {
 	private:
 			CString m_szName;
-			 CString m_szPassword;
 			 BOOL  isOnline;
-			 bool m_ExistUser;
-             CRecordList list;
+  //           CRecordList list;
 			 CUserDA usrDA;
 		public:
 			CUser(void);
