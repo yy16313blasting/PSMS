@@ -96,7 +96,7 @@ BOOL CPSMSDlg::OnInitDialog()
 	// TODO: 在此添加额外的初始化代码
 	CRect tabRect;
 
-	m_tab.InsertItem(0, _T("定时提醒"));         // 插入第一个标签“鸡啄米”   
+	m_tab.InsertItem(0, _T("定时提醒"));           
 	m_tab.InsertItem(1, _T("定期提醒"));  
 	m_tab.InsertItem(2, _T("个人日记"));
 	m_tab.InsertItem(3, _T("备忘录"));
