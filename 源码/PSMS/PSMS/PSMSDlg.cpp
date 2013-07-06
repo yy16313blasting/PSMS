@@ -7,6 +7,8 @@
 #include "PSMSDlg.h"
 #include "afxdialogex.h"
 #include "UserDA.h"
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -57,9 +59,10 @@ void CPSMSDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CPSMSDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
-	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB, &CPSMSDlg::OnTcnSelchangeTab)
+	ON_MESSAGE(WM_SHOWTASK,OnShowTask)
+	ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 // CPSMSDlg 消息处理程序
@@ -94,6 +97,16 @@ BOOL CPSMSDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+
+	m_nid.cbSize  = (DWORD)sizeof(NOTIFYICONDATA);
+    m_nid.hWnd    = this->m_hWnd;
+    m_nid.uID     = IDR_MAINFRAME;
+    m_nid.uFlags  = NIF_ICON | NIF_MESSAGE | NIF_TIP ;
+    m_nid.uCallbackMessage = WM_SHOWTASK;             // 自定义的消息名称
+    m_nid.hIcon   = LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDR_MAINFRAME));
+    strcpy(m_nid.szTip, "个人日程管理");                // 信息提示条为"个人日程管理"，VS2008 UNICODE编码用wcscpy_s()函数
+    Shell_NotifyIcon(NIM_ADD, &m_nid);                // 在托盘区添加图标
+
 	CRect tabRect;
 
 	m_tab.InsertItem(0, _T("定时提醒"));           
@@ -140,34 +153,6 @@ void CPSMSDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// 如果向对话框添加最小化按钮，则需要下面的代码
-//  来绘制该图标。对于使用文档/视图模型的 MFC 应用程序，
-//  这将由框架自动完成。
-
-void CPSMSDlg::OnPaint()
-{
-	if (IsIconic())
-	{
-		CPaintDC dc(this); // 用于绘制的设备上下文
-
-		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
-
-		// 使图标在工作区矩形中居中
-		int cxIcon = GetSystemMetrics(SM_CXICON);
-		int cyIcon = GetSystemMetrics(SM_CYICON);
-		CRect rect;
-		GetClientRect(&rect);
-		int x = (rect.Width() - cxIcon + 1) / 2;
-		int y = (rect.Height() - cyIcon + 1) / 2;
-
-		// 绘制图标
-		dc.DrawIcon(x, y, m_hIcon);
-	}
-	else
-	{
-		CDialogEx::OnPaint();
-	}
-}
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
@@ -240,4 +225,55 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 		default:   
 			break;   
 	}
+}
+
+LRESULT CPSMSDlg::OnShowTask(WPARAM wParam, LPARAM lParam)
+{
+           if(wParam != IDR_MAINFRAME)
+                  return 1;
+           switch(lParam)
+           {
+			case WM_RBUTTONUP:                                        // 右键起来时弹出菜单
+            {
+                    
+                    LPPOINT lpoint = new tagPOINT;
+                    ::GetCursorPos(lpoint);                    // 得到鼠标位置
+                    CMenu menu;
+                    menu.CreatePopupMenu();                    // 声明一个弹出式菜单
+                    menu.AppendMenu(MF_STRING, WM_DESTROY, "关闭");
+                    menu.TrackPopupMenu(TPM_LEFTALIGN, lpoint->x ,lpoint->y, this);
+                    HMENU hmenu = menu.Detach();
+                    menu.DestroyMenu();
+                    delete lpoint;
+					lpoint=NULL;
+            }
+            break;
+			 case WM_LBUTTONDBLCLK:                                 // 双击左键的处理
+            {
+                    this->ShowWindow(SW_SHOW);         // 显示主窗口
+            }
+				break;
+			}
+    return 0;
+}
+
+void CPSMSDlg::OnClose()
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	this->ShowWindow(SW_HIDE);
+}
+
+//BOOL CPSMSDlg::DestroyWindow()
+//{
+//	// TODO: 在此添加专用代码和/或调用基类
+//	//Shell_NotifyIcon(NIM_DELETE, &m_nid);
+//	return CDialog::DestroyWindow();
+//	
+//}
+
+BOOL CPSMSDlg::DestroyWindow()
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	Shell_NotifyIcon(NIM_DELETE, &m_nid);
+	return CDialogEx::DestroyWindow();
 }

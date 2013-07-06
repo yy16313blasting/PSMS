@@ -26,6 +26,9 @@
 
 #include <afxdisp.h>        // MFC 自动化类
 
+#include "SkinMagicLib.h"
+#pragma comment(lib, "SkinMagicTrial.lib")
+
 #import "msado15.dll" no_namespace rename ("EOF", "adoEOF")
 
 
