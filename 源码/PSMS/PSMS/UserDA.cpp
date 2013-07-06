@@ -255,7 +255,7 @@ void CUserDA::GetAllDiary(CDiary*& list)
 void CUserDA::GetAllMemo(CMemo*& list)
 {
 	CString sql;
-	sql.Format("SWLWCT * FROM Memo");
+	sql.Format("SELECT * FROM Memo");
 
 	try
 	{
@@ -405,8 +405,8 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 		try
 		{
 			list[i].SetTitle((char*)(_bstr_t)m_pRecordset->GetCollect("szTitle"));
-			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
-			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
+			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("Message"));
+		//	list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
 			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
 		}
 		catch(_com_error e)
@@ -423,6 +423,130 @@ int CUserDA::CountAllDiary()
 {
 	CString sql;
 	sql.Format("SELECT * FROM Diary");
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return 0;
+	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		m_pRecordset->MoveNext();
+		i++;
+	}
+	return i;
+}
+
+int CUserDA::CountAllMemo()
+{
+	CString sql;
+	sql.Format("SELECT * FROM Memo");
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return 0;
+	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		m_pRecordset->MoveNext();
+		i++;
+	}
+	return i;
+}
+
+int CUserDA::CountAllTimeRemind()
+{
+	CString sql;
+	sql.Format("SELECT * FROM TimeRemind");
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return 0;
+	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		m_pRecordset->MoveNext();
+		i++;
+	}
+	return i;
+}
+
+int CUserDA::CountAllDateRemind()
+{
+	CString sql;
+	sql.Format("SELECT * FROM DateRemind");
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	catch(_com_error e)
+	{
+		AfxMessageBox(e.Description());
+	}
+	int count=m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return 0;
+	}
+	m_pRecordset->MoveLast();
+	m_pRecordset->MoveFirst();
+	int i=0;
+	while(!m_pRecordset->adoEOF)
+	{
+		m_pRecordset->MoveNext();
+		i++;
+	}
+	return i;
+}
+
+int CUserDA::CountAllHoliday()
+{
+	CString sql;
+	sql.Format("SELECT * FROM Holiday");
 	
 	try
 	{

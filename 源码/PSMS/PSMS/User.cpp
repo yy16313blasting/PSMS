@@ -86,27 +86,27 @@ void CUser::UpdateTimeRemind(CTimeRemind timeRemind)
 
 void CUser::GetAllDiary(CDiary*& list)
 {
-	usrDA.GetAllDiary(*&list);
+	usrDA.GetAllDiary(list);
 }
 
 void CUser::GetAllMemo(CMemo*& list)
 {
-	usrDA.GetAllMemo(*&list);
+	usrDA.GetAllMemo(list);
 }
 
 void CUser::GetAllTimeRemind(CTimeRemind*& list)
 {
-	usrDA.GetAllTimeRemind(*&list);
+	usrDA.GetAllTimeRemind(list);
 }
 
 void CUser::GetAllDateRemind(CDateRemind*& list)
 {
-	usrDA.GetAllDateRemind(*&list);
+	usrDA.GetAllDateRemind(list);
 }
 
 void CUser::GetAllHoliday(CHoliday*& list)
 {
-	usrDA.GetAllHoliday(*&list);
+	usrDA.GetAllHoliday(list);
 }
 
 int CUser::CountAllDiary()
@@ -116,6 +116,33 @@ int CUser::CountAllDiary()
 		return CountAllDiary;
 }
 
+int CUser::CountAllMemo()
+{
+		int CountAllMemo;
+		CountAllMemo=usrDA.CountAllMemo();
+		return CountAllMemo;
+}
+
+int CUser::CountAllTimeRemind()
+{
+		int CountAllTimeRemind;
+		CountAllTimeRemind=usrDA.CountAllTimeRemind();
+		return CountAllTimeRemind;
+}
+
+int CUser::CountAllDateRemind()
+{
+		int CountAllDateRemind;
+		CountAllDateRemind=usrDA.CountAllDateRemind();
+		return CountAllDateRemind;
+}
+
+int CUser::CountAllHoliday()
+{
+		int CountAllHoliday;
+		CountAllHoliday=usrDA.CountAllHoliday();
+		return CountAllHoliday;
+}
 bool CUser:: ExistDiary(CDiary diary)
 {		
 	return false;

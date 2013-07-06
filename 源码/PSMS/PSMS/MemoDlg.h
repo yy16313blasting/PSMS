@@ -1,5 +1,5 @@
 #pragma once
-
+#include"User.h"
 
 // CMemoDlg 对话框
 
@@ -18,4 +18,9 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 
 	DECLARE_MESSAGE_MAP()
+public:
+	CUser user;
+	void InitListCtrol();
+	void ShowList();
+	CListCtrl m_MemoList;
 };

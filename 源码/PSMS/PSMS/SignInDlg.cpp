@@ -102,8 +102,8 @@ void CSignInDlg::OnBnClickedSignIn()
 
 
 	CPSMSDlg dlg;
-	this->ShowWindow(SW_HIDE);
 	dlg.DoModal();
+	this->ShowWindow(SW_HIDE);
 	this->DestroyWindow();
 
 	

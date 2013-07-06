@@ -1,5 +1,5 @@
 #pragma once
-
+#include"User.h"
 // CHolidayDlg 对话框
 
 class CHolidayDlg : public CDialog
@@ -17,4 +17,9 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 
 	DECLARE_MESSAGE_MAP()
+public:
+	CUser user;
+	CListCtrl m_HolidayList;
+	void InitListCtrol();
+	void ShowList();
 };
