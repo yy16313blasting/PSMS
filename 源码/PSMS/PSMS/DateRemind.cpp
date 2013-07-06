@@ -4,7 +4,7 @@
 
 CDateRemind::CDateRemind(void)
 {
-	m_nRemindFrequency = 0;
+	m_nRemindFrequency = 10;
 }
 
 int CDateRemind::GetRemindFrequency(void)

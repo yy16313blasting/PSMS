@@ -7,7 +7,6 @@ CRecord::CRecord(void)
 	isCanceled = false;
 }
 
-
 int CRecord::GetYear(void)
 {
 	return m_nYear;
@@ -38,12 +37,14 @@ CString CRecord::GetContent(void)
 	return m_szContent;
 }
 
+/*
 void CRecord::SetDate(int year, int month, int day)
 {
 	this->m_nYear = year;
 	this->m_nMonth = month;
 	this->m_nDay = day;
 }
+*/
 
 void CRecord::SetTitle(CString title)
 {

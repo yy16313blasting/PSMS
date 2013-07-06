@@ -14,5 +14,4 @@ public:
 	int GetRemindFrequency(void);
 	void SetRemindFrequency(int frequency);
 	void SetDateTime(CString date);
-
 };

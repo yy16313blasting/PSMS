@@ -29,12 +29,13 @@ void CTimeRemind::SetRemindFrequency(int frequency)
 	this->m_nRemindFrequency = frequency;
 }
 
+/*
 void CTimeRemind::SetTime(int hour, int minute)
 {
 	this->m_nHour = hour;
 	this->m_nMinute = minute;
 }
-
+*/
 
 void CTimeRemind::SetDateTime(CString date)
 {

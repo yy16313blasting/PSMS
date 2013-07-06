@@ -11,7 +11,6 @@
 #define new DEBUG_NEW
 #endif
 
-
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
 class CAboutDlg : public CDialogEx
@@ -42,11 +41,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
-
 // CPSMSDlg 对话框
-
-
-
 
 CPSMSDlg::CPSMSDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CPSMSDlg::IDD, pParent)
@@ -66,7 +61,6 @@ BEGIN_MESSAGE_MAP(CPSMSDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB, &CPSMSDlg::OnTcnSelchangeTab)
 END_MESSAGE_MAP()
-
 
 // CPSMSDlg 消息处理程序
 
@@ -100,7 +94,6 @@ BOOL CPSMSDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
- // 
 	CRect tabRect;
 
 	m_tab.InsertItem(0, _T("定时提醒"));         // 插入第一个标签“鸡啄米”   
@@ -174,7 +167,6 @@ void CPSMSDlg::OnPaint()
 	{
 		CDialogEx::OnPaint();
 	}
-
 }
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
@@ -187,10 +179,6 @@ HCURSOR CPSMSDlg::OnQueryDragIcon()
 void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	// TODO: 在此添加控件通知处理程序代码
-	//if(0 == pNMHDR->idFrom)
-	//	GetDlgItem(IDD_TIMEREMIND)->ShowWindow(SW_SHOW);
-	//if(1 == pNMHDR->idFrom)
-	//	GetDlgItem(IDD_DATEREMIND)->ShowWindow(SW_SHOW);
 	*pResult = 0;
 
 	CRect tabRect;    // 标签控件客户区的Rect   
@@ -204,7 +192,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	  
     switch (m_tab.GetCurSel())   
     {   
-		// 如果标签控件当前选择标签为“鸡啄米”，则显示m_jzmDlg对话框，隐藏m_androidDlg对话框   
+		// 如果标签控件当前选择标签为“定时提醒”，则显示TimeReminddlg对话框，隐藏其它对话框   
 		case 0:   
 			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);  
 			m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
@@ -212,7 +200,8 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			break;   
-		// 如果标签控件当前选择标签为“Android开发网”，则隐藏m_jzmDlg对话框，显示m_androidDlg对话框   
+
+		// 如果标签控件当前选择标签为“定期提醒”，则显示DateRemindDlg对话框，隐藏其它对话框   
 		case 1:   
 			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 	        m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW); 
@@ -220,6 +209,8 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	        m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 	        m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);   
 			break; 
+
+		// 如果标签控件当前选择标签为“个人日志”，则显示DiaryDlg对话框，隐藏其它对话框
 		case 2:
 			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 	        m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
@@ -227,6 +218,8 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	        m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 	        m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
 			break;
+
+		// 如果标签控件当前选择标签为“备忘录”，则显示MemoDlg对话框，隐藏其它对话框
 		case 3:
 			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
 			m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
@@ -234,6 +227,8 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);  
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
 			break;
+
+		// 如果标签控件当前选择标签为“固定节假日”，则显示HolidayDlg对话框，隐藏其它对话框
 		case 4:
 			m_TimeRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
 			m_DateRemindDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
@@ -241,6 +236,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW); 
 			break;
+
 		default:   
 			break;   
 	}

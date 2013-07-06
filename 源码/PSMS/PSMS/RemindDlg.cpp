@@ -14,7 +14,6 @@ IMPLEMENT_DYNAMIC(CRemindDlg, CDialog)
 CRemindDlg::CRemindDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CRemindDlg::IDD, pParent)
 {
-
 }
 
 CRemindDlg::~CRemindDlg()
@@ -29,6 +28,3 @@ void CRemindDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CRemindDlg, CDialog)
 END_MESSAGE_MAP()
-
-
-// CRemindDlg 消息处理程序

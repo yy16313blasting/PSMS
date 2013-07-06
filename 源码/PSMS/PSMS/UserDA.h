@@ -13,7 +13,6 @@ class CUserDA
 private:
 	_ConnectionPtr m_pConnection;
 	_RecordsetPtr m_pRecordset;
-	CRecordList list;
 public:
 	CUserDA(void);
 	~CUserDA(void);
@@ -63,6 +62,5 @@ public:
 	bool ExistUser(CString name);
 
 	void ExcuteSql(CString sql);
-
 };
 

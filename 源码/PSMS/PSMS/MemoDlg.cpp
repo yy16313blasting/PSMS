@@ -14,7 +14,6 @@ IMPLEMENT_DYNAMIC(CMemoDlg, CDialog)
 CMemoDlg::CMemoDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMemoDlg::IDD, pParent)
 {
-
 }
 
 CMemoDlg::~CMemoDlg()

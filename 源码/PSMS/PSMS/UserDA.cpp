@@ -9,7 +9,6 @@ CUserDA::CUserDA(void)
 	InitConnection();
 }
 
-
 CUserDA::~CUserDA(void)
 {
 	/*if(m_pConnection->State)
@@ -27,7 +26,8 @@ bool CUserDA::InitConnection()
 	::CoInitialize(NULL);
 	HRESULT hr; 
 	try
-	{								// 实例化连接对象 
+	{	
+		// 实例化连接对象 
 		hr = m_pConnection.CreateInstance(__uuidof(Connection)); 
 		if( SUCCEEDED( hr ) )
 		{
@@ -35,9 +35,8 @@ bool CUserDA::InitConnection()
 			m_pConnection->ConnectionTimeout=20; 
 
 			m_pConnection->Open((_bstr_t)"Provider=Microsoft.Jet.OLEDB.4.0;\
-				Data Source=DataBase.mdb;\
-			Jet OLEDB:Database Password=","","",adModeUnknown);
-			
+								Data Source=DataBase.mdb;\
+								Jet OLEDB:Database Password=","","",adModeUnknown);
 		}
 		//AfxMessageBox("连接成功！！");
 	}
@@ -102,7 +101,6 @@ void CUserDA::ExcuteSql(CString sql)
 	}
 	//m_pRecordset.Release();
 }
-
 
 void CUserDA::CreateTable(CString tableName)
 {
@@ -173,14 +171,12 @@ void CUserDA::RemoveTimeRemind(CTimeRemind timeRemind)
 	ExcuteSql(sql);
 }
 
-
 void CUserDA::RemoveDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
 	sql.Format("delete * from DateRemind where szTitle = '%s'",dateRemind.GetTitle());
 	ExcuteSql(sql);
 }
-
 
 void CUserDA::UpdateDiary(CDiary diary)
 {
@@ -421,7 +417,6 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 		i++;
 	}
 }
-
 
 //获取表中记录的个数
 int CUserDA::CountAllDiary()

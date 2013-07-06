@@ -18,9 +18,7 @@ IMPLEMENT_DYNAMIC(CSignInDlg, CDialog)
 	, m_editUserName(_T(""))
 	, m_editPassWord(_T(""))
 {
-
 }
-
 
 CSignInDlg::~CSignInDlg()
 {
@@ -43,9 +41,7 @@ BEGIN_MESSAGE_MAP(CSignInDlg, CDialog)
 	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
-
 // CSignInDlg 消息处理程序
-
 
 void CSignInDlg::OnBnClickedSignIn()
 {  
@@ -92,12 +88,12 @@ void CSignInDlg::OnBnClickedSignIn()
 		}
 	}
 
-
 	CPSMSDlg dlg;
 	this->ShowWindow(SW_HIDE);
 	dlg.DoModal();
 	this->DestroyWindow();
 }
+
 BOOL CSignInDlg::PreTranslateMessage(MSG* pMsg)
 {
 	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
@@ -112,9 +108,7 @@ BOOL CSignInDlg::PreTranslateMessage(MSG* pMsg)
 void CSignInDlg::OnBnClickedQuit()
 {  
 	this->DestroyWindow();
-	// TODO: 在此添加控件通知处理程序代码
 }
-
 
 void CSignInDlg::OnBnClickedToSignUp()
 {
@@ -122,9 +116,7 @@ void CSignInDlg::OnBnClickedToSignUp()
 	this->ShowWindow(SW_HIDE);
 	dlg.DoModal();
 	this->ShowWindow(SW_SHOW);
-	// TODO: 在此添加控件通知处理程序代码
 }
-
 
 void CSignInDlg::OnBnClickedUpdatePassword()
 {
@@ -164,10 +156,9 @@ BOOL CSignInDlg::OnInitDialog()
 	 m_brush.CreateSolidBrush(RGB(255,255,255));  
 	 m_font.CreatePointFont(150,"微软雅黑");
 
-	return TRUE;  // return TRUE unless you set the focus to a control
+	return TRUE; 
 	// 异常: OCX 属性页应返回 FALSE
 }
-
 
 void CSignInDlg::OnBnClickedCancel()
 {
@@ -184,27 +175,13 @@ void CSignInDlg::OnBnClickedCancel()
 	}
 }
 
-
 HBRUSH CSignInDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-/*	if (pWnd->GetDlgCtrlID()==IDC_S1)    
-  {
-      pDC->SetTextColor(RGB(0,255,0));  
-      pDC->SetBkMode(TRANSPARENT);  
-      pDC->SetBkColor(RGB(255,0,0));  
-      return m_brush;               
-  }   */
-  if (pWnd->GetDlgCtrlID()==IDC_S1)  
-  {
-      pDC->SelectObject(&m_font);   
-  }
 
- return hbr;
-
-	// TODO:  在此更改 DC 的任何特性
-
-	// TODO:  如果默认的不是所需画笔，则返回另一个画笔
-	//return hbr;
-	//return m_brush;
+	if (pWnd->GetDlgCtrlID()==IDC_S1)  
+	{
+		pDC->SelectObject(&m_font);   
+	}
+	return hbr;
 }

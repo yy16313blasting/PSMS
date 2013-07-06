@@ -1,6 +1,5 @@
 
 // PSMSDlg.h : 头文件
-//
 
 #pragma once
 #include "TimeRemindDlg.h"
@@ -8,7 +7,6 @@
 #include "MemoDlg.h"
 #include "DiaryDlg.h"
 #include "HolidayDlg.h"
-
 
 // CPSMSDlg 对话框
 class CPSMSDlg : public CDialogEx
@@ -22,7 +20,6 @@ public:
 
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
-
 
 // 实现
 protected:

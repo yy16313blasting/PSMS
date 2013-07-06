@@ -6,7 +6,6 @@
 #include "HolidayDlg.h"
 #include "afxdialogex.h"
 
-
 // CHolidayDlg ¶Ô»°¿ò
 
 IMPLEMENT_DYNAMIC(CHolidayDlg, CDialog)
@@ -14,7 +13,6 @@ IMPLEMENT_DYNAMIC(CHolidayDlg, CDialog)
 CHolidayDlg::CHolidayDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CHolidayDlg::IDD, pParent)
 {
-
 }
 
 CHolidayDlg::~CHolidayDlg()

@@ -26,6 +26,6 @@ public:
 	CString GetTitle(void);
 	CString GetUser(void);
 	virtual CString GetDate(void);
-	void SetDate(int year, int month, int day);
+	//void SetDate(int year, int month, int day);
 	void SetDate(CString date);
 };

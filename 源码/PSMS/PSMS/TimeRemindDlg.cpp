@@ -14,7 +14,6 @@ IMPLEMENT_DYNAMIC(CTimeRemindDlg, CDialog)
 CTimeRemindDlg::CTimeRemindDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CTimeRemindDlg::IDD, pParent)
 {
-
 }
 
 CTimeRemindDlg::~CTimeRemindDlg()

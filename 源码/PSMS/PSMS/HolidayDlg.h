@@ -1,6 +1,5 @@
 #pragma once
 
-
 // CHolidayDlg ¶Ô»°¿ò
 
 class CHolidayDlg : public CDialog
