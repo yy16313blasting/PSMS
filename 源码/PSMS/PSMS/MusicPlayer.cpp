@@ -4,7 +4,7 @@
 #pragma comment(lib,"winmm.lib")
 
 //使用初始化列表的方式初始化
-CMusicPlayer::CMusicPlayer(CString p):m_strMuPath("")
+CMusicPlayer::CMusicPlayer():m_strMuPath(""),m_lpMuPath("")
 {
 };
 
@@ -14,33 +14,12 @@ CMusicPlayer::~CMusicPlayer(void)
 }
 
 //实现成员函数
-void CMusicPlayer::playAudioOfDiary(void)
-{
-	 PlaySound("..\\PSMS\\res\\001.wav", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
-}
-void CMusicPlayer::playAudioOfMemo(void)
-{
-	PlaySound("..\\PSMS\\res\\002", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
-}
-void CMusicPlayer::playAudioOfTimeRemind(void)
-{
-	PlaySound("..\\PSMS\\res\\003", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
-}
-void CMusicPlayer::playAudioOfDateRemind(void)
-{
-	PlaySound("..\\PSMS\\res\\004", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
-}
-void CMusicPlayer::playAudioOfHoliday(void)
-{
-	PlaySound("..\\PSMS\\res\\005", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
-}
-
 //打开文件以及返回文件的成员方法的实现
 CString CMusicPlayer::BootOpenDialog(void)
 {
 	CString strFile = _T("");
 
-    CFileDialog    dlgFile(TRUE, NULL, NULL, OFN_HIDEREADONLY, _T("Describe Files (*.wav)|*.wav|All Files (*.*)|*.*||"), NULL);
+    CFileDialog    dlgFile(TRUE, NULL, NULL, OFN_HIDEREADONLY, _T("Music Files (*.wav)|*.wav|All Files (*.*)|*.*||"), NULL);
     if (dlgFile.DoModal())
     {
         strFile = dlgFile.GetPathName();//获取文件路径getpathname（）
@@ -52,31 +31,26 @@ void CMusicPlayer::transferPath(void)
 	m_strMuPath = "";
 	//打开文件对话框，返回文件路径
 	m_strMuPath = BootOpenDialog();
+	//对字符串进行操作，删去".wav”
+	m_strMuPath.TrimRight(".wav");
 }
 
-void CMusicPlayer::write(void)
+//修改声音的接口和实现
+void CMusicPlayer::write(LPCTSTR path)
 {
-	LPCTSTR lpAppName = "Path";
-	LPCTSTR lpKeyName = "path";
-	//lpString = m_strMuPath;
-	LPTSTR lpPath = new char[MAX_PATH];
-	strcpy(lpPath, ROAD);
-	WritePrivateProfileString(lpAppName,lpKeyName,m_strMuPath,lpPath);
-	delete [] lpPath;
-
+	WritePrivateProfileString("Path",path,m_strMuPath,ROAD);
 }
+
+
 
 //传出路径
-LPTSTR CMusicPlayer::read()
+void CMusicPlayer::read(LPCTSTR path)
 {
-	LPTSTR	ReturnedString = new char[MAX_PATH];
-	LPCTSTR lpAppName = "Path";
-	LPCTSTR lpKeyName = "path";
-	LPCTSTR lpDefault = "";
-	LPTSTR lpReturnedString = new char[MAX_PATH];
-	DWORD nSize = MAX_PATH;
-	LPTSTR lpPath = new char[MAX_PATH];
-	strcpy(lpPath, "");
+	m_lpMuPath = new char[MAX_PATH];//new
+	GetPrivateProfileString("Path",path,"",m_lpMuPath,MAX_PATH,ROAD);
+
+	
+	/*
 	//此函数内部自动进行赋值操作
     GetPrivateProfileString(
 						   lpAppName,        // INI文件中的一个字段名[节名]可以有很多个节名
@@ -88,4 +62,37 @@ LPTSTR CMusicPlayer::read()
 							);
 	return lpReturnedString;
 	delete [] lpPath;
+	*/
+}
+
+//声音调用的接口，实现
+void CMusicPlayer::playAudioOfDiary(LPCTSTR path)
+{
+	read(path);
+	PlaySound(m_lpMuPath, NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	delete [] m_lpMuPath;//delete
+}
+void CMusicPlayer::playAudioOfMemo(LPCTSTR path)
+{
+	read(path);
+	PlaySound("..\\PSMS\\res\\002", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	delete [] m_lpMuPath;//delete
+}
+void CMusicPlayer::playAudioOfTimeRemind(LPCTSTR path)
+{
+	read(path);
+	PlaySound("..\\PSMS\\res\\003", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	delete [] m_lpMuPath;//delete
+}
+void CMusicPlayer::playAudioOfDateRemind(LPCTSTR path)
+{
+	read(path);
+	PlaySound("..\\PSMS\\res\\004", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	delete [] m_lpMuPath;//delete
+}
+void CMusicPlayer::playAudioOfHoliday(LPCTSTR path)
+{
+	read(path);
+	PlaySound("..\\PSMS\\res\\005", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	delete [] m_lpMuPath;//delete
 }
