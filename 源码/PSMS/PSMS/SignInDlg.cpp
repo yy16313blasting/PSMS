@@ -40,6 +40,7 @@ BEGIN_MESSAGE_MAP(CSignInDlg, CDialog)
 	ON_BN_CLICKED(IDC_TO_SIGN_UP, &CSignInDlg::OnBnClickedToSignUp)
 	ON_BN_CLICKED(IDC_UPDATE_PASSWORD, &CSignInDlg::OnBnClickedUpdatePassword)
 	ON_BN_CLICKED(IDC_CANCEL, &CSignInDlg::OnBnClickedCancel)
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -160,6 +161,9 @@ BOOL CSignInDlg::OnInitDialog()
 	m_nMinWindowHeight=son_rect.top-rect.top;
 	SetWindowPos(NULL,rect.left,rect.top,rect.Width(),m_nMinWindowHeight,SWP_SHOWWINDOW);
 
+	 m_brush.CreateSolidBrush(RGB(255,255,255));  
+	 m_font.CreatePointFont(150,"微软雅黑");
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }
@@ -178,4 +182,29 @@ void CSignInDlg::OnBnClickedCancel()
 		height-=step;
 		Sleep(1);
 	}
+}
+
+
+HBRUSH CSignInDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+/*	if (pWnd->GetDlgCtrlID()==IDC_S1)    
+  {
+      pDC->SetTextColor(RGB(0,255,0));  
+      pDC->SetBkMode(TRANSPARENT);  
+      pDC->SetBkColor(RGB(255,0,0));  
+      return m_brush;               
+  }   */
+  if (pWnd->GetDlgCtrlID()==IDC_S1)  
+  {
+      pDC->SelectObject(&m_font);   
+  }
+
+ return hbr;
+
+	// TODO:  在此更改 DC 的任何特性
+
+	// TODO:  如果默认的不是所需画笔，则返回另一个画笔
+	//return hbr;
+	//return m_brush;
 }

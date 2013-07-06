@@ -21,4 +21,8 @@ protected:
 public:
 	afx_msg void OnBnClickedSignUp();
 	afx_msg void OnBnClickedReturn();
+private:
+	CFont m_font;
+public:
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

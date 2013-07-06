@@ -33,4 +33,9 @@ private:
 public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedCancel();
+private:
+	CBrush m_brush;
+	CFont m_font;
+public:
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

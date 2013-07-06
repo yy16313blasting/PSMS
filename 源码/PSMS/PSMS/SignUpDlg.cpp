@@ -25,12 +25,14 @@ CSignUpDlg::~CSignUpDlg()
 void CSignUpDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	m_font.CreatePointFont(150,"微软雅黑");
 }
 
 
 BEGIN_MESSAGE_MAP(CSignUpDlg, CDialog)
 	ON_BN_CLICKED(IDC_SIGN_UP, &CSignUpDlg::OnBnClickedSignUp)
 	ON_BN_CLICKED(IDC_RETURN, &CSignUpDlg::OnBnClickedReturn)
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -73,4 +75,20 @@ void CSignUpDlg::OnBnClickedReturn()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	this->SendMessage(WM_CLOSE);
+}
+
+
+HBRUSH CSignUpDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	if (pWnd->GetDlgCtrlID()==IDC_S2)  
+  {
+      pDC->SelectObject(&m_font);   
+  }
+
+	// TODO:  在此更改 DC 的任何特性
+
+	// TODO:  如果默认的不是所需画笔，则返回另一个画笔
+	return hbr;
 }
