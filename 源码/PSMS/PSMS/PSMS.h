@@ -9,7 +9,8 @@
 #endif
 
 #include "resource.h"		// 主符号
-
+#include "SkinMagicLib.h"
+#pragma comment(lib, "SkinMagicTrial.lib")
 
 // CPSMSApp:
 // 有关此类的实现，请参阅 PSMS.cpp
@@ -27,6 +28,7 @@ public:
 // 实现
 
 	DECLARE_MESSAGE_MAP()
+	virtual int ExitInstance();
 };
 
 extern CPSMSApp theApp;

@@ -157,7 +157,6 @@ BOOL CSignInDlg::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	// TODO:  在此添加额外的初始化
-	CDialog::OnInitDialog();
 
 	CRect rect;
 	CRect son_rect;
@@ -177,12 +176,10 @@ BOOL CSignInDlg::OnInitDialog()
 	 //运用读取配置文件->窗口显示的方式加快用户的操作速度
 	 LPTSTR lpStr = new char[255];
 	 GetPrivateProfileString("Log In","username","",lpStr,255,ROAD);
-	 CEdit* pBoxTwo;
-	 pBoxTwo = (CEdit*)GetDlgItem(IDC_INPUT_USERNAME);
-	 pBoxTwo->SetWindowText(lpStr);
-
-
-	return TRUE;  // return TRUE unless you set the focus to a control
+	 GetDlgItem(IDC_INPUT_USERNAME)->SetWindowText(lpStr);
+	 
+	 GetDlgItem(IDC_INPUT_PASSWORD)->SetFocus();
+	return FALSE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }
 

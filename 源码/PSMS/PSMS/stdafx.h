@@ -26,8 +26,6 @@
 
 #include <afxdisp.h>        // MFC 自动化类
 
-
-
 #import "msado15.dll" no_namespace rename ("EOF", "adoEOF")
 
 

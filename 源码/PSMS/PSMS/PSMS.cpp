@@ -42,6 +42,13 @@ CPSMSApp theApp;
 BOOL CPSMSApp::InitInstance()
 {
 
+	if(1==InitSkinMagicLib(AfxGetInstanceHandle(),NULL , NULL, NULL))
+	  {
+		if(1==LoadSkinFile("corona.smf"))
+		{
+		  SetDialogSkin("Dialog");
+		}
+	  }
 	// 如果一个运行在 Windows XP 上的应用程序清单指定要
 	// 使用 ComCtl32.dll 版本 6 或更高版本来启用可视化方式，
 	//则需要 InitCommonControlsEx()。否则，将无法创建窗口。
@@ -53,7 +60,6 @@ BOOL CPSMSApp::InitInstance()
 	InitCommonControlsEx(&InitCtrls);
 
 	CWinApp::InitInstance();
-
 
 	AfxEnableControlContainer();
 
@@ -96,3 +102,11 @@ BOOL CPSMSApp::InitInstance()
 	return FALSE;
 }
 
+
+
+int CPSMSApp::ExitInstance()
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	ExitSkinMagicLib();
+	return CWinApp::ExitInstance();
+}
