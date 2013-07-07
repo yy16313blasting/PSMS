@@ -67,7 +67,7 @@ void CTimeRemindDlg::ShowList()
 	while(icount != i) 
 	{	
 		m_TimeRemindList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
-		m_TimeRemindList.SetItemText(0,0,list[i].GetDate());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
+	//	m_TimeRemindList.SetItemText(0,0,list[i].GetDate());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
 		m_TimeRemindList.SetItemText(0,1,list[i].GetTitle());
 		m_TimeRemindList.SetItemText(0,2,list[i].GetContent());
 		++i;

@@ -255,7 +255,7 @@ void CUserDA::GetAllDiary(CDiary*& list)
 void CUserDA::GetAllMemo(CMemo*& list)
 {
 	CString sql;
-	sql.Format("SELECT * FROM Memo");
+	sql.Format("SELECT * FROM [Memo]");
 
 	try
 	{
@@ -453,7 +453,7 @@ int CUserDA::CountAllDiary()
 int CUserDA::CountAllMemo()
 {
 	CString sql;
-	sql.Format("SELECT * FROM Memo");
+	sql.Format("SELECT * FROM [Memo]");
 	
 	try
 	{
