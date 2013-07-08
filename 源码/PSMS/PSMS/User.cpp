@@ -192,8 +192,7 @@ CString CUser::GetName()
 {
 	return m_szName;
 }
-
 void CUser::UpdatePassword(CString password)
 {
 	usrDA.UpdatePassword(m_szName,password);
-}
+ }

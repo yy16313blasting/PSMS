@@ -135,13 +135,11 @@ BOOL CPSMSDlg::OnInitDialog()
 	m_TimeRemindDlg.MoveWindow(&tabRect);
 	m_DateRemindDlg.MoveWindow(&tabRect);
 
-
 	m_TimeRemindDlg.SetUser(m_user);
 	m_DateRemindDlg.SetUser(m_user);
 	m_DiaryDlg.SetUser(m_user);
 	m_MemoDlg.SetUser(m_user);
 	m_SettingsDlg.SetUser(m_user);
-
 
 	m_tab.GetClientRect(&tabRect);    // 获取标签控件客户区Rect   
 
@@ -160,7 +158,7 @@ BOOL CPSMSDlg::OnInitDialog()
 	m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 
 	m_TimeRemindDlg.InitListCtrol();
-	//m_TimeRemindDlg.ShowList();
+	m_TimeRemindDlg.ShowList();
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 

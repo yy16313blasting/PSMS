@@ -23,13 +23,13 @@ CEditDlg::~CEditDlg()
 void CEditDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_DATETIMEPICKER1, m_Date);
+	DDX_Control(pDX, IDC_DATETIMEPICKER2, m_Time);
 }
 
 BEGIN_MESSAGE_MAP(CEditDlg, CDialog)
 	ON_BN_CLICKED(IDC_EDIT, &CEditDlg::OnBnClickedEdit)
 	ON_BN_CLICKED(IDC_CANCEL_EDIT, &CEditDlg::OnBnClickedCancelEdit)
-	ON_WM_QUERYDRAGICON()
-	ON_WM_SYSCOMMAND()
 END_MESSAGE_MAP()
 
 
@@ -37,8 +37,56 @@ END_MESSAGE_MAP()
 
 
 void CEditDlg::OnBnClickedEdit()
-{	
-	this->OnCancel();
+{
+
+	GetDlgItem(IDC_EDIT_TITLE)->GetWindowText(m_editTitle); 
+	GetDlgItem(IDC_EDIT_CONTENT)->GetWindowText(m_editContent); 
+	CTime date,time;
+	m_Date.GetTime(date);
+	m_Time.GetTime(time);
+	
+	//CString str=("00:00:00");
+	 m_strDateTime=date.Format("%Y/%m/%d ")+time.Format("%H:%M:%S");
+	if("Diary" == m_szType)
+	{
+		CDiary d;
+		d.SetTitle(m_editTitle);
+		d.SetContent(m_editContent);
+		d.SetDate(m_strDateTime);
+		d.SetUser(m_user.GetName());
+		m_user.AddDiary(d);
+		m_strID.Format("%d",d.GetID());
+	}
+	if("Memo" == m_szType)
+	{
+		CMemo d;
+		d.SetTitle(m_editTitle);
+		d.SetContent(m_editContent);
+		d.SetDate(m_strDateTime);
+		d.SetUser(m_user.GetName());
+		m_user.AddMemo(d);
+	}
+	if("TimeRemind" == m_szType)
+	{
+		CTimeRemind d;
+		d.SetTitle(m_editTitle);
+		d.SetContent(m_editContent);
+		d.SetDate(m_strDateTime);
+		d.SetUser(m_user.GetName());
+		d.SetRemindFrequency(10);
+		m_user.AddTimeRemind(d);
+	}
+	if("DateRemind" == m_szType)
+	{
+		CDateRemind d;
+		d.SetTitle(m_editTitle);
+		d.SetContent(m_editContent);
+		d.SetDate(m_strDateTime);
+		d.SetUser(m_user.GetName());
+		d.SetRemindFrequency(100);
+		m_user.AddDateRemind(d);
+	}
+	this->OnOK();
 }
 
 
@@ -49,23 +97,41 @@ void CEditDlg::OnBnClickedCancelEdit()
 }
 void CEditDlg::SetUser(CUser user)
 {
-	user.SetName(user.GetName());
+	m_user.SetName(user.GetName());
 }
 
-HCURSOR CEditDlg::OnQueryDragIcon()
+void CEditDlg::SetType(CString type)
 {
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	m_pPage->UpdateWindow();
-	return CDialog::OnQueryDragIcon();
+	m_szType=type;
 }
 
-
-void CEditDlg::OnSysCommand(UINT nID, LPARAM lParam)
+CString CEditDlg::GetTitle()
 {
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	if( (nID & 0xFFF0) == WM_WINDOWPOSCHANGED)
+	return m_editTitle;
+}
+
+CString CEditDlg::GetContent()
+{
+	return m_editContent;;
+}
+
+CString CEditDlg::GetDateTime()
+{
+	return m_strDateTime;;
+}
+
+CString CEditDlg::GetID()
+{
+	return m_strID;
+}
+
+BOOL CEditDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_RETURN) 
 	{
-		GetDlgItem(IDC_EDIT2)->SetWindowTextA("hehe");
+		OnBnClickedEdit();
 	}
-	CDialog::OnSysCommand(nID, lParam);
-}
+	else
+		return CDialog::PreTranslateMessage(pMsg);
+} 

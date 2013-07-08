@@ -21,8 +21,22 @@ protected:
 public:
 	afx_msg void OnBnClickedEdit();
 	afx_msg void OnBnClickedCancelEdit();
+	afx_msg BOOL PreTranslateMessage(MSG* pMsg);
 	void SetUser(CUser user);
-	CDialog *m_pPage;
-	afx_msg HCURSOR OnQueryDragIcon();
-	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
+	void SetType(CString type);
+	CString GetTitle();
+	CString GetContent();
+	CString GetDateTime();
+	CString GetID();
+	CDateTimeCtrl m_Date;
+	CDateTimeCtrl m_Time;
+private:
+	CString m_editTitle;
+	CString m_editContent;
+	CString m_strDateTime;
+	CString m_strID;
+	CUser m_user;
+	CString m_szType;
+
+	
 };

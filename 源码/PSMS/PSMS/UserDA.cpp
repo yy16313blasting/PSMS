@@ -119,7 +119,7 @@ void CUserDA::AddDiary(CDiary diary)
 void CUserDA::AddMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("insert into Memo (szTitle,szContent,[DateTime],szUser) values ('%s','%s','%s','%s')",
+	sql.Format("insert into [Memo] (szTitle,szContent,[DateTime],szUser) values ('%s','%s','%s','%s')",
 		memo.GetTitle(),memo.GetContent(),memo.GetDate(),memo.GetUser());
 	ExcuteSql(sql);
 }
@@ -127,7 +127,7 @@ void CUserDA::AddMemo(CMemo memo)
 void CUserDA::AddTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
-	sql.Format("insert into Memo (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
+	sql.Format("insert into TimeRemind (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
 		timeRemind.GetTitle(),timeRemind.GetContent(),timeRemind.GetDate(),timeRemind.GetRemindFrequency(),timeRemind.GetUser());
 	ExcuteSql(sql);
 }
@@ -135,7 +135,7 @@ void CUserDA::AddTimeRemind(CTimeRemind timeRemind)
 void CUserDA::AddDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
-	sql.Format("insert into Memo (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
+	sql.Format("insert into DateRemind (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
 		dateRemind.GetTitle(),dateRemind.GetContent(),dateRemind.GetDate(),dateRemind.GetRemindFrequency(),dateRemind.GetUser());
 	ExcuteSql(sql);
 }

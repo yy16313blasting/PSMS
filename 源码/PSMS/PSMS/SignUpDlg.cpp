@@ -94,12 +94,11 @@ HBRUSH CSignUpDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 }
 BOOL CSignUpDlg::PreTranslateMessage(MSG* pMsg)
 {
-	//if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
 	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_RETURN) 
 	{
 		OnBnClickedSignUp();
 	}
 	else
 		return CDialog::PreTranslateMessage(pMsg);
-		
 } 

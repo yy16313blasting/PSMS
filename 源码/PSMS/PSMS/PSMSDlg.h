@@ -37,7 +37,7 @@ protected:
 public:
 	afx_msg void OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult);
 	LRESULT OnShowTask(WPARAM wParam, LPARAM lParam);
-	private:
+private:	
 	CTabCtrl m_tab;
 	CTimeRemindDlg m_TimeRemindDlg;
 	CDateRemindDlg m_DateRemindDlg;

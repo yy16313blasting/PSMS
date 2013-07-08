@@ -45,7 +45,7 @@ void CDateRemindDlg::InitListCtrol()
 		m_DateRemindList.InsertColumn(0,"时间",LVCFMT_LEFT,150);        //添加列标题
 		m_DateRemindList.InsertColumn(1,"标题",LVCFMT_LEFT,200);
 		m_DateRemindList.InsertColumn(2,"详细内容",LVCFMT_LEFT,350);
-	
+		m_DateRemindList.InsertColumn(3,"ID",LVCFMT_LEFT,0);
 }
 
 void CDateRemindDlg::ShowList()
@@ -65,11 +65,13 @@ void CDateRemindDlg::ShowList()
 		return;
 	}
 	while(icount != i) 
-	{	
+	{	CString id;
+		id.Format("%d",list[i].GetID());
 		m_DateRemindList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
 		m_DateRemindList.SetItemText(0,0,list[i].GetDate());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
 		m_DateRemindList.SetItemText(0,1,list[i].GetTitle());
 		m_DateRemindList.SetItemText(0,2,list[i].GetContent());
+		m_DateRemindList.SetItemText(0,3,id);
 		++i;
 	}
 }
@@ -87,9 +89,15 @@ void CDateRemindDlg::SetUser(CUser user)
 void CDateRemindDlg::OnBnClickedDateremindAdd()
 {
 	CEditDlg dlg;
-	this->ShowWindow(SW_HIDE);
+	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
+	dlg.SetType("DateRemind");
 	dlg.DoModal();
+	m_DateRemindList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
+	m_DateRemindList.SetItemText(0,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
+	m_DateRemindList.SetItemText(0,1,dlg.GetTitle());
+	m_DateRemindList.SetItemText(0,2,dlg.GetContent());
+	m_DateRemindList.SetItemText(0,3,dlg.GetID());
 	this->ShowWindow(SW_SHOW);
 }
 
@@ -103,25 +111,21 @@ void CDateRemindDlg::OnBnClickedDateremindDelete()
 		int  nSelected=m_DateRemindList.GetNextSelectedItem(p); //获取选中行的索引  
 		CDateRemind d;
 		d.SetID(atoi(m_DateRemindList.GetItemText(nSelected,3)));
-		m_user.RemoveDateRemind(d);
 		m_DateRemindList.DeleteItem(nSelected); //根据索引删除
+		m_user.RemoveDateRemind(d);
 		p  = m_DateRemindList.GetFirstSelectedItemPosition();  
-
 	}
+	
 }
 
 
 void CDateRemindDlg::OnBnClickedDateremindUpdate()
 {
-	//CEditDlg dlg;
-	//this->ShowWindow(SW_HIDE);
-	//m_DateRemindDlg.ShowWindow(SW_HIDE);
-	//dlg.SetUser(m_user);
-	//dlg.Create();
-	//this->ShowWindow(SW_SHOW);
 	CEditDlg dlg;
-	dlg.m_pPage=this;
+	ShowWindow(SW_HIDE);
+	dlg.SetUser(m_user);
 	dlg.DoModal();
+	this->ShowWindow(SW_SHOW);
 }
 
 

@@ -48,7 +48,7 @@ void CMemoDlg::InitListCtrol()
 		m_MemoList.InsertColumn(0,"时间",LVCFMT_LEFT,150);        //添加列标题
 		m_MemoList.InsertColumn(1,"标题",LVCFMT_LEFT,200);
 		m_MemoList.InsertColumn(2,"详细内容",LVCFMT_LEFT,350);
-	
+		m_MemoList.InsertColumn(3,"ID",LVCFMT_LEFT,0);
 }
 
 void CMemoDlg::ShowList()
@@ -68,11 +68,13 @@ void CMemoDlg::ShowList()
 		return;
 	}
 	while(icount != i) 
-	{	
+	{	CString id;
+		id.Format("%d",list[i].GetID());
 		m_MemoList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
 		m_MemoList.SetItemText(0,0,list[i].GetDate());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
 		m_MemoList.SetItemText(0,1,list[i].GetTitle());
 		m_MemoList.SetItemText(0,2,list[i].GetContent());
+		m_MemoList.SetItemText(0,3,id);
 		++i;
 	}
 }
@@ -92,7 +94,13 @@ void CMemoDlg::OnBnClickedMemoAdd()
 	CEditDlg dlg;
 	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
+	dlg.SetType("Memo");
 	dlg.DoModal();
+	m_MemoList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
+	m_MemoList.SetItemText(0,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
+	m_MemoList.SetItemText(0,1,dlg.GetTitle());
+	m_MemoList.SetItemText(0,2,dlg.GetContent());
+	m_MemoList.SetItemText(0,3,dlg.GetID());
 	this->ShowWindow(SW_SHOW);
 }
 
@@ -106,10 +114,9 @@ void CMemoDlg::OnBnClickedMemoDelete()
 		int  nSelected=m_MemoList.GetNextSelectedItem(p); //获取选中行的索引
 		CMemo d;
 		d.SetID(atoi(m_MemoList.GetItemText(nSelected,3)));
-		m_user.RemoveMemo(d);
 		m_MemoList.DeleteItem(nSelected); //根据索引删除
+		m_user.RemoveMemo(d);
 		p  = m_MemoList.GetFirstSelectedItemPosition();  
-
 	}
 }
 
@@ -120,6 +127,7 @@ void CMemoDlg::OnBnClickedMemoUpdate()
 	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
 	dlg.DoModal();
+
 	this->ShowWindow(SW_SHOW);
 }
 
