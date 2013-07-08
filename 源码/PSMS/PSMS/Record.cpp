@@ -84,3 +84,13 @@ void CRecord::SetDate(CString date)
 	m_nMonth = DateTime.GetMonth();
 	m_nDay = DateTime.GetDay();
 }
+
+int CRecord::GetID()
+{
+	return m_nID;
+}
+
+void CRecord::SetID(int id)
+{
+	m_nID=id;
+}

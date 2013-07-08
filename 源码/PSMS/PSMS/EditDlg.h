@@ -1,5 +1,5 @@
 #pragma once
-
+#include "User.h"
 
 // CEditDlg ¶Ô»°¿ò
 
@@ -21,4 +21,5 @@ protected:
 public:
 	afx_msg void OnBnClickedEdit();
 	afx_msg void OnBnClickedCancelEdit();
+	void SetUser(CUser user);
 };

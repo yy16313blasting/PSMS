@@ -9,6 +9,7 @@ protected:
 	int m_nMonth;
 	int m_nYear;
 	int m_nType;
+	int m_nID;
 	CString m_szTitle;
 	CString m_szContent;
 	CString m_szUser;
@@ -28,4 +29,6 @@ public:
 	virtual CString GetDate(void);
 	//void SetDate(int year, int month, int day);
 	void SetDate(CString date);
+	void SetID(int id);
+	int GetID();
 };

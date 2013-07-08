@@ -153,28 +153,28 @@ void CUserDA::AddUser(CString name,CString password)
 void CUserDA::RemoveDiary(CDiary diary)
 {
 	CString sql;
-	sql.Format("delete * from Diary where szTitle='%s'",diary.GetTitle());
+	sql.Format("delete * from Diary where ID=%d",diary.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("delete * from Memo where szTitle = '%s'",memo.GetTitle());
+	sql.Format("delete * from Memo where ID = %d",memo.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
-	sql.Format("delete * from TimeRemind where szTitle = '%s'",timeRemind.GetTitle());
+	sql.Format("delete * from TimeRemind where ID = %d",timeRemind.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
-	sql.Format("delete * from DateRemind where szTitle = '%s'",dateRemind.GetTitle());
+	sql.Format("delete * from DateRemind where ID = %d",dateRemind.GetID());
 	ExcuteSql(sql);
 }
 
@@ -242,6 +242,7 @@ void CUserDA::GetAllDiary(CDiary*& list,CString user)
 			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
 			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
 			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
+			list[i].SetID(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("ID")));
 		}
 		catch(_com_error e)
 		{
@@ -283,6 +284,7 @@ void CUserDA::GetAllMemo(CMemo*& list,CString user)
 			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("szContent"));
 			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
 			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
+			list[i].SetID(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("ID")));
 		}
 		catch(_com_error e)
 		{
@@ -329,6 +331,7 @@ void CUserDA::GetAllTimeRemind(CTimeRemind*& list,CString user)
 			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
 			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
 			list[i].SetRemindFrequency(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("nRemindFrequency")));
+			list[i].SetID(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("ID")));
 		}
 		catch(_com_error e)
 		{
@@ -372,6 +375,7 @@ void CUserDA::GetAllDateRemind(CDateRemind*& list,CString user)
 			list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
 			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
 			list[i].SetRemindFrequency(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("nRemindFrequency")));
+			list[i].SetID(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("ID")));
 		}
 		catch(_com_error e)
 		{
@@ -413,6 +417,7 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("Message"));
 		//	list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
 			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
+			list[i].SetID(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("ID")));
 		}
 		catch(_com_error e)
 		{

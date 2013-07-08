@@ -36,11 +36,16 @@ END_MESSAGE_MAP()
 
 void CEditDlg::OnBnClickedEdit()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	this->OnCancel();
 }
 
 
 void CEditDlg::OnBnClickedCancelEdit()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	this->OnCancel();
+	//exit(0);
+}
+void CEditDlg::SetUser(CUser user)
+{
+	user.SetName(user.GetName());
 }
