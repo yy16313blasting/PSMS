@@ -439,6 +439,10 @@ int CUserDA::CountAllDiary()
 	{
 		return 0;
 	}
+	if(m_pRecordset->adoEOF)
+	{
+		return 0;
+	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
 	int i=0;
@@ -467,6 +471,10 @@ int CUserDA::CountAllMemo()
 	int count=m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
+	{
+		return 0;
+	}
+	if(m_pRecordset->adoEOF)
 	{
 		return 0;
 	}
@@ -501,6 +509,10 @@ int CUserDA::CountAllTimeRemind()
 	{
 		return 0;
 	}
+	if(m_pRecordset->adoEOF)
+	{
+		return 0;
+	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
 	int i=0;
@@ -532,6 +544,10 @@ int CUserDA::CountAllDateRemind()
 	{
 		return 0;
 	}
+	if(m_pRecordset->adoEOF)
+	{
+		return 0;
+	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
 	int i=0;
@@ -560,6 +576,10 @@ int CUserDA::CountAllHoliday()
 	int count=m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
+	{
+		return 0;
+	}
+	if(m_pRecordset->adoEOF)
 	{
 		return 0;
 	}

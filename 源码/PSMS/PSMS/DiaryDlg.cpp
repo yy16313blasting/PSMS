@@ -27,6 +27,10 @@ void CDiaryDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CDiaryDlg, CDialog)
+	ON_BN_CLICKED(IDC_DIARY_ADD, &CDiaryDlg::OnBnClickedDiaryAdd)
+	ON_BN_CLICKED(IDC_DIARY_DELETE, &CDiaryDlg::OnBnClickedDiaryDelete)
+	ON_BN_CLICKED(IDC_DIARY_UPDATE, &CDiaryDlg::OnBnClickedDiaryUpdate)
+	ON_BN_CLICKED(IDC_DIARY_DELETEALL, &CDiaryDlg::OnBnClickedDiaryDeleteall)
 END_MESSAGE_MAP()
 
 
@@ -48,14 +52,14 @@ void CDiaryDlg::InitListCtrol()
 
 void CDiaryDlg::ShowList()
   {	
-	int icount=user.CountAllDiary();
+	int icount=m_user.CountAllDiary();
 	if(0==icount)
 	{
 		AfxMessageBox("没有记录");
 	return;
 	}
 	CDiary* list =new CDiary[icount];
-	user.GetAllDiary(list);
+	m_user.GetAllDiary(list);
 	
 	int i=0;
 	if (icount == i)
@@ -75,4 +79,32 @@ void CDiaryDlg::ShowList()
 void CDiaryDlg::CleanList()
 {
 m_DiaryList.DeleteAllItems(); //删除列表控件
+}
+
+void CDiaryDlg::OnBnClickedDiaryAdd()
+{
+	
+}
+
+
+void CDiaryDlg::OnBnClickedDiaryDelete()
+{
+	
+}
+
+
+void CDiaryDlg::OnBnClickedDiaryUpdate()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CDiaryDlg::OnBnClickedDiaryDeleteall()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+void CDiaryDlg::SetUser(CUser user)
+{
+	m_user.SetName(user.GetName());
 }

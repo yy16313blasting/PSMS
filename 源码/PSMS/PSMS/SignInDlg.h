@@ -19,7 +19,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CUser user;
+	CUser m_user;
 	afx_msg void OnBnClickedSignIn();
 	CString m_editUserName;
 	CString m_editPassWord;

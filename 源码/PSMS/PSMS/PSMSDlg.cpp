@@ -97,6 +97,9 @@ BOOL CPSMSDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+
+	hasTray=false;
+
 	m_nid.cbSize  = (DWORD)sizeof(NOTIFYICONDATA);
     m_nid.hWnd    = this->m_hWnd;
     m_nid.uID     = IDR_MAINFRAME;
@@ -104,7 +107,12 @@ BOOL CPSMSDlg::OnInitDialog()
     m_nid.uCallbackMessage = WM_SHOWTASK;             // 自定义的消息名称
     m_nid.hIcon   = LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDR_MAINFRAME));
     strcpy(m_nid.szTip, "个人日程管理");                // 信息提示条为"个人日程管理"，VS2008 UNICODE编码用wcscpy_s()函数
-    Shell_NotifyIcon(NIM_ADD, &m_nid);                // 在托盘区添加图标
+		  
+	if(!hasTray)
+	{
+		Shell_NotifyIcon(NIM_ADD, &m_nid); // 在托盘区添加图标
+		hasTray=true;
+	}
 
 	CRect tabRect;
 
@@ -122,6 +130,12 @@ BOOL CPSMSDlg::OnInitDialog()
 	m_HolidayDlg.Create(IDD_HOLIDAY,&m_tab);
 	m_SettingsDlg.Create(IDD_SETTINGS,&m_tab);
 	//ScreenToClient(&tabRect);
+
+	m_TimeRemindDlg.SetUser(m_user);
+	m_DateRemindDlg.SetUser(m_user);
+	m_DiaryDlg.SetUser(m_user);
+	m_MemoDlg.SetUser(m_user);
+
 
 	m_tab.GetClientRect(&tabRect);    // 获取标签控件客户区Rect   
 
@@ -305,5 +319,10 @@ BOOL CPSMSDlg::DestroyWindow()
 {
 	// TODO: 在此添加专用代码和/或调用基类
 	Shell_NotifyIcon(NIM_DELETE, &m_nid);
-	return CDialogEx::DestroyWindow();
+	return CDialog::DestroyWindow();
+}
+
+void CPSMSDlg::SetUser(CUser user)
+{
+	m_user.SetName(user.GetName());
 }

@@ -50,14 +50,14 @@ void CTimeRemindDlg::InitListCtrol()
 
 void CTimeRemindDlg::ShowList()
   {	
-	int icount=user.CountAllTimeRemind();
+	int icount=m_user.CountAllTimeRemind();
 	if(0==icount)
 	{
 		AfxMessageBox("没有记录");
 	return;
 	}
 	CTimeRemind* list =new CTimeRemind[icount];
-	user.GetAllTimeRemind(list);
+	m_user.GetAllTimeRemind(list);
 	
 	int i=0;
 	if (icount == i)
@@ -76,4 +76,9 @@ void CTimeRemindDlg::ShowList()
 void CTimeRemindDlg::CleanList()
 {
 m_TimeRemindList.DeleteAllItems(); //删除列表控件
+}
+
+void CTimeRemindDlg::SetUser(CUser user)
+{
+	m_user.SetName(user.GetName());
 }

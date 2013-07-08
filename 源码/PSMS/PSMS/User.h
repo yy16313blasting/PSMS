@@ -21,6 +21,9 @@ public:
 	CString GetUserPassword(CString name);
 	bool ExistUser(CString name);
 
+	void SetName(CString name);
+	CString GetName();
+
 	void  PurgeDateRemind();
 	void  PurgeDiary();
 	void  PurgeMemo();

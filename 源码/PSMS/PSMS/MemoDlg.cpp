@@ -49,14 +49,14 @@ void CMemoDlg::InitListCtrol()
 
 void CMemoDlg::ShowList()
   {	
-	int icount=user.CountAllMemo();
+	int icount=m_user.CountAllMemo();
 	if(0==icount)
 	{
 		AfxMessageBox("没有记录");
 	return;
 	}
 	CMemo* list =new CMemo[icount];
-	user.GetAllMemo(list);
+	m_user.GetAllMemo(list);
 	
 	int i=0;
 	if (icount == i)
@@ -76,4 +76,9 @@ void CMemoDlg::ShowList()
 void  CMemoDlg::CleanList()
 {
 m_MemoList.DeleteAllItems(); //删除列表控件
+}
+
+void CMemoDlg::SetUser(CUser user)
+{
+	m_user.SetName(user.GetName());
 }

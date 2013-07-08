@@ -69,8 +69,8 @@ void CSignInDlg::OnBnClickedSignIn()
 		return;
 	}
 	// TODO: 在此添加控件通知处理程序代码
-	ExistUser=user.ExistUser(m_editUserName);
-	m_szPassword=user.GetUserPassword(m_editUserName);
+	ExistUser=m_user.ExistUser(m_editUserName);
+	m_szPassword=m_user.GetUserPassword(m_editUserName);
 
 	CMD5 md5;
 	md5.GenerateCMD5((unsigned char*)(LPCTSTR)m_editPassWord,m_editPassWord.GetLength());
@@ -99,11 +99,13 @@ void CSignInDlg::OnBnClickedSignIn()
 			return;
 		}
 	}
-
+	m_user.SetName(m_editUserName);
 
 	CPSMSDlg dlg;
+	dlg.SetUser(m_user);
+	ShowWindow(SW_HIDE);
 	dlg.DoModal();
-	this->ShowWindow(SW_HIDE);
+	//this->ShowWindow(SW_HIDE);
 	this->DestroyWindow();
 
 	

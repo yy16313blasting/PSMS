@@ -19,9 +19,10 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CUser user;
+	CUser m_user;
 	CListCtrl m_TimeRemindList;
 	void InitListCtrol();
 	void ShowList();
 	void CleanList();
+	void SetUser(CUser user);
 };

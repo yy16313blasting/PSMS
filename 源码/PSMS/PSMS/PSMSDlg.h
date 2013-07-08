@@ -8,6 +8,7 @@
 #include "DiaryDlg.h"
 #include "HolidayDlg.h"
 #include "SettingsDlg.h"
+#include "User.h"
 
 #define WM_SHOWTASK WM_USER+1
 // CPSMSDlg ¶Ô»°¿ò
@@ -45,7 +46,10 @@ private:
 	CHolidayDlg m_HolidayDlg;
 	CSettingsDlg m_SettingsDlg;
 	NOTIFYICONDATA m_nid;
+	CUser m_user;
+	bool hasTray;
 public:
 	afx_msg void OnClose();
 	virtual BOOL DestroyWindow();
+	void SetUser(CUser user);
 };

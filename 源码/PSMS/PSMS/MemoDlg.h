@@ -19,9 +19,10 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CUser user;
+	CUser m_user;
 	void InitListCtrol();
 	void ShowList();
 	void CleanList();
 	CListCtrl m_MemoList;
+	void SetUser(CUser user);
 };

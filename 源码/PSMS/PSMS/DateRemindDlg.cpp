@@ -46,14 +46,14 @@ void CDateRemindDlg::InitListCtrol()
 
 void CDateRemindDlg::ShowList()
   {	
-	int icount=user.CountAllDateRemind();
+	int icount=m_user.CountAllDateRemind();
 	if(0==icount)
 	{
 		AfxMessageBox("没有记录");
 	return;
 	}
 	CDateRemind* list =new CDateRemind[icount];
-	user.GetAllDateRemind(list);
+	m_user.GetAllDateRemind(list);
 	
 	int i=0;
 	if (icount == i)
@@ -73,4 +73,9 @@ void CDateRemindDlg::ShowList()
 void  CDateRemindDlg::CleanList()
 {
 m_DateRemindList.DeleteAllItems(); //删除列表控件
+}
+
+void CDateRemindDlg::SetUser(CUser user)
+{
+	m_user.SetName(user.GetName());
 }

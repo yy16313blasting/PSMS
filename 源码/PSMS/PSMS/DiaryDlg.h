@@ -19,9 +19,14 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CUser user;
+	CUser m_user;
 	void InitListCtrol();
 	void ShowList();
 	void CleanList();
 	CListCtrl m_DiaryList;
+	afx_msg void OnBnClickedDiaryAdd();
+	afx_msg void OnBnClickedDiaryDelete();
+	afx_msg void OnBnClickedDiaryUpdate();
+	afx_msg void OnBnClickedDiaryDeleteall();
+	void SetUser(CUser user);
 };

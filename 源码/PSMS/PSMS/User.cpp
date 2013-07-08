@@ -182,3 +182,13 @@ void CUser::PurgeDateRemind()
 {
 	usrDA.PurgeDateRemind();
 }
+
+void CUser::SetName(CString name)
+{
+	m_szName = name;
+}
+
+CString CUser::GetName()
+{
+	return m_szName;
+}
