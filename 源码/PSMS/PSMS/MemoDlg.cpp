@@ -72,3 +72,8 @@ void CMemoDlg::ShowList()
 		++i;
 	}
 }
+
+void  CMemoDlg::CleanList()
+{
+m_MemoList.DeleteAllItems(); //É¾³ýÁÐ±í¿Ø¼þ
+}

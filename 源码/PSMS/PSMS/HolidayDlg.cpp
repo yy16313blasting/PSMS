@@ -72,3 +72,7 @@ void CHolidayDlg::ShowList()
 	}
 }
 
+void  CHolidayDlg::CleanList()
+{
+m_HolidayList.DeleteAllItems(); //É¾³ýÁÐ±í¿Ø¼þ
+}

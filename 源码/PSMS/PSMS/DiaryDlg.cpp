@@ -69,5 +69,10 @@ void CDiaryDlg::ShowList()
 		m_DiaryList.SetItemText(0,1,list[i].GetTitle());
 		m_DiaryList.SetItemText(0,2,list[i].GetContent());
 		++i;
-	}
+	}		
+}
+
+void CDiaryDlg::CleanList()
+{
+m_DiaryList.DeleteAllItems(); //É¾³ýÁÐ±í¿Ø¼þ
 }

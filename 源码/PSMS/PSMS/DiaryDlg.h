@@ -22,5 +22,6 @@ public:
 	CUser user;
 	void InitListCtrol();
 	void ShowList();
+	void CleanList();
 	CListCtrl m_DiaryList;
 };

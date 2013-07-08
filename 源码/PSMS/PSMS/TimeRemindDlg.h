@@ -23,4 +23,5 @@ public:
 	CListCtrl m_TimeRemindList;
 	void InitListCtrol();
 	void ShowList();
+	void CleanList();
 };

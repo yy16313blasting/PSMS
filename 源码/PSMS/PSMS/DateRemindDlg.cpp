@@ -69,3 +69,8 @@ void CDateRemindDlg::ShowList()
 		++i;
 	}
 }
+
+void  CDateRemindDlg::CleanList()
+{
+m_DateRemindList.DeleteAllItems(); //É¾³ýÁÐ±í¿Ø¼þ
+}

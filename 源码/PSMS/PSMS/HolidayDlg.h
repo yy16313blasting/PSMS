@@ -22,4 +22,5 @@ public:
 	CListCtrl m_HolidayList;
 	void InitListCtrol();
 	void ShowList();
+	void CleanList();
 };

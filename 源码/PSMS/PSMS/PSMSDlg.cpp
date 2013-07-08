@@ -190,6 +190,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_TimeRemindDlg.InitListCtrol();
+			m_TimeRemindDlg.CleanList();
 			m_TimeRemindDlg.ShowList();
 			break;   
 
@@ -202,6 +203,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	        m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);   
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_DateRemindDlg.InitListCtrol();
+			m_DateRemindDlg.CleanList();
 			m_DateRemindDlg.ShowList();
 			break; 
 
@@ -214,6 +216,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	        m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_DiaryDlg.InitListCtrol();
+			m_DiaryDlg.CleanList();
 			m_DiaryDlg.ShowList();
 			break;
 
@@ -226,6 +229,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_MemoDlg.InitListCtrol();
+			m_MemoDlg.CleanList();
 			m_MemoDlg.ShowList();
 			break;
 
@@ -238,6 +242,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW); 
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_HolidayDlg.InitListCtrol();
+			m_HolidayDlg.CleanList();
 			m_HolidayDlg.ShowList();
 			break;
 		case 5:
