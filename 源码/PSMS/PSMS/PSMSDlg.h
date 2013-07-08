@@ -50,6 +50,7 @@ private:
 	bool hasTray;
 public:
 	afx_msg void OnClose();
-	virtual BOOL DestroyWindow();
 	void SetUser(CUser user);
+	afx_msg void OnDestroy();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

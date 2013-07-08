@@ -36,22 +36,22 @@ public:
 	void UpdateTimeRemind(CTimeRemind timeRemind);
 	void UpdateDateRemind(CDateRemind dateRemind);
 
-	void GetAllDiary(CDiary*& list);
-	void GetAllMemo(CMemo*& list);
-	void GetAllTimeRemind(CTimeRemind*& list);
-	void GetAllDateRemind(CDateRemind*& list);
+	void GetAllDiary(CDiary*& list,CString user);
+	void GetAllMemo(CMemo*& list,CString user);
+	void GetAllTimeRemind(CTimeRemind*& list,CString user);
+	void GetAllDateRemind(CDateRemind*& list,CString user);
 	void GetAllHoliday(CHoliday*& list);
 
-	int CountAllDiary();
-	int CountAllMemo();
-	int CountAllTimeRemind();
-	int CountAllDateRemind();
+	int CountAllDiary(CString user);
+	int CountAllMemo(CString user);
+	int CountAllTimeRemind(CString user);
+	int CountAllDateRemind(CString user);
 	int CountAllHoliday();
 
-	void PurgeDiary();
-	void PurgeMemo();
-	void PurgeTimeRemind();
-	void PurgeDateRemind();
+	void PurgeDiary(CString user);
+	void PurgeMemo(CString user);
+	void PurgeTimeRemind(CString user);
+	void PurgeDateRemind(CString user);
 
 	bool ExistDiary(CDiary diary);
 	bool ExistMemo(CMemo memo);

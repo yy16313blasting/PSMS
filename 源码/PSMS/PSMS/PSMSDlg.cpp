@@ -63,6 +63,7 @@ BEGIN_MESSAGE_MAP(CPSMSDlg, CDialogEx)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB, &CPSMSDlg::OnTcnSelchangeTab)
 	ON_MESSAGE(WM_SHOWTASK,OnShowTask)
 	ON_WM_CLOSE()
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 // CPSMSDlg 消息处理程序
@@ -287,14 +288,14 @@ LRESULT CPSMSDlg::OnShowTask(WPARAM wParam, LPARAM lParam)
                     menu.AppendMenu(MF_STRING, WM_DESTROY, "关闭");
                     menu.TrackPopupMenu(TPM_LEFTALIGN, lpoint->x ,lpoint->y, this);
                     HMENU hmenu = menu.Detach();
-                    menu.DestroyMenu();
-                    delete lpoint;
-					lpoint=NULL;
+                    //menu.DestroyMenu();
+                    //delete lpoint;
+					//lpoint=NULL;
             }
             break;
-			 case WM_LBUTTONDBLCLK:                                 // 双击左键的处理
+			case WM_LBUTTONDBLCLK:                                 // 双击左键的处理
             {
-                    this->ShowWindow(SW_SHOW);         // 显示主窗口
+				this->ShowWindow(SW_SHOW);         // 显示主窗口
             }
 				break;
 			}
@@ -315,14 +316,27 @@ void CPSMSDlg::OnClose()
 //	
 //}
 
-BOOL CPSMSDlg::DestroyWindow()
-{
-	// TODO: 在此添加专用代码和/或调用基类
-	Shell_NotifyIcon(NIM_DELETE, &m_nid);
-	return CDialog::DestroyWindow();
-}
-
 void CPSMSDlg::SetUser(CUser user)
 {
 	m_user.SetName(user.GetName());
 }
+
+void CPSMSDlg::OnDestroy()
+{
+	Shell_NotifyIcon(NIM_DELETE, &m_nid);
+//	CDialogEx::OnDestroy();
+	exit(0);
+	// TODO: 在此处添加消息处理程序代码
+	//Shell_NotifyIcon(NIM_DELETE, &m_nid);
+}
+
+BOOL CPSMSDlg::PreTranslateMessage(MSG* pMsg)
+{
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_RETURN) 
+	{
+		return TRUE;
+	}
+	else
+		return CDialog::PreTranslateMessage(pMsg);
+} 

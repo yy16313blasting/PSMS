@@ -181,40 +181,40 @@ void CUserDA::RemoveDateRemind(CDateRemind dateRemind)
 void CUserDA::UpdateDiary(CDiary diary)
 {
 	CString sql;
-	sql.Format("update Diary set szContent = '%s',[DateTime] = '%s' where szTitle = '%s'",
-		diary.GetContent(),diary.GetDate(),diary.GetTitle());
+	sql.Format("update Diary set szContent = '%s',[DateTime] = '%s' where szTitle = '%s' & szUser = '%s'",
+		diary.GetContent(),diary.GetDate(),diary.GetTitle(),diary.GetUser());
 	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("update Memo set szContent = '%s',[DateTime] = '%s' where szTitle = '%s'",
-		memo.GetContent(),memo.GetDate(),memo.GetTitle());
+	sql.Format("update Memo set szContent = '%s',[DateTime] = '%s' where szTitle = '%s' & szUser = '%s'",
+		memo.GetContent(),memo.GetDate(),memo.GetTitle(),memo.GetUser());
 	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
-	sql.Format("update DateRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s'",
-		dateRemind.GetContent(),dateRemind.GetDate(),dateRemind.GetRemindFrequency(),dateRemind.GetTitle());
+	sql.Format("update DateRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s' & szUser = '%s'",
+		dateRemind.GetContent(),dateRemind.GetDate(),dateRemind.GetRemindFrequency(),dateRemind.GetTitle(),dateRemind.GetUser());
 	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
-	sql.Format("update TimeRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s'",
-		timeRemind.GetContent(),timeRemind.GetDate(),timeRemind.GetRemindFrequency(),timeRemind.GetTitle());
+	sql.Format("update TimeRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s' & szUser = '%s'",
+		timeRemind.GetContent(),timeRemind.GetDate(),timeRemind.GetRemindFrequency(),timeRemind.GetTitle(),timeRemind.GetUser());
 	ExcuteSql(sql);
 }
 
 //将数据库中所有记录传进list数组
-void CUserDA::GetAllDiary(CDiary*& list)
+void CUserDA::GetAllDiary(CDiary*& list,CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM Diary");
+	sql.Format("SELECT * FROM Diary where szUser = '%s'",user);
 	
 	try
 	{
@@ -252,10 +252,10 @@ void CUserDA::GetAllDiary(CDiary*& list)
 	}
 }
 
-void CUserDA::GetAllMemo(CMemo*& list)
+void CUserDA::GetAllMemo(CMemo*& list,CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM [Memo]");
+	sql.Format("SELECT * FROM [Memo] where szUser='%s'",user);
 
 	try
 	{
@@ -293,10 +293,10 @@ void CUserDA::GetAllMemo(CMemo*& list)
 	}
 }
 
-void CUserDA::GetAllTimeRemind(CTimeRemind*& list)
+void CUserDA::GetAllTimeRemind(CTimeRemind*& list,CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM TimeRemind");
+	sql.Format("SELECT * FROM TimeRemind where szUser = '%s'",user);
 	
 	try
 	{
@@ -310,6 +310,10 @@ void CUserDA::GetAllTimeRemind(CTimeRemind*& list)
 	int count=m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
+	{
+		return;
+	}
+	if(m_pRecordset->adoEOF)
 	{
 		return;
 	}
@@ -328,17 +332,18 @@ void CUserDA::GetAllTimeRemind(CTimeRemind*& list)
 		}
 		catch(_com_error e)
 		{
-			AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Error());
 		}
 		m_pRecordset->MoveNext();
 		i++;
 	}
 }
 
-void CUserDA::GetAllDateRemind(CDateRemind*& list)
+void CUserDA::GetAllDateRemind(CDateRemind*& list,CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM DateRemind");
+	sql.Format("SELECT * FROM DateRemind where szUser = '%s'",user);
 	
 	try
 	{
@@ -419,10 +424,10 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 }
 
 //获取表中记录的个数
-int CUserDA::CountAllDiary()
+int CUserDA::CountAllDiary(CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM Diary");
+	sql.Format("SELECT * FROM Diary where szUser = '%s'",user);
 	
 	try
 	{
@@ -454,10 +459,10 @@ int CUserDA::CountAllDiary()
 	return i;
 }
 
-int CUserDA::CountAllMemo()
+int CUserDA::CountAllMemo(CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM [Memo]");
+	sql.Format("SELECT * FROM [Memo] where szUser = '%s'",user);
 	
 	try
 	{
@@ -489,10 +494,10 @@ int CUserDA::CountAllMemo()
 	return i;
 }
 
-int CUserDA::CountAllTimeRemind()
+int CUserDA::CountAllTimeRemind(CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM TimeRemind");
+	sql.Format("SELECT * FROM TimeRemind where szUser = '%s'",user);
 	
 	try
 	{
@@ -524,10 +529,10 @@ int CUserDA::CountAllTimeRemind()
 	return i;
 }
 
-int CUserDA::CountAllDateRemind()
+int CUserDA::CountAllDateRemind(CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM DateRemind");
+	sql.Format("SELECT * FROM DateRemind where szUser = '%s'",user);
 	
 	try
 	{
@@ -594,31 +599,31 @@ int CUserDA::CountAllHoliday()
 	return i;
 }
 
-void CUserDA::PurgeDiary()
+void CUserDA::PurgeDiary(CString user)
 {
 	CString sql;
-	sql.Format("delete * from Diary");
+	sql.Format("delete * from Diary where szUser = '%s'",user);
 	ExcuteSql(sql);
 }
 
-void CUserDA::PurgeMemo()
+void CUserDA::PurgeMemo(CString user)
 {
 	CString sql;
-	sql.Format("delete * from Memo");
+	sql.Format("delete * from Memo where szUser = '%s'",user);
 	ExcuteSql(sql);
 }
 
-void CUserDA::PurgeTimeRemind()
+void CUserDA::PurgeTimeRemind(CString user)
 {
 	CString sql;
-	sql.Format("delete * from TimeRemind");
+	sql.Format("delete * from TimeRemind where szUser = '%s'",user);
 	ExcuteSql(sql);
 }
 
-void CUserDA::PurgeDateRemind()
+void CUserDA::PurgeDateRemind(CString user)
 {
 	CString sql;
-	sql.Format("delete * from DateRemind");
+	sql.Format("delete * from DateRemind where szUser = '%s'",user);
 	ExcuteSql(sql);
 }
 
@@ -706,6 +711,10 @@ bool CUserDA::ExistUser(CString name)
 	int count=m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
+	{
+		return false;
+	}
+	if(m_pRecordset->adoEOF)
 	{
 		return false;
 	}
