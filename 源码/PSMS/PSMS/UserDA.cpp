@@ -160,7 +160,7 @@ void CUserDA::RemoveDiary(CDiary diary)
 void CUserDA::RemoveMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("delete * from Memo where ID = %d",memo.GetID());
+	sql.Format("delete * from [Memo] where ID = %d",memo.GetID());
 	ExcuteSql(sql);
 }
 
@@ -189,7 +189,7 @@ void CUserDA::UpdateDiary(CDiary diary)
 void CUserDA::UpdateMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("update Memo set szContent = '%s',[DateTime] = '%s' where szTitle = '%s' & szUser = '%s'",
+	sql.Format("update [Memo] set szContent = '%s',[DateTime] = '%s' where szTitle = '%s' & szUser = '%s'",
 		memo.GetContent(),memo.GetDate(),memo.GetTitle(),memo.GetUser());
 	ExcuteSql(sql);
 }
@@ -614,7 +614,7 @@ void CUserDA::PurgeDiary(CString user)
 void CUserDA::PurgeMemo(CString user)
 {
 	CString sql;
-	sql.Format("delete * from Memo where szUser = '%s'",user);
+	sql.Format("delete * from [Memo] where szUser = '%s'",user);
 	ExcuteSql(sql);
 }
 

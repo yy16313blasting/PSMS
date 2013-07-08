@@ -5,7 +5,6 @@
 #include "PSMS.h"
 #include "HolidayDlg.h"
 #include "afxdialogex.h"
-
 // CHolidayDlg 对话框
 
 IMPLEMENT_DYNAMIC(CHolidayDlg, CDialog)
@@ -89,25 +88,31 @@ void CHolidayDlg::OnBnClickedHolidayAdd()
 
 void CHolidayDlg::OnBnClickedHolidayDelete()
 {
-	POSITION p=m_HolidayList.GetFirstSelectedItemPosition();    //获取首选中行位置
+	
+	AfxMessageBox("节假日提醒不能删除");
+	
+	/*POSITION p=m_HolidayList.GetFirstSelectedItemPosition();    //获取首选中行位置
 
 	while (p)      
 	{      
-		int  nSelected=m_HolidayList.GetNextSelectedItem(p); //获取选中行的索引  
+		int  nSelected=m_HolidayList.GetNextSelectedItem(p); //获取选中行的索引 
+
 		m_HolidayList.DeleteItem(nSelected); //根据索引删除
 		p  = m_HolidayList.GetFirstSelectedItemPosition();  
 
-	}
+	}*/
 }
 
 
 void CHolidayDlg::OnBnClickedHolidayUpdate()
 {
+	//AfxMessageBox("节假日提醒不能更新");
 	// TODO: 在此添加控件通知处理程序代码
 }
 
 
 void CHolidayDlg::OnBnClickedHolidayDeleteall()
 {
+	AfxMessageBox("节假日提醒不能删除");
 	// TODO: 在此添加控件通知处理程序代码
 }

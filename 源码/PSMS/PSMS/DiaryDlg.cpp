@@ -101,7 +101,10 @@ void CDiaryDlg::OnBnClickedDiaryDelete()
 
 	while (p)      
 	{      
-		int  nSelected=m_DiaryList.GetNextSelectedItem(p); //获取选中行的索引  
+		int  nSelected=m_DiaryList.GetNextSelectedItem(p); //获取选中行的索引  		
+		CDiary d;
+		d.SetID(atoi(m_DiaryList.GetItemText(nSelected,3)));
+		m_user.RemoveDiary(d);
 		m_DiaryList.DeleteItem(nSelected); //根据索引删除
 		p  = m_DiaryList.GetFirstSelectedItemPosition();  
 
@@ -110,17 +113,24 @@ void CDiaryDlg::OnBnClickedDiaryDelete()
 
 
 void CDiaryDlg::OnBnClickedDiaryUpdate()
-{
-	// TODO: 在此添加控件通知处理程序代码
+{	CEditDlg dlg;
+	ShowWindow(SW_HIDE);
+	dlg.SetUser(m_user);
+	dlg.DoModal();
+	this->ShowWindow(SW_SHOW);
+	
 }
 
 
 void CDiaryDlg::OnBnClickedDiaryDeleteall()
 {
-	// TODO: 在此添加控件通知处理程序代码
-	//CDiary d;
-	//d.SetID(atoi(m_DiaryList.GetItemText(1,3)));
-	//m_user.RemoveDiary(d);
+	/* TODO: 在此添加控件通知处理程序代码
+	CDiary d;
+	d.SetID(atoi(m_DiaryList.GetItemText(1,3)));
+	m_user.RemoveDiary(d);*/
+	CleanList();
+	m_user.PurgeDiary();
+
 }
 
 void CDiaryDlg::SetUser(CUser user)

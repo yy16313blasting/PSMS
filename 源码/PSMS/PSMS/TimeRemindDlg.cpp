@@ -5,7 +5,7 @@
 #include "PSMS.h"
 #include "TimeRemindDlg.h"
 #include "afxdialogex.h"
-
+#include"EditDlg.h"
 
 // CTimeRemindDlg 对话框
 
@@ -89,7 +89,11 @@ void CTimeRemindDlg::SetUser(CUser user)
 
 void CTimeRemindDlg::OnBnClickedTimeremindAdd()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CEditDlg dlg;
+	ShowWindow(SW_HIDE);
+	dlg.SetUser(m_user);
+	dlg.DoModal();
+	this->ShowWindow(SW_SHOW);
 }
 
 
@@ -100,7 +104,9 @@ void CTimeRemindDlg::OnBnClickedTimeremindDelete()
 	while (p)      
 	{      
 		int  nSelected=m_TimeRemindList.GetNextSelectedItem(p); //获取选中行的索引  
-	
+		CTimeRemind d;
+		d.SetID(atoi(m_TimeRemindList.GetItemText(nSelected,3)));
+		m_user.RemoveTimeRemind(d);
 		m_TimeRemindList.DeleteItem(nSelected); //根据索引删除
 		p  = m_TimeRemindList.GetFirstSelectedItemPosition();  
 
@@ -110,11 +116,16 @@ void CTimeRemindDlg::OnBnClickedTimeremindDelete()
 
 void CTimeRemindDlg::OnBnClickedTimeremindUpdate()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CEditDlg dlg;
+	ShowWindow(SW_HIDE);
+	dlg.SetUser(m_user);
+	dlg.DoModal();
+	this->ShowWindow(SW_SHOW);
 }
 
 
 void CTimeRemindDlg::OnBnClickedTimeremindDeleteall()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CleanList();
+	m_user.PurgeTimeRemind();
 }

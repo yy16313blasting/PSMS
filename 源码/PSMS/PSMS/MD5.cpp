@@ -304,7 +304,7 @@ CMD5::CMD5(const char* CMD5src)
     for(int j = 0; j < 16; j++ )
     {
         char buf[10];
-        strncpy(buf,CMD5src,2);
+        strncpy_s(buf,CMD5src,2);
         CMD5src+=2;
         ((unsigned char*)m_data)[j] = _httoi(buf);
     }

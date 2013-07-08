@@ -4,7 +4,7 @@
 #include "PSMS.h"
 #include "DateRemindDlg.h"
 #include "afxdialogex.h"
-
+#include"EditDlg.h"
 // CDateRemindDlg 对话框
 
 IMPLEMENT_DYNAMIC(CDateRemindDlg, CDialog)
@@ -86,7 +86,11 @@ void CDateRemindDlg::SetUser(CUser user)
 
 void CDateRemindDlg::OnBnClickedDateremindAdd()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CEditDlg dlg;
+	ShowWindow(SW_HIDE);
+	dlg.SetUser(m_user);
+	dlg.DoModal();
+	this->ShowWindow(SW_SHOW);
 }
 
 
@@ -97,6 +101,9 @@ void CDateRemindDlg::OnBnClickedDateremindDelete()
 	while (p)      
 	{      
 		int  nSelected=m_DateRemindList.GetNextSelectedItem(p); //获取选中行的索引  
+		CDateRemind d;
+		d.SetID(atoi(m_DateRemindList.GetItemText(nSelected,3)));
+		m_user.RemoveDateRemind(d);
 		m_DateRemindList.DeleteItem(nSelected); //根据索引删除
 		p  = m_DateRemindList.GetFirstSelectedItemPosition();  
 
@@ -106,11 +113,16 @@ void CDateRemindDlg::OnBnClickedDateremindDelete()
 
 void CDateRemindDlg::OnBnClickedDateremindUpdate()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CEditDlg dlg;
+	ShowWindow(SW_HIDE);
+	dlg.SetUser(m_user);
+	dlg.DoModal();
+	this->ShowWindow(SW_SHOW);
 }
 
 
 void CDateRemindDlg::OnBnClickedDateremindDeleteall()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CleanList();
+	m_user.PurgeDateRemind();
 }

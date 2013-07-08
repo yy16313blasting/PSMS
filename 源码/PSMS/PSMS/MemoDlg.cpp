@@ -5,7 +5,7 @@
 #include "PSMS.h"
 #include "MemoDlg.h"
 #include "afxdialogex.h"
-
+#include"EditDlg.h"
 
 // CMemoDlg 对话框
 
@@ -89,7 +89,11 @@ void CMemoDlg::SetUser(CUser user)
 
 void CMemoDlg::OnBnClickedMemoAdd()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CEditDlg dlg;
+	ShowWindow(SW_HIDE);
+	dlg.SetUser(m_user);
+	dlg.DoModal();
+	this->ShowWindow(SW_SHOW);
 }
 
 
@@ -99,7 +103,10 @@ void CMemoDlg::OnBnClickedMemoDelete()
 
 	while (p)      
 	{      
-		int  nSelected=m_MemoList.GetNextSelectedItem(p); //获取选中行的索引  
+		int  nSelected=m_MemoList.GetNextSelectedItem(p); //获取选中行的索引
+		CMemo d;
+		d.SetID(atoi(m_MemoList.GetItemText(nSelected,3)));
+		m_user.RemoveMemo(d);
 		m_MemoList.DeleteItem(nSelected); //根据索引删除
 		p  = m_MemoList.GetFirstSelectedItemPosition();  
 
@@ -109,11 +116,16 @@ void CMemoDlg::OnBnClickedMemoDelete()
 
 void CMemoDlg::OnBnClickedMemoUpdate()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CEditDlg dlg;
+	ShowWindow(SW_HIDE);
+	dlg.SetUser(m_user);
+	dlg.DoModal();
+	this->ShowWindow(SW_SHOW);
 }
 
 
 void CMemoDlg::OnBnClickedMemoDeleteall()
 {
-	// TODO: 在此添加控件通知处理程序代码
+	CleanList();
+	m_user.PurgeMemo();
 }
