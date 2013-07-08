@@ -97,6 +97,9 @@
     <None Include="ReadMe.txt" />
     <None Include="res\PSMS.ico" />
     <None Include="res\PSMS.rc2" />
+    <None Include="res\reminder.bmp" />
+    <None Include="res\吴彦祖.bmp" />
+    <None Include="res\陈乔恩.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DateRemind.h" />
@@ -123,6 +126,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TimeRemind.h" />
     <ClInclude Include="TimeRemindDlg.h" />
+    <ClInclude Include="UpdatePasswordDlg.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserDA.h" />
   </ItemGroup>
@@ -152,6 +156,7 @@
     </ClCompile>
     <ClCompile Include="TimeRemind.cpp" />
     <ClCompile Include="TimeRemindDlg.cpp" />
+    <ClCompile Include="UpdatePasswordDlg.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserDA.cpp" />
   </ItemGroup>

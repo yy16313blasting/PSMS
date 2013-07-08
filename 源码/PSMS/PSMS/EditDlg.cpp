@@ -28,6 +28,8 @@ void CEditDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CEditDlg, CDialog)
 	ON_BN_CLICKED(IDC_EDIT, &CEditDlg::OnBnClickedEdit)
 	ON_BN_CLICKED(IDC_CANCEL_EDIT, &CEditDlg::OnBnClickedCancelEdit)
+	ON_WM_QUERYDRAGICON()
+	ON_WM_SYSCOMMAND()
 END_MESSAGE_MAP()
 
 
@@ -35,7 +37,7 @@ END_MESSAGE_MAP()
 
 
 void CEditDlg::OnBnClickedEdit()
-{
+{	
 	this->OnCancel();
 }
 
@@ -48,4 +50,22 @@ void CEditDlg::OnBnClickedCancelEdit()
 void CEditDlg::SetUser(CUser user)
 {
 	user.SetName(user.GetName());
+}
+
+HCURSOR CEditDlg::OnQueryDragIcon()
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	m_pPage->UpdateWindow();
+	return CDialog::OnQueryDragIcon();
+}
+
+
+void CEditDlg::OnSysCommand(UINT nID, LPARAM lParam)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	if( (nID & 0xFFF0) == WM_WINDOWPOSCHANGED)
+	{
+		GetDlgItem(IDC_EDIT2)->SetWindowTextA("hehe");
+	}
+	CDialog::OnSysCommand(nID, lParam);
 }

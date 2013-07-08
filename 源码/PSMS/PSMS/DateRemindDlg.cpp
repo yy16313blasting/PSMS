@@ -87,7 +87,7 @@ void CDateRemindDlg::SetUser(CUser user)
 void CDateRemindDlg::OnBnClickedDateremindAdd()
 {
 	CEditDlg dlg;
-	ShowWindow(SW_HIDE);
+	this->ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
 	dlg.DoModal();
 	this->ShowWindow(SW_SHOW);
@@ -113,11 +113,15 @@ void CDateRemindDlg::OnBnClickedDateremindDelete()
 
 void CDateRemindDlg::OnBnClickedDateremindUpdate()
 {
+	//CEditDlg dlg;
+	//this->ShowWindow(SW_HIDE);
+	//m_DateRemindDlg.ShowWindow(SW_HIDE);
+	//dlg.SetUser(m_user);
+	//dlg.Create();
+	//this->ShowWindow(SW_SHOW);
 	CEditDlg dlg;
-	ShowWindow(SW_HIDE);
-	dlg.SetUser(m_user);
+	dlg.m_pPage=this;
 	dlg.DoModal();
-	this->ShowWindow(SW_SHOW);
 }
 
 

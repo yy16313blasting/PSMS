@@ -22,4 +22,7 @@ public:
 	afx_msg void OnBnClickedEdit();
 	afx_msg void OnBnClickedCancelEdit();
 	void SetUser(CUser user);
+	CDialog *m_pPage;
+	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 };

@@ -119,6 +119,7 @@ BOOL CSignInDlg::PreTranslateMessage(MSG* pMsg)
 	}
 	else
 		return CDialog::PreTranslateMessage(pMsg);
+		
 } 
 
 void CSignInDlg::OnBnClickedQuit()

@@ -746,3 +746,13 @@ bool CUserDA::ExistUser(CString name)
 	//m_pRecordset->Release();
 	return false;
 }
+
+void CUserDA::UpdatePassword(CString name,CString password)
+{
+	CMD5 md5;
+	md5.GenerateCMD5((unsigned char*)(LPCTSTR)password,password.GetLength());
+	password = md5.ToString();
+	CString sql;
+	sql.Format("update [User] set szPassword = '%s' where szName = '%s' ",password,name);
+	ExcuteSql(sql);
+}

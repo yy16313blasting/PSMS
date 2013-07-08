@@ -43,6 +43,7 @@ public:
 	void  UpdateDiary(CDiary diary);
 	void  UpdateMemo(CMemo memo);
 	void  UpdateTimeRemind(CTimeRemind timeRemind);
+	void  UpdatePassword(CString password);
 
 	void GetAllDiary(CDiary*& list);
 	void GetAllMemo(CMemo*& list);

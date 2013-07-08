@@ -35,6 +35,7 @@ public:
 	void UpdateMemo(CMemo memo);
 	void UpdateTimeRemind(CTimeRemind timeRemind);
 	void UpdateDateRemind(CDateRemind dateRemind);
+	void UpdatePassword(CString name,CString password);
 
 	void GetAllDiary(CDiary*& list,CString user);
 	void GetAllMemo(CMemo*& list,CString user);

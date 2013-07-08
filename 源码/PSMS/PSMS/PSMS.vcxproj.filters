@@ -22,6 +22,15 @@
     <None Include="res\PSMS.ico">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="res\陈乔恩.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\吴彦祖.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\reminder.bmp">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PSMS.h">
@@ -102,6 +111,9 @@
     <ClInclude Include="SettingsDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="UpdatePasswordDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PSMS.cpp">
@@ -174,6 +186,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SettingsDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdatePasswordDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
