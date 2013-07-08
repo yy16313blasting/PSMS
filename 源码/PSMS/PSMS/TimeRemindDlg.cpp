@@ -28,6 +28,10 @@ void CTimeRemindDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CTimeRemindDlg, CDialog)
+	ON_BN_CLICKED(IDC_TIMEREMIND_ADD, &CTimeRemindDlg::OnBnClickedTimeremindAdd)
+	ON_BN_CLICKED(IDC_TIMEREMIND_DELETE, &CTimeRemindDlg::OnBnClickedTimeremindDelete)
+	ON_BN_CLICKED(IDC_TIMEREMIND_UPDATE, &CTimeRemindDlg::OnBnClickedTimeremindUpdate)
+	ON_BN_CLICKED(IDC_TIMEREMIND_DELETEALL, &CTimeRemindDlg::OnBnClickedTimeremindDeleteall)
 END_MESSAGE_MAP()
 
 
@@ -53,7 +57,7 @@ void CTimeRemindDlg::ShowList()
 	int icount=m_user.CountAllTimeRemind();
 	if(0==icount)
 	{
-		AfxMessageBox("没有记录");
+		
 	return;
 	}
 	CTimeRemind* list =new CTimeRemind[icount];
@@ -81,4 +85,36 @@ m_TimeRemindList.DeleteAllItems(); //删除列表控件
 void CTimeRemindDlg::SetUser(CUser user)
 {
 	m_user.SetName(user.GetName());
+}
+
+void CTimeRemindDlg::OnBnClickedTimeremindAdd()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CTimeRemindDlg::OnBnClickedTimeremindDelete()
+{
+	POSITION p=m_TimeRemindList.GetFirstSelectedItemPosition();    //获取首选中行位置
+
+	while (p)      
+	{      
+		int  nSelected=m_TimeRemindList.GetNextSelectedItem(p); //获取选中行的索引  
+	
+		m_TimeRemindList.DeleteItem(nSelected); //根据索引删除
+		p  = m_TimeRemindList.GetFirstSelectedItemPosition();  
+
+	}
+}
+
+
+void CTimeRemindDlg::OnBnClickedTimeremindUpdate()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CTimeRemindDlg::OnBnClickedTimeremindDeleteall()
+{
+	// TODO: 在此添加控件通知处理程序代码
 }

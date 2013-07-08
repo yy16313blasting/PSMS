@@ -27,4 +27,18 @@ void CRemindDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CRemindDlg, CDialog)
+	ON_BN_CLICKED(IDC_CHECK, &CRemindDlg::OnBnClickedCheck)
+	ON_BN_CLICKED(IDC_REMIND_LATER, &CRemindDlg::OnBnClickedRemindLater)
 END_MESSAGE_MAP()
+
+
+void CRemindDlg::OnBnClickedCheck()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CRemindDlg::OnBnClickedRemindLater()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}

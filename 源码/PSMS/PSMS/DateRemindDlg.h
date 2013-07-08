@@ -25,4 +25,8 @@ public:
 	void ShowList();
 	void CleanList();
 	void SetUser(CUser user);
+	afx_msg void OnBnClickedDateremindAdd();
+	afx_msg void OnBnClickedDateremindDelete();
+	afx_msg void OnBnClickedDateremindUpdate();
+	afx_msg void OnBnClickedDateremindDeleteall();
 };

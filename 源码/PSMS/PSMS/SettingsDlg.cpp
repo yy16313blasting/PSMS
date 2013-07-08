@@ -28,7 +28,14 @@ void CSettingsDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CSettingsDlg, CDialog)
+	ON_BN_CLICKED(IDC_UPDATE_PASSWORD, &CSettingsDlg::OnBnClickedUpdatePassword)
 END_MESSAGE_MAP()
 
 
 // CSettingsDlg 消息处理程序
+
+
+void CSettingsDlg::OnBnClickedUpdatePassword()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}

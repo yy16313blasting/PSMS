@@ -23,4 +23,8 @@ public:
 	void InitListCtrol();
 	void ShowList();
 	void CleanList();
+	afx_msg void OnBnClickedHolidayAdd();
+	afx_msg void OnBnClickedHolidayDelete();
+	afx_msg void OnBnClickedHolidayUpdate();
+	afx_msg void OnBnClickedHolidayDeleteall();
 };

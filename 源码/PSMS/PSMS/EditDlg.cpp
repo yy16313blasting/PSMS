@@ -26,7 +26,21 @@ void CEditDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CEditDlg, CDialog)
+	ON_BN_CLICKED(IDC_EDIT, &CEditDlg::OnBnClickedEdit)
+	ON_BN_CLICKED(IDC_CANCEL_EDIT, &CEditDlg::OnBnClickedCancelEdit)
 END_MESSAGE_MAP()
 
 
 // CEditDlg 消息处理程序
+
+
+void CEditDlg::OnBnClickedEdit()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CEditDlg::OnBnClickedCancelEdit()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}

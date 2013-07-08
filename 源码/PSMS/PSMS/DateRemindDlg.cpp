@@ -25,6 +25,10 @@ void CDateRemindDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CDateRemindDlg, CDialog)
+	ON_BN_CLICKED(IDC_DATEREMIND_ADD, &CDateRemindDlg::OnBnClickedDateremindAdd)
+	ON_BN_CLICKED(IDC_DATEREMIND_DELETE, &CDateRemindDlg::OnBnClickedDateremindDelete)
+	ON_BN_CLICKED(IDC_DATEREMIND_UPDATE, &CDateRemindDlg::OnBnClickedDateremindUpdate)
+	ON_BN_CLICKED(IDC_DATEREMIND_DELETEALL, &CDateRemindDlg::OnBnClickedDateremindDeleteall)
 END_MESSAGE_MAP()
 
 // CDateRemindDlg 消息处理程序
@@ -49,7 +53,7 @@ void CDateRemindDlg::ShowList()
 	int icount=m_user.CountAllDateRemind();
 	if(0==icount)
 	{
-		AfxMessageBox("没有记录");
+		
 	return;
 	}
 	CDateRemind* list =new CDateRemind[icount];
@@ -78,4 +82,35 @@ m_DateRemindList.DeleteAllItems(); //删除列表控件
 void CDateRemindDlg::SetUser(CUser user)
 {
 	m_user.SetName(user.GetName());
+}
+
+void CDateRemindDlg::OnBnClickedDateremindAdd()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CDateRemindDlg::OnBnClickedDateremindDelete()
+{
+	POSITION p=m_DateRemindList.GetFirstSelectedItemPosition();    //获取首选中行位置
+
+	while (p)      
+	{      
+		int  nSelected=m_DateRemindList.GetNextSelectedItem(p); //获取选中行的索引  
+		m_DateRemindList.DeleteItem(nSelected); //根据索引删除
+		p  = m_DateRemindList.GetFirstSelectedItemPosition();  
+
+	}
+}
+
+
+void CDateRemindDlg::OnBnClickedDateremindUpdate()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CDateRemindDlg::OnBnClickedDateremindDeleteall()
+{
+	// TODO: 在此添加控件通知处理程序代码
 }

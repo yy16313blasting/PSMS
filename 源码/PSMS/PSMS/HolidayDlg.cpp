@@ -27,6 +27,10 @@ void CHolidayDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CHolidayDlg, CDialog)
+	ON_BN_CLICKED(IDC_HOLIDAY_ADD, &CHolidayDlg::OnBnClickedHolidayAdd)
+	ON_BN_CLICKED(IDC_HOLIDAY_DELETE, &CHolidayDlg::OnBnClickedHolidayDelete)
+	ON_BN_CLICKED(IDC_HOLIDAY_UPDATE, &CHolidayDlg::OnBnClickedHolidayUpdate)
+	ON_BN_CLICKED(IDC_HOLIDAY_DELETEALL, &CHolidayDlg::OnBnClickedHolidayDeleteall)
 END_MESSAGE_MAP()
 
 
@@ -51,7 +55,7 @@ void CHolidayDlg::ShowList()
 	int icount=user.CountAllHoliday();
 	if(0==icount)
 	{
-		AfxMessageBox("没有记录");
+		
 	return;
 	}
 	CHoliday* list =new CHoliday[icount];
@@ -75,4 +79,35 @@ void CHolidayDlg::ShowList()
 void  CHolidayDlg::CleanList()
 {
 m_HolidayList.DeleteAllItems(); //删除列表控件
+}
+
+void CHolidayDlg::OnBnClickedHolidayAdd()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CHolidayDlg::OnBnClickedHolidayDelete()
+{
+	POSITION p=m_HolidayList.GetFirstSelectedItemPosition();    //获取首选中行位置
+
+	while (p)      
+	{      
+		int  nSelected=m_HolidayList.GetNextSelectedItem(p); //获取选中行的索引  
+		m_HolidayList.DeleteItem(nSelected); //根据索引删除
+		p  = m_HolidayList.GetFirstSelectedItemPosition();  
+
+	}
+}
+
+
+void CHolidayDlg::OnBnClickedHolidayUpdate()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CHolidayDlg::OnBnClickedHolidayDeleteall()
+{
+	// TODO: 在此添加控件通知处理程序代码
 }

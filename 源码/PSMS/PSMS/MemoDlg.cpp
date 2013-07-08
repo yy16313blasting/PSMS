@@ -28,6 +28,10 @@ void CMemoDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CMemoDlg, CDialog)
+	ON_BN_CLICKED(IDC_MEMO_ADD, &CMemoDlg::OnBnClickedMemoAdd)
+	ON_BN_CLICKED(IDC_MEMO_DELETE, &CMemoDlg::OnBnClickedMemoDelete)
+	ON_BN_CLICKED(IDC_MEMO_UPDATE, &CMemoDlg::OnBnClickedMemoUpdate)
+	ON_BN_CLICKED(IDC_MEMO_DELETEALL, &CMemoDlg::OnBnClickedMemoDeleteall)
 END_MESSAGE_MAP()
 
 
@@ -52,7 +56,7 @@ void CMemoDlg::ShowList()
 	int icount=m_user.CountAllMemo();
 	if(0==icount)
 	{
-		AfxMessageBox("没有记录");
+		
 	return;
 	}
 	CMemo* list =new CMemo[icount];
@@ -81,4 +85,35 @@ m_MemoList.DeleteAllItems(); //删除列表控件
 void CMemoDlg::SetUser(CUser user)
 {
 	m_user.SetName(user.GetName());
+}
+
+void CMemoDlg::OnBnClickedMemoAdd()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CMemoDlg::OnBnClickedMemoDelete()
+{
+	POSITION p=m_MemoList.GetFirstSelectedItemPosition();    //获取首选中行位置
+
+	while (p)      
+	{      
+		int  nSelected=m_MemoList.GetNextSelectedItem(p); //获取选中行的索引  
+		m_MemoList.DeleteItem(nSelected); //根据索引删除
+		p  = m_MemoList.GetFirstSelectedItemPosition();  
+
+	}
+}
+
+
+void CMemoDlg::OnBnClickedMemoUpdate()
+{
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+void CMemoDlg::OnBnClickedMemoDeleteall()
+{
+	// TODO: 在此添加控件通知处理程序代码
 }

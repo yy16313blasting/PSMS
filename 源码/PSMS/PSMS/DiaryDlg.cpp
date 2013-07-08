@@ -55,7 +55,7 @@ void CDiaryDlg::ShowList()
 	int icount=m_user.CountAllDiary();
 	if(0==icount)
 	{
-		AfxMessageBox("没有记录");
+		
 	return;
 	}
 	CDiary* list =new CDiary[icount];
@@ -89,7 +89,15 @@ void CDiaryDlg::OnBnClickedDiaryAdd()
 
 void CDiaryDlg::OnBnClickedDiaryDelete()
 {
-	
+	POSITION p=m_DiaryList.GetFirstSelectedItemPosition();    //获取首选中行位置
+
+	while (p)      
+	{      
+		int  nSelected=m_DiaryList.GetNextSelectedItem(p); //获取选中行的索引  
+		m_DiaryList.DeleteItem(nSelected); //根据索引删除
+		p  = m_DiaryList.GetFirstSelectedItemPosition();  
+
+	}
 }
 
 

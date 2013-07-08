@@ -25,4 +25,8 @@ public:
 	void CleanList();
 	CListCtrl m_MemoList;
 	void SetUser(CUser user);
+	afx_msg void OnBnClickedMemoAdd();
+	afx_msg void OnBnClickedMemoDelete();
+	afx_msg void OnBnClickedMemoUpdate();
+	afx_msg void OnBnClickedMemoDeleteall();
 };
