@@ -107,7 +107,7 @@ BOOL CPSMSDlg::OnInitDialog()
     m_nid.uFlags  = NIF_ICON | NIF_MESSAGE | NIF_TIP ;
     m_nid.uCallbackMessage = WM_SHOWTASK;             // 自定义的消息名称
     m_nid.hIcon   = LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDR_MAINFRAME));
-    strcpy(m_nid.szTip, "个人日程管理");                // 信息提示条为"个人日程管理"，VS2008 UNICODE编码用wcscpy_s()函数
+    strcpy_s(m_nid.szTip, "个人日程管理");                // 信息提示条为"个人日程管理"，VS2008 UNICODE编码用wcscpy_s()函数
 		  
 	if(!hasTray)
 	{
