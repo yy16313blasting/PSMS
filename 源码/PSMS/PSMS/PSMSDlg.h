@@ -7,6 +7,7 @@
 #include "MemoDlg.h"
 #include "DiaryDlg.h"
 #include "HolidayDlg.h"
+#include "SettingsDlg.h"
 
 #define WM_SHOWTASK WM_USER+1
 // CPSMSDlg ¶Ô»°¿ò
@@ -42,6 +43,7 @@ private:
 	CDiaryDlg m_DiaryDlg;
 	CMemoDlg m_MemoDlg;
 	CHolidayDlg m_HolidayDlg;
+	CSettingsDlg m_SettingsDlg;
 	NOTIFYICONDATA m_nid;
 public:
 	afx_msg void OnClose();

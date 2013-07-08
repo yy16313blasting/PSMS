@@ -116,6 +116,7 @@
     <ClInclude Include="RecordList.h" />
     <ClInclude Include="RemindDlg.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SettingsDlg.h" />
     <ClInclude Include="SignInDlg.h" />
     <ClInclude Include="SignUpDlg.h" />
     <ClInclude Include="stdafx.h" />
@@ -141,6 +142,7 @@
     <ClCompile Include="Record.cpp" />
     <ClCompile Include="RecordList.cpp" />
     <ClCompile Include="RemindDlg.cpp" />
+    <ClCompile Include="SettingsDlg.cpp" />
     <ClCompile Include="SignInDlg.cpp" />
     <CLCompile Include="Memo.cpp" />
     <ClCompile Include="SignUpDlg.cpp" />
