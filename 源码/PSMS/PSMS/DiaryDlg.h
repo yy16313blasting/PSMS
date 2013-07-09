@@ -29,4 +29,14 @@ public:
 	afx_msg void OnBnClickedDiaryUpdate();
 	afx_msg void OnBnClickedDiaryDeleteall();
 	void SetUser(CUser user);
+private:
+	CString m_szContent;
+	CString m_szTitle;
+	CString m_szDateTime;
+	CString m_szID;
+	bool hasSelectedItem;
+	int nItem;
+public:
+	afx_msg void OnClickDiaryList(NMHDR *pNMHDR, LRESULT *pResult);
+	virtual BOOL OnInitDialog();
 };

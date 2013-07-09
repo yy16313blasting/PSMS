@@ -29,6 +29,7 @@ BEGIN_MESSAGE_MAP(CDateRemindDlg, CDialog)
 	ON_BN_CLICKED(IDC_DATEREMIND_DELETE, &CDateRemindDlg::OnBnClickedDateremindDelete)
 	ON_BN_CLICKED(IDC_DATEREMIND_UPDATE, &CDateRemindDlg::OnBnClickedDateremindUpdate)
 	ON_BN_CLICKED(IDC_DATEREMIND_DELETEALL, &CDateRemindDlg::OnBnClickedDateremindDeleteall)
+	ON_NOTIFY(NM_CLICK, IDC_DATEREMIND_LIST, &CDateRemindDlg::OnClickDateremindList)
 END_MESSAGE_MAP()
 
 // CDateRemindDlg 消息处理程序
@@ -104,6 +105,11 @@ void CDateRemindDlg::OnBnClickedDateremindAdd()
 
 void CDateRemindDlg::OnBnClickedDateremindDelete()
 {
+	if(!hasSelectedItem)
+	{
+		//AfxMessageBox("你还没有选中一项");
+		return;
+	}
 	POSITION p=m_DateRemindList.GetFirstSelectedItemPosition();    //获取首选中行位置
 
 	while (p)      
@@ -121,10 +127,23 @@ void CDateRemindDlg::OnBnClickedDateremindDelete()
 
 void CDateRemindDlg::OnBnClickedDateremindUpdate()
 {
+	if(!hasSelectedItem)
+	{
+		//AfxMessageBox("你还没有选中一项");
+		return;
+	}
 	CEditDlg dlg;
 	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
+	dlg.SetDateTime(m_szDateTime);
+	dlg.SetTitle(m_szTitle);
+	dlg.SetContent(m_szContent);
+	dlg.SetID(m_szID);
 	dlg.DoModal();
+	m_DateRemindList.SetItemText(nItem,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
+	m_DateRemindList.SetItemText(nItem,1,dlg.GetTitle());
+	m_DateRemindList.SetItemText(nItem,2,dlg.GetContent());
+	m_DateRemindList.SetItemText(nItem,3,dlg.GetID());
 	this->ShowWindow(SW_SHOW);
 }
 
@@ -133,4 +152,37 @@ void CDateRemindDlg::OnBnClickedDateremindDeleteall()
 {
 	CleanList();
 	m_user.PurgeDateRemind();
+}
+
+
+void CDateRemindDlg::OnClickDateremindList(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+	NM_LISTVIEW* pNmListView = (NM_LISTVIEW*)pNMHDR;
+	nItem = pNmListView->iItem;
+	m_szDateTime = m_DateRemindList.GetItemText(nItem, 0);
+	m_szTitle = m_DateRemindList.GetItemText(nItem, 1);
+	m_szContent   = m_DateRemindList.GetItemText(nItem, 2);
+	m_szID  = m_DateRemindList.GetItemText(nItem, 3);
+	UpdateData(FALSE);
+	*pResult = 0;
+
+	if(-1 == nItem)
+	{
+		hasSelectedItem = false;
+	}
+	else
+	{
+		hasSelectedItem = true;
+	}
+}
+
+
+BOOL CDateRemindDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	hasSelectedItem = false;
+
+	return TRUE;
 }

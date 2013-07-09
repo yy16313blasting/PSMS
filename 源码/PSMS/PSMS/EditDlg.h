@@ -24,19 +24,22 @@ public:
 	afx_msg BOOL PreTranslateMessage(MSG* pMsg);
 	void SetUser(CUser user);
 	void SetType(CString type);
+	void SetDateTime(CString datetime);
+	void SetTitle(CString title);
+	void SetContent(CString content);
+	void SetID(CString ID);
 	CString GetTitle();
 	CString GetContent();
 	CString GetDateTime();
 	CString GetID();
 	CDateTimeCtrl m_Date;
 	CDateTimeCtrl m_Time;
+	virtual BOOL OnInitDialog();
 private:
 	CString m_editTitle;
 	CString m_editContent;
 	CString m_strDateTime;
 	CString m_strID;
-	CUser m_user;
+	CUser	m_user;
 	CString m_szType;
-
-	
 };

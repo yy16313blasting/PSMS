@@ -31,6 +31,7 @@ BEGIN_MESSAGE_MAP(CDiaryDlg, CDialog)
 	ON_BN_CLICKED(IDC_DIARY_DELETE, &CDiaryDlg::OnBnClickedDiaryDelete)
 	ON_BN_CLICKED(IDC_DIARY_UPDATE, &CDiaryDlg::OnBnClickedDiaryUpdate)
 	ON_BN_CLICKED(IDC_DIARY_DELETEALL, &CDiaryDlg::OnBnClickedDiaryDeleteall)
+	ON_NOTIFY(NM_CLICK, IDC_DIARY_LIST, &CDiaryDlg::OnClickDiaryList)
 END_MESSAGE_MAP()
 
 
@@ -104,6 +105,11 @@ void CDiaryDlg::OnBnClickedDiaryAdd()
 
 void CDiaryDlg::OnBnClickedDiaryDelete()
 {
+	if(!hasSelectedItem)
+	{
+		//AfxMessageBox("你还没有选中一项");
+		return;
+	}
 	POSITION p=m_DiaryList.GetFirstSelectedItemPosition();    //获取首选中行位置
 
 	while (p)      
@@ -119,11 +125,25 @@ void CDiaryDlg::OnBnClickedDiaryDelete()
 
 
 void CDiaryDlg::OnBnClickedDiaryUpdate()
-{	CEditDlg dlg;
+{	
+	if(!hasSelectedItem)
+	{
+		//AfxMessageBox("你还没有选中一项");
+		return;
+	}
+	
+	CEditDlg dlg;
 	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
+	dlg.SetDateTime(m_szDateTime);
+	dlg.SetTitle(m_szTitle);
+	dlg.SetContent(m_szContent);
+	dlg.SetID(m_szID);
 	dlg.DoModal();
-	
+	m_szDateTime = dlg.GetDateTime();
+	m_szTitle = dlg.GetTitle();
+	m_szContent   = dlg.GetContent();
+	m_szID  =dlg.GetID();
 	this->ShowWindow(SW_SHOW);
 	
 }
@@ -131,10 +151,6 @@ void CDiaryDlg::OnBnClickedDiaryUpdate()
 
 void CDiaryDlg::OnBnClickedDiaryDeleteall()
 {
-	/* TODO: 在此添加控件通知处理程序代码
-	CDiary d;
-	d.SetID(atoi(m_DiaryList.GetItemText(1,3)));
-	m_user.RemoveDiary(d);*/
 	CleanList();
 	m_user.PurgeDiary();
 
@@ -143,4 +159,37 @@ void CDiaryDlg::OnBnClickedDiaryDeleteall()
 void CDiaryDlg::SetUser(CUser user)
 {
 	m_user.SetName(user.GetName());
+}
+
+
+void CDiaryDlg::OnClickDiaryList(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+	NM_LISTVIEW* pNmListView = (NM_LISTVIEW*)pNMHDR;
+	nItem = pNmListView->iItem;
+	m_szDateTime = m_DiaryList.GetItemText(nItem, 0);
+	m_szTitle = m_DiaryList.GetItemText(nItem, 1);
+	m_szContent   = m_DiaryList.GetItemText(nItem, 2);
+	m_szID  = m_DiaryList.GetItemText(nItem, 3);
+	UpdateData(FALSE);
+	*pResult = 0;
+
+	if(-1 == nItem)
+	{
+		hasSelectedItem = false;
+	}
+	else
+	{
+		hasSelectedItem = true;
+	}
+}
+
+
+BOOL CDiaryDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	hasSelectedItem = false;
+
+	return TRUE;
 }
