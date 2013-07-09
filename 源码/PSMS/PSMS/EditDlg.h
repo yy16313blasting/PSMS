@@ -28,18 +28,21 @@ public:
 	void SetTitle(CString title);
 	void SetContent(CString content);
 	void SetID(CString ID);
+	void SetID(int id);
 	CString GetTitle();
 	CString GetContent();
 	CString GetDateTime();
-	CString GetID();
 	CDateTimeCtrl m_Date;
 	CDateTimeCtrl m_Time;
+	CString GetID();
 	virtual BOOL OnInitDialog();
+	void Update(bool);
 private:
 	CString m_editTitle;
 	CString m_editContent;
 	CString m_strDateTime;
-	CString m_strID;
+	int m_nID;
 	CUser	m_user;
 	CString m_szType;
+	bool m_isUpdate;
 };

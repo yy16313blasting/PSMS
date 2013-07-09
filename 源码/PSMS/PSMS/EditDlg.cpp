@@ -59,8 +59,15 @@ void CEditDlg::OnBnClickedEdit()
 		d.SetContent(m_editContent);
 		d.SetDate(m_strDateTime);
 		d.SetUser(m_user.GetName());
-		m_user.AddDiary(d);
-		m_strID.Format("%d",d.GetID());
+		if(!m_isUpdate)
+		{
+			m_user.AddDiary(d);
+		}
+		else
+		{
+			d.SetID(m_nID);
+			m_user.UpdateDiary(d);
+		}
 	}
 	if("Memo" == m_szType)
 	{
@@ -69,7 +76,15 @@ void CEditDlg::OnBnClickedEdit()
 		d.SetContent(m_editContent);
 		d.SetDate(m_strDateTime);
 		d.SetUser(m_user.GetName());
-		m_user.AddMemo(d);
+		if(!m_isUpdate)
+		{
+			m_user.AddMemo(d);
+		}
+		else
+		{
+			d.SetID(m_nID);
+			m_user.UpdateMemo(d);
+		}
 	}
 	if("TimeRemind" == m_szType)
 	{
@@ -79,7 +94,15 @@ void CEditDlg::OnBnClickedEdit()
 		d.SetDate(m_strDateTime);
 		d.SetUser(m_user.GetName());
 		d.SetRemindFrequency(10);
-		m_user.AddTimeRemind(d);
+		if(!m_isUpdate)
+		{
+			m_user.AddTimeRemind(d);
+		}
+		else
+		{
+			d.SetID(m_nID);
+			m_user.UpdateTimeRemind(d);
+		}
 	}
 	if("DateRemind" == m_szType)
 	{
@@ -89,7 +112,15 @@ void CEditDlg::OnBnClickedEdit()
 		d.SetDate(m_strDateTime);
 		d.SetUser(m_user.GetName());
 		d.SetRemindFrequency(100);
-		m_user.AddDateRemind(d);
+		if(!m_isUpdate)
+		{
+			m_user.AddDateRemind(d);
+		}
+		else
+		{
+			d.SetID(m_nID);
+			m_user.UpdateDateRemind(d);
+		}
 	}
 	this->OnOK();
 }
@@ -126,7 +157,7 @@ void CEditDlg::SetContent(CString content)
 
 void CEditDlg::SetID(CString ID)
 {
-	m_strID=ID;
+	m_nID=atoi(ID);
 }
 
 CString CEditDlg::GetTitle()
@@ -144,10 +175,6 @@ CString CEditDlg::GetDateTime()
 	return m_strDateTime;
 }
 
-CString CEditDlg::GetID()
-{
-	return m_strID;
-}
 
 BOOL CEditDlg::PreTranslateMessage(MSG* pMsg)
 {
@@ -186,6 +213,25 @@ BOOL CEditDlg::OnInitDialog()
 	pCtrl->SetTime(&sysTime);
 	pCtrl1->SetTime(&sysTime);
 
+
+	//m_isUpdate = false;
 	
 	return TRUE;
+}
+
+void CEditDlg::SetID(int id)
+{
+	m_nID = id;
+}
+
+void CEditDlg::Update(bool update)
+{
+	m_isUpdate = true;
+}
+
+CString CEditDlg::GetID()
+{
+	CString str;
+	str.Format("%d",m_nID);
+	return str;
 }

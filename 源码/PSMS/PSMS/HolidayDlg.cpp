@@ -146,6 +146,10 @@ int CHolidayDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
     int Day = time.GetDay();   
 
 	int icount = user.CountAllHoliday();
+
+	if(icount == 0)
+		return 0;
+
 	CHoliday *list = new CHoliday[icount];
 	user.GetAllHoliday(list);
 	//int j;

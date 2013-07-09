@@ -92,6 +92,7 @@ void CDiaryDlg::OnBnClickedDiaryAdd()
 	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
 	dlg.SetType("Diary");
+	dlg.Update(false);
 	dlg.DoModal(); 
 	m_DiaryList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
 	m_DiaryList.SetItemText(0,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
@@ -99,7 +100,6 @@ void CDiaryDlg::OnBnClickedDiaryAdd()
 	m_DiaryList.SetItemText(0,2,dlg.GetContent());
 	m_DiaryList.SetItemText(0,3,dlg.GetID());
 	this->ShowWindow(SW_SHOW);
-	
 }
 
 
@@ -134,18 +134,19 @@ void CDiaryDlg::OnBnClickedDiaryUpdate()
 	
 	CEditDlg dlg;
 	ShowWindow(SW_HIDE);
+	dlg.SetType("Diary");
+	dlg.Update(true);
 	dlg.SetUser(m_user);
 	dlg.SetDateTime(m_szDateTime);
 	dlg.SetTitle(m_szTitle);
 	dlg.SetContent(m_szContent);
 	dlg.SetID(m_szID);
 	dlg.DoModal();
-	m_szDateTime = dlg.GetDateTime();
-	m_szTitle = dlg.GetTitle();
-	m_szContent   = dlg.GetContent();
-	m_szID  =dlg.GetID();
+	m_DiaryList.SetItemText(nItem,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
+	m_DiaryList.SetItemText(nItem,1,dlg.GetTitle());
+	m_DiaryList.SetItemText(nItem,2,dlg.GetContent());
+	m_DiaryList.SetItemText(nItem,3,dlg.GetID());
 	this->ShowWindow(SW_SHOW);
-	
 }
 
 

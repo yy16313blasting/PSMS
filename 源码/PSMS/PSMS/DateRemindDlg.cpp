@@ -201,6 +201,8 @@ int CDateRemindDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
     int Day = time.GetDay();   
 
 	int icount = m_user.CountAllDateRemind();
+	if( icount == 0)
+		return 0;
 	CDateRemind *list = new CDateRemind[icount];
 	m_user.GetAllDateRemind(list);
 	//int j;

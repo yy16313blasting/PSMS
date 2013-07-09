@@ -173,7 +173,7 @@ void CUserDA::RemoveDateRemind(CDateRemind dateRemind)
 void CUserDA::UpdateDiary(CDiary diary)
 {
 	CString sql;
-	sql.Format("update Diary set szTitle = '%s' szContent = '%s',[DateTime] = '%s' where ID = %d",
+	sql.Format("update Diary set szTitle = '%s',szContent = '%s',[DateTime] = '%s' where ID = %d",
 		diary.GetTitle(),diary.GetContent(), diary.GetDate(), diary.GetID());
 	ExcuteSql(sql);
 }
@@ -181,7 +181,7 @@ void CUserDA::UpdateDiary(CDiary diary)
 void CUserDA::UpdateMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("update [Memo] setszTitle = '%s' szContent = '%s',[DateTime] = '%s' where ID = %d",
+	sql.Format("update [Memo] set szTitle = '%s',szContent = '%s',[DateTime] = '%s' where ID = %d",
 		memo.GetTitle(),memo.GetContent(), memo.GetDate(), memo.GetID());
 	ExcuteSql(sql);
 }
@@ -189,7 +189,7 @@ void CUserDA::UpdateMemo(CMemo memo)
 void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
-	sql.Format("update DateRemind set szTitle = '%s' szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
+	sql.Format("update DateRemind set szTitle = '%s',szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
 		dateRemind.GetTitle(),dateRemind.GetTitle(),dateRemind.GetContent(), dateRemind.GetDate(), dateRemind.GetRemindFrequency(), dateRemind.GetID());
 	ExcuteSql(sql);
 }
@@ -197,7 +197,7 @@ void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
 void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
-	sql.Format("update TimeRemind setszTitle = '%s' szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
+	sql.Format("update TimeRemind setszTitle = '%s',szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
 		timeRemind.GetContent(), timeRemind.GetDate(), timeRemind.GetRemindFrequency(), timeRemind.GetID());
 	ExcuteSql(sql);
 }

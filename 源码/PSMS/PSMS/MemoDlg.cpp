@@ -32,6 +32,7 @@ BEGIN_MESSAGE_MAP(CMemoDlg, CDialog)
 	ON_BN_CLICKED(IDC_MEMO_DELETE, &CMemoDlg::OnBnClickedMemoDelete)
 	ON_BN_CLICKED(IDC_MEMO_UPDATE, &CMemoDlg::OnBnClickedMemoUpdate)
 	ON_BN_CLICKED(IDC_MEMO_DELETEALL, &CMemoDlg::OnBnClickedMemoDeleteall)
+	ON_NOTIFY(NM_CLICK, IDC_MEMO_LIST, &CMemoDlg::OnClickMemoList)
 END_MESSAGE_MAP()
 
 
@@ -94,6 +95,7 @@ void CMemoDlg::OnBnClickedMemoAdd()
 	CEditDlg dlg;
 	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
+	dlg.Update(false);
 	dlg.SetType("Memo");
 	dlg.DoModal();
 	m_MemoList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
@@ -118,16 +120,34 @@ void CMemoDlg::OnBnClickedMemoDelete()
 		m_user.RemoveMemo(d);
 		p  = m_MemoList.GetFirstSelectedItemPosition();  
 	}
+
+
 }
 
 
 void CMemoDlg::OnBnClickedMemoUpdate()
 {
+
+	if(!hasSelectedItem)
+	{
+		//AfxMessageBox("你还没有选中一项");
+		return;
+	}
+	
 	CEditDlg dlg;
 	ShowWindow(SW_HIDE);
+	dlg.SetType("Memo");
+	dlg.Update(true);
 	dlg.SetUser(m_user);
+	dlg.SetDateTime(m_szDateTime);
+	dlg.SetTitle(m_szTitle);
+	dlg.SetContent(m_szContent);
+	dlg.SetID(m_nID);
 	dlg.DoModal();
-
+	m_MemoList.SetItemText(m_nItem,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
+	m_MemoList.SetItemText(m_nItem,1,dlg.GetTitle());
+	m_MemoList.SetItemText(m_nItem,2,dlg.GetContent());
+	m_MemoList.SetItemText(m_nItem,3,dlg.GetID());
 	this->ShowWindow(SW_SHOW);
 }
 
@@ -136,4 +156,41 @@ void CMemoDlg::OnBnClickedMemoDeleteall()
 {
 	CleanList();
 	m_user.PurgeMemo();
+}
+
+
+BOOL CMemoDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// TODO:  在此添加额外的初始化
+
+	hasSelectedItem = false;
+	return TRUE;  // return TRUE unless you set the focus to a control
+	// 异常: OCX 属性页应返回 FALSE
+}
+
+
+void CMemoDlg::OnClickMemoList(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+	// TODO: 在此添加控件通知处理程序代码
+	NM_LISTVIEW* pNmListView = (NM_LISTVIEW*)pNMHDR;
+	m_nItem = pNmListView->iItem;
+	m_szDateTime = m_MemoList.GetItemText(m_nItem, 0);
+	m_szTitle = m_MemoList.GetItemText(m_nItem, 1);
+	m_szContent   = m_MemoList.GetItemText(m_nItem, 2);
+	m_nID  = atoi(m_MemoList.GetItemText(m_nItem, 3));
+	UpdateData(FALSE);
+	*pResult = 0;
+
+	if(-1 == m_nItem)
+	{
+		hasSelectedItem = false;
+	}
+	else
+	{
+		hasSelectedItem = true;
+	}
+	*pResult = 0;
 }

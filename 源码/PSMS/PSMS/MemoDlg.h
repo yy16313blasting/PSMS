@@ -18,6 +18,13 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
 
 	DECLARE_MESSAGE_MAP()
+
+	bool hasSelectedItem;
+	CString m_szTitle;
+	CString m_szContent;
+	CString m_szDateTime;
+	int m_nID;
+	int m_nItem;
 public:
 	CUser m_user;
 	void InitListCtrol();
@@ -29,4 +36,7 @@ public:
 	afx_msg void OnBnClickedMemoDelete();
 	afx_msg void OnBnClickedMemoUpdate();
 	afx_msg void OnBnClickedMemoDeleteall();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnLvnItemchangedMemoList(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnClickMemoList(NMHDR *pNMHDR, LRESULT *pResult);
 };
