@@ -15,8 +15,10 @@ public:
 	int GetHour(void);
 	int GetMinute(void);
 	int GetRemindFrequency(void);
+	CString GetDate();
 	void SetRemindFrequency(int frequency);
 	//void SetTime(int hour, int minute);
 	void SetDateTime(CString date);
+	void SetDate(CString date);
 };
 
