@@ -138,7 +138,7 @@ void CUserDA::AddUser(CString name,CString password)
 	CMD5 md5;
 	md5.GenerateCMD5((unsigned char*)(LPCTSTR)password, password.GetLength());
 	password = md5.ToString();
-	sql.Format("insert into [User] ( szName,szPassword) values ('%s','%s')", name, password);
+	sql.Format("insert into [User] ( szName,szPassword,nTimeFrequency) values ('%s','%s',1)", name, password);
 	ExcuteSql(sql);
 }
 
@@ -737,6 +737,53 @@ CString CUserDA::GetUserMotto(CString name)
 	return motto;
 }
 
+int CUserDA::GetUserTimeFrequency(CString name)
+{
+	int timefrequency;
+	CString sql;
+	sql.Format("SELECT * FROM [User]");
+	
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
+	}
+	catch(_com_error e)
+	{
+		//AfxMessageBox(e.Description());
+	}
+	int count = m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return 0;
+	}
+	if(m_pRecordset->adoEOF)
+	{
+		return 0;
+	}
+	m_pRecordset->MoveFirst();
+	while(!m_pRecordset->adoEOF)
+	{
+		CString tmp_name;
+		try
+		{
+			tmp_name = (char*)(_bstr_t)m_pRecordset->GetCollect("szName");
+			if(tmp_name == name)
+			{
+				timefrequency = atoi((char*)(_bstr_t)m_pRecordset->GetCollect("nTimeFrequency"));
+				return timefrequency;
+			}
+		}
+		catch(_com_error e)
+		{
+			//AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+	}
+	return timefrequency;
+}
 
 bool CUserDA::ExistUser(CString name)
 {
@@ -798,5 +845,12 @@ void CUserDA::UpdateMotto(CString name,CString motto)
 {
 	CString sql;
 	sql.Format("update [User] set szMotto = '%s' where szName = '%s'", motto, name);
+	ExcuteSql(sql);
+}
+
+void CUserDA::UpdateTimeFrequency(CString name,int timefrequency)
+{
+	CString sql;
+	sql.Format("update [User] set nTimeFrequency = %d where szName = '%s'", timefrequency, name);
 	ExcuteSql(sql);
 }

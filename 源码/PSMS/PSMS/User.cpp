@@ -21,6 +21,11 @@ CString CUser::GetMotto()
 	return userDA.GetUserMotto(m_szName);
 }
 
+int CUser::GetTimeFrequency()
+{
+	return userDA.GetUserTimeFrequency(m_szName);
+}
+
 bool CUser::ExistUser(CString name)
 {   
 	bool m_ExistUser;
@@ -205,4 +210,9 @@ void CUser::UpdatePassword(CString password)
 void CUser::UpdateMotto(CString motto)
 {
 	userDA.UpdateMotto(m_szName,motto);
+}
+
+void CUser::UpdateTimeFrequency(int timefrequency)
+{
+	userDA.UpdateTimeFrequency(m_szName,timefrequency);
 }

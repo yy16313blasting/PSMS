@@ -166,7 +166,7 @@ BOOL CTimeRemindDlg::OnInitDialog()
 	// TODO:  在此添加额外的初始化
 
 	m_nTimerID = 0;
-	SetTimer(m_nTimerID,10000,NULL);
+	SetTimer(m_nTimerID,60*1000*m_user.GetTimeFrequency(),NULL);
 	m_hasSelectedItem = false;
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
@@ -227,7 +227,7 @@ void CTimeRemindDlg::Remind(CString title,CString content)
 	CRemindDlg *dlg = new CRemindDlg();
 	dlg->SetType("TimeRemind");
 	dlg->SetContent(content);
-	dlg->SetRemindFrequency(10);
+	dlg->SetRemindFrequency(m_user.GetTimeFrequency());
 	//dlg->SetRemindFrequency(1);
 	dlg->Create(IDD_REMIND_DIALOG,NULL);
 	dlg->ShowWindow(SW_SHOW);

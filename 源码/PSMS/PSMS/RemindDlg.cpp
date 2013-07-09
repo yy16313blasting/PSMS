@@ -47,7 +47,7 @@ void CRemindDlg::OnBnClickedRemindLater()
 	// TODO: 在此添加控件通知处理程序代码
 	if(m_szType == "TimeRemind")
 	{
-		SetTimer(m_nTimerID,m_nFrequency*1000,NULL);
+		SetTimer(m_nTimerID,m_nFrequency*1000*60,NULL);
 		this->ShowWindow(SW_HIDE);
 		m_MusicPlayer.CloseMusic();
 	}

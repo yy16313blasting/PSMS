@@ -45,6 +45,7 @@ public:
 	void  UpdateTimeRemind(CTimeRemind timeRemind);
 	void  UpdatePassword(CString password);
 	void  UpdateMotto(CString motto);
+	void  UpdateTimeFrequency(int timefrequency);
 
 	void GetAllDiary(CDiary*& list);
 	void GetAllMemo(CMemo*& list);
@@ -52,6 +53,7 @@ public:
 	void GetAllDateRemind(CDateRemind*& list);
 	void GetAllHoliday(CHoliday*& list);
 	CString GetMotto();
+	int     GetTimeFrequency();
 
 	int CountAllDiary();
 	int CountAllMemo();
