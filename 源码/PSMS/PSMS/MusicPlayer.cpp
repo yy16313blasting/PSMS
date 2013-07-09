@@ -69,30 +69,35 @@ void CMusicPlayer::read(LPCTSTR path)
 void CMusicPlayer::playAudioOfDiary()
 {
 	read(DIARY);
-	PlaySound(m_lpMuPath, NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	
+	PlaySound("..\\PSMS\\res\\001", NULL,SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfMemo()
 {
 	read(MEMO);
-	PlaySound("..\\PSMS\\res\\002", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	
+	PlaySound("..\\PSMS\\res\\002", NULL,SND_LOOP |  SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfTimeRemind()
 {
 	read(TIMER);
-	PlaySound("..\\PSMS\\res\\003", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	
+	PlaySound("..\\PSMS\\res\\003", NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfDateRemind()
 {
 	read(DATER);
-	PlaySound("..\\PSMS\\res\\004", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	
+	PlaySound("..\\PSMS\\res\\004", NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfHoliday()
 {
 	read(HOLIDAY);
-	PlaySound("..\\PSMS\\res\\005", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
+	
+	PlaySound("..\\PSMS\\res\\005", NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
