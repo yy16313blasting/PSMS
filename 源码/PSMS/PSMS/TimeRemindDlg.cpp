@@ -205,7 +205,6 @@ void CTimeRemindDlg::OnTimer(UINT_PTR nIDEvent)
     int Year = time.GetYear();     
     int Month = time.GetMonth();      
     int Day = time.GetDay();   
-
 	int icount = m_user.CountAllTimeRemind();
 	if( icount == 0)
 		return;

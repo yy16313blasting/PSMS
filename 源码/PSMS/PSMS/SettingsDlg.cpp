@@ -24,6 +24,7 @@ CSettingsDlg::~CSettingsDlg()
 void CSettingsDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_SELETE_TIMEGAP, m_SetFrequency);
 }
 
 
@@ -32,6 +33,8 @@ BEGIN_MESSAGE_MAP(CSettingsDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, &CSettingsDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_EDIT, &CSettingsDlg::OnBnClickedEdit)
 	ON_BN_CLICKED(IDC_SELETE_MUSIC, &CSettingsDlg::OnBnClickedSeleteMusic)
+	ON_CBN_SELCHANGE(IDC_SELETE_TIMEGAP, &CSettingsDlg::OnCbnSelchangeSeleteTimegap)
+	ON_CBN_SELCHANGE(IDC_SELETE_TIMEGAP, &CSettingsDlg::OnCbnSelchangeSeleteTimegap)
 END_MESSAGE_MAP()
 
 
@@ -75,6 +78,18 @@ BOOL CSettingsDlg::OnInitDialog()
 	// TODO:  在此添加额外的初始化
 	GetDlgItem(IDC_OUTPUT_USERNAME)->SetWindowTextA("用户名："+m_user.GetName());
 	GetDlgItem(IDC_SIGNATURE)->SetWindowTextA(m_user.GetMotto());
+	m_SetFrequency.AddString("1分钟");
+	m_SetFrequency.AddString("5分钟");
+	m_SetFrequency.AddString("10分钟");
+	int n;
+	n = m_user.GetTimeFrequency();
+	if( 1 == n)
+		m_SetFrequency.SetWindowText( "1分钟");
+	else if ( 5 == n)
+		m_SetFrequency.SetWindowTextA("5分钟");
+	else if (10 == n)
+		m_SetFrequency.SetWindowTextA("10分钟");
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }
@@ -123,4 +138,28 @@ void CSettingsDlg::OnBnClickedSeleteMusic()
 	// TODO: 在此添加控件通知处理程序代码
 	CMusicPlayer player;
 	player.transferPath();
+}
+
+
+
+
+void CSettingsDlg::OnCbnSelchangeSeleteTimegap()
+{
+	CString str;
+	m_SetFrequency.GetWindowTextA(str);
+	if("1分钟"==str)
+	{
+		m_user.UpdateTimeFrequency(1);
+	}
+	if("5分钟"==str)
+	{
+		m_user.UpdateTimeFrequency(5);
+	}
+	if("10分钟"==str)
+	{
+		m_user.UpdateTimeFrequency(10);
+	}
+	CString str1;
+	str1.Format("%d",m_user.GetTimeFrequency());
+
 }

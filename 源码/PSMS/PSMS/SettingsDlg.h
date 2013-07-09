@@ -31,4 +31,7 @@ public:
 	afx_msg void OnBnClickedEdit();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedSeleteMusic();
+	CComboBox m_SetFrequency;
+//	afx_msg void OnCbnSelchangeSeleteTimegap();
+	afx_msg void OnCbnSelchangeSeleteTimegap();
 };
