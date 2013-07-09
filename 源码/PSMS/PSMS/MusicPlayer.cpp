@@ -1,7 +1,6 @@
 #include "StdAfx.h"
-#include "MusicPlayer.h"
-#include <MMSystem.h>
-#pragma comment(lib,"winmm.lib")
+#include "stdafx.h"
+
 
 //使用初始化列表的方式初始化
 CMusicPlayer::CMusicPlayer():m_strMuPath(""),m_lpMuPath("")
@@ -70,7 +69,7 @@ void CMusicPlayer::playAudioOfDiary()
 {
 	read(DIARY);
 	
-	PlaySound("..\\PSMS\\res\\001", NULL,SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
+	PlaySound("..\\PSMS\\res\\001", NULL,SND_LOOP | SND_FILENAME | SND_ASYNC|SND_NOWAIT);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfMemo()
@@ -91,7 +90,7 @@ void CMusicPlayer::playAudioOfDateRemind()
 {
 	read(DATER);
 	
-	PlaySound("..\\PSMS\\res\\004", NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
+	PlaySound("..\\PSMS\\res\\004", NULL, SND_LOOP | SND_FILENAME |SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfHoliday()
@@ -100,4 +99,10 @@ void CMusicPlayer::playAudioOfHoliday()
 	
 	PlaySound("..\\PSMS\\res\\005", NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
+}
+
+//关闭音乐函数
+void CMusicPlayer::CloseMusic(void)
+{
+	PlaySound(NULL,NULL,NULL);
 }

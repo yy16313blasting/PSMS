@@ -24,6 +24,7 @@ public:
 	void read(LPCTSTR path);
 	void transferPath(void);
 	CString BootOpenDialog(void);
+	void CloseMusic(void);
 	
 private:
 	CString m_strMuPath; //用于传递路径的成员变量
