@@ -97,26 +97,23 @@ BOOL CPSMSDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
-	// TODO: 在此添加额外的初始化代码
+	hasTray = false;
 
-	hasTray=false;
-
-	m_nid.cbSize  = (DWORD)sizeof(NOTIFYICONDATA);
-    m_nid.hWnd    = this->m_hWnd;
-    m_nid.uID     = IDR_MAINFRAME;
-    m_nid.uFlags  = NIF_ICON | NIF_MESSAGE | NIF_TIP ;
+	m_nid.cbSize = (DWORD)sizeof(NOTIFYICONDATA);
+    m_nid.hWnd = this->m_hWnd;
+    m_nid.uID = IDR_MAINFRAME;
+    m_nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP ;
     m_nid.uCallbackMessage = WM_SHOWTASK;             // 自定义的消息名称
-    m_nid.hIcon   = LoadIcon(AfxGetInstanceHandle(),MAKEINTRESOURCE(IDR_MAINFRAME));
+    m_nid.hIcon = LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME));
     strcpy_s(m_nid.szTip, "个人日程管理");                // 信息提示条为"个人日程管理"，VS2008 UNICODE编码用wcscpy_s()函数
 		  
 	if(!hasTray)
 	{
 		Shell_NotifyIcon(NIM_ADD, &m_nid); // 在托盘区添加图标
-		hasTray=true;
+		hasTray = true;
 	}
 
 	CRect tabRect;
-
 	m_tab.InsertItem(0, _T("定时提醒"));           
 	m_tab.InsertItem(1, _T("定期提醒"));  
 	m_tab.InsertItem(2, _T("个人日记"));
@@ -130,7 +127,6 @@ BOOL CPSMSDlg::OnInitDialog()
 	m_MemoDlg.Create(IDD_MEMODLG,&m_tab);
 	m_HolidayDlg.Create(IDD_HOLIDAY,&m_tab);
 	m_SettingsDlg.Create(IDD_SETTINGS,&m_tab);
-	//ScreenToClient(&tabRect);
 
 	m_TimeRemindDlg.MoveWindow(&tabRect);
 	m_DateRemindDlg.MoveWindow(&tabRect);
@@ -159,6 +155,7 @@ BOOL CPSMSDlg::OnInitDialog()
 
 	m_TimeRemindDlg.InitListCtrol();
 	m_TimeRemindDlg.ShowList();
+
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -185,7 +182,6 @@ HCURSOR CPSMSDlg::OnQueryDragIcon()
 
 void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	// TODO: 在此添加控件通知处理程序代码
 	*pResult = 0;
 
 	CRect tabRect;    // 标签控件客户区的Rect   
@@ -207,6 +203,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+
 			m_TimeRemindDlg.InitListCtrol();
 			m_TimeRemindDlg.CleanList();
 			m_TimeRemindDlg.ShowList();
@@ -220,6 +217,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	        m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 	        m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);   
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+
 			m_DateRemindDlg.InitListCtrol();
 			m_DateRemindDlg.CleanList();
 			m_DateRemindDlg.ShowList();
@@ -233,6 +231,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 	        m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 	        m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW); 
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+
 			m_DiaryDlg.InitListCtrol();
 			m_DiaryDlg.CleanList();
 			m_DiaryDlg.ShowList();
@@ -246,6 +245,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW);  
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+
 			m_MemoDlg.InitListCtrol();
 			m_MemoDlg.CleanList();
 			m_MemoDlg.ShowList();
@@ -259,6 +259,7 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 			m_MemoDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
 			m_HolidayDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_SHOWWINDOW); 
 			m_SettingsDlg.SetWindowPos(NULL, tabRect.left, tabRect.top, tabRect.Width(), tabRect.Height(), SWP_HIDEWINDOW);  
+
 			m_HolidayDlg.InitListCtrol();
 			m_HolidayDlg.CleanList();
 			m_HolidayDlg.ShowList();
@@ -277,47 +278,38 @@ void CPSMSDlg::OnTcnSelchangeTab(NMHDR *pNMHDR, LRESULT *pResult)
 
 LRESULT CPSMSDlg::OnShowTask(WPARAM wParam, LPARAM lParam)
 {
-           if(wParam != IDR_MAINFRAME)
-                  return 1;
-           switch(lParam)
-           {
-			case WM_RBUTTONUP:                                        // 右键起来时弹出菜单
-            {
-                    
-                    LPPOINT lpoint = new tagPOINT;
-                    ::GetCursorPos(lpoint);                    // 得到鼠标位置
-                    CMenu menu;
-                    menu.CreatePopupMenu();                    // 声明一个弹出式菜单
-                    menu.AppendMenu(MF_STRING, WM_DESTROY, "关闭");
-                    menu.TrackPopupMenu(TPM_LEFTALIGN, lpoint->x ,lpoint->y, this);
-                    HMENU hmenu = menu.Detach();
-                    menu.DestroyMenu();
-                    delete lpoint;
-					lpoint=NULL;
-            }
-            break;
-			case WM_LBUTTONDBLCLK:                                 // 双击左键的处理
-            {
-				this->ShowWindow(SW_SHOW);         // 显示主窗口
-            }
-				break;
-			}
+	if(wParam != IDR_MAINFRAME)
+		return 1;
+	switch(lParam)
+	{
+		case WM_RBUTTONUP:                      // 右键起来时弹出菜单
+		{
+			LPPOINT lpoint = new tagPOINT;
+			::GetCursorPos(lpoint);                    // 得到鼠标位置
+			CMenu menu;
+			menu.CreatePopupMenu();                    // 声明一个弹出式菜单
+			menu.AppendMenu(MF_STRING, WM_DESTROY, "关闭");
+			menu.TrackPopupMenu(TPM_LEFTALIGN, lpoint->x ,lpoint->y, this);
+			HMENU hmenu = menu.Detach();
+			menu.DestroyMenu();
+			delete lpoint;
+			lpoint = NULL;
+		}
+		break;
+
+		case WM_LBUTTONDBLCLK:			// 双击左键的处理
+		{
+			this->ShowWindow(SW_SHOW);         // 显示主窗口
+		}
+		break;
+	}
     return 0;
 }
 
 void CPSMSDlg::OnClose()
 {
-	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	this->ShowWindow(SW_HIDE);
 }
-
-//BOOL CPSMSDlg::DestroyWindow()
-//{
-//	// TODO: 在此添加专用代码和/或调用基类
-//	//Shell_NotifyIcon(NIM_DELETE, &m_nid);
-//	return CDialog::DestroyWindow();
-//	
-//}
 
 void CPSMSDlg::SetUser(CUser user)
 {
@@ -327,16 +319,16 @@ void CPSMSDlg::SetUser(CUser user)
 void CPSMSDlg::OnDestroy()
 {
 	Shell_NotifyIcon(NIM_DELETE, &m_nid);
-//	CDialogEx::OnDestroy();
 	exit(0);
-	// TODO: 在此处添加消息处理程序代码
-	//Shell_NotifyIcon(NIM_DELETE, &m_nid);
 }
 
 BOOL CPSMSDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
-	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_RETURN) 
+	if(pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_ESCAPE) 
+	{
+		return TRUE;
+	}
+	if(pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_RETURN) 
 	{
 		return TRUE;
 	}

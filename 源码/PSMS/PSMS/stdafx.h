@@ -42,7 +42,7 @@
 #include <afxcontrolbars.h>     // 功能区和控件条的 MFC 支持
 #include "MusicPlayer.h"        // 音频控制
 
-
+#define WAITOPENTIME 20
 
 
 
