@@ -169,18 +169,58 @@ void CSettingsDlg::OnCbnSelchangeSeleteTimegap()
 
 void CSettingsDlg::OnBnClickedSelete()
 {
-	// TODO: 在此添加控件通知处理程序代码
-   TCHAR m_strFileName[_MAX_PATH];
-    CString str;
-    GetModuleFileName(NULL,m_strFileName,_MAX_PATH);
-    HKEY hRegKey=NULL;
-    str = _T("Software\\Microsoft\\Windows\\CurrentVersion\\Run");
-    if(RegOpenKey(HKEY_LOCAL_MACHINE, str, &hRegKey) == ERROR_SUCCESS) 
-    {
-        str = _T("RALF_MediaServer_Console");    
-        ::RegSetValueEx( hRegKey,str,0,REG_SZ,
-            (CONST BYTE *)m_strFileName,
-            lstrlen(m_strFileName) );
-
-    }
+//	// TODO: 在此添加控件通知处理程序代码
+HKEY hKey;
+ char path[MAX_PATH];
+ ::GetModuleFileName(NULL,path,MAX_PATH);
+ CString str;
+ str.Format("%s",path);
+ LPCTSTR DATA_SET = _T("SoftWare\\Microsoft\\Windows\\CurrentVersion\\Run");
+ ::RegOpenKeyEx(HKEY_CURRENT_USER, 
+	 _T("SoftWare\\Microsoft\\Windows\\CurrentVersion\\Run"),0,KEY_ALL_ACCESS,&hKey);
+ CButton *P = (CButton*)GetDlgItem(IDC_SELECT_1);
+ bool a = P->GetCheck();
+ if (P->GetCheck())
+ {
+	 int ret = ::RegSetValueEx(hKey,str,0,REG_SZ,(BYTE*)(LPCSTR)str,strlen(str)+1);
+  if(ERROR_SUCCESS == ret)
+   ::AfxMessageBox("系统自启动设置成功！");
+  ::RegCloseKey(hKey);
+ }
+ else
+ {
+  if (ERROR_SUCCESS == ::RegSetValueEx(hKey,str,0,REG_SZ,NULL,NULL))
+  {
+   ::AfxMessageBox("取消开机开机自启动！");
+  }
+  ::RegCloseKey(hKey);
+ }
+	 //HKEY hKey;  
+  //  HKEY hNewKey;  
+  //  DWORD dwDisposition=0;  
+  //
+  //  __try  
+  //  {  
+  //      char binPath[MAX_PATH]="D:\\Program Files\\QQ\\Bin\\QQ.exe";//在这里设置你要启动的程序的路径  
+  //        
+		//::GetModuleFileName(NULL,binPath,MAX_PATH);
+  //      if(RegOpenKeyEx(HKEY_LOCAL_MACHINE,  
+  //          _T("Software\\Microsoft\\Windows\\CurrentVersion\\Run"),  
+  //          0,KEY_ALL_ACCESS,&hKey)!=ERROR_SUCCESS)  
+  //          __leave;  
+  //
+  //
+  //      if(RegSetValueEx(hKey,  
+  //          _T("AutoStart"),  
+  //          0,REG_SZ,(const BYTE*)binPath,  
+  //          strlen(binPath)+1)!=ERROR_SUCCESS)  
+  //          __leave;  
+  //    
+  //  }  
+  //  __finally  
+  //  {  
+  //      RegCloseKey(hKey);  
+  //  }      
+  //    
+    //system("pause");  
 }

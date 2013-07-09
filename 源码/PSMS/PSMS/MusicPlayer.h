@@ -1,6 +1,6 @@
 #pragma once
 //此处定义ini文件路径
-#define ROAD "..//PSMS//res//road.ini"
+#define ROAD "res//road.ini"
 #define DIARY "diary"
 #define MEMO "memo"
 #define TIMER "timeremind"
