@@ -57,8 +57,8 @@ void CSettingsDlg::OnBnClickedButton1()
 	GetDlgItem(IDC_BUTTON1)->GetWindowTextA(text);
 	if(text == "编辑")
 	{
-		((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(false);
-		((CEdit*)GetDlgItem(IDC_EDIT1))->SetReadOnly(false);
+		//((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(false);
+		((CEdit*)GetDlgItem(IDC_SIGNATURE))->SetReadOnly(false);
 		//((CEdit*)GetWindow(IDC_SELETE_SEX))->SetReadOnly(false);
 		GetDlgItem(IDC_SELETE_SEX)->ShowWindow(SW_SHOW);
 		//((CComboBox*)GetDlgItem(IDC_SELETE_SEX))->DropDownStyle(
@@ -66,8 +66,8 @@ void CSettingsDlg::OnBnClickedButton1()
 	}
 	else if(text == "完成")
 	{
-		((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(true);
-		((CEdit*)GetDlgItem(IDC_EDIT1))->SetReadOnly(true);
+		//((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(true);
+		((CEdit*)GetDlgItem(IDC_SIGNATURE))->SetReadOnly(true);
 		GetDlgItem(IDC_SELETE_SEX)->ShowWindow(SW_HIDE);
 		//((CComb*)
 		GetDlgItem(IDC_BUTTON1)->SetWindowTextA("编辑");
@@ -86,10 +86,10 @@ void CSettingsDlg::OnBnClickedButton1()
 BOOL CSettingsDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-	((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(true);
-	((CEdit*)GetDlgItem(IDC_EDIT1))->SetReadOnly(true);
+	//((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(true);
+	((CEdit*)GetDlgItem(IDC_SIGNATURE))->SetReadOnly(true);
 	// TODO:  在此添加额外的初始化
-
+	GetDlgItem(IDC_OUTPUT_USERNAME)->SetWindowTextA("用户名："+m_user.GetName());
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }

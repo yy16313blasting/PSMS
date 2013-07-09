@@ -92,11 +92,7 @@ BOOL CRemindDlg::OnInitDialog()
 	rect.right = nWidth;
 	this->SetWindowPos(NULL,rect.left,rect.top,rect.Width(),rect.Height(),SWP_SHOWWINDOW);
 
-	CString msg;
-	GetDlgItem(IDC_STATIC)->GetWindowTextA(msg);
-	msg+='\n';
-	msg+=m_szContent;
-	GetDlgItem(IDC_STATIC)->SetWindowTextA(msg);
+	GetDlgItem(IDC_STATIC)->SetWindowTextA(m_szContent);
 	if(m_szType == "DateRemind" || m_szType == "Holiday")
 		GetDlgItem(IDC_REMIND_LATER)->ShowWindow(SW_HIDE);
 

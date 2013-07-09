@@ -53,4 +53,5 @@ public:
 	void SetUser(CUser user);
 	afx_msg void OnDestroy();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnBnClickedAbout();
 };

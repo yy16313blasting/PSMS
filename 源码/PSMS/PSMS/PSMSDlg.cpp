@@ -64,6 +64,7 @@ BEGIN_MESSAGE_MAP(CPSMSDlg, CDialogEx)
 	ON_MESSAGE(WM_SHOWTASK,OnShowTask)
 	ON_WM_CLOSE()
 	ON_WM_DESTROY()
+	ON_BN_CLICKED(IDC_ABOUT, &CPSMSDlg::OnBnClickedAbout)
 END_MESSAGE_MAP()
 
 // CPSMSDlg 消息处理程序
@@ -335,3 +336,11 @@ BOOL CPSMSDlg::PreTranslateMessage(MSG* pMsg)
 	else
 		return CDialog::PreTranslateMessage(pMsg);
 } 
+
+
+void CPSMSDlg::OnBnClickedAbout()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CAboutDlg dlg;
+	dlg.DoModal();
+}

@@ -46,8 +46,8 @@ void CHolidayDlg::InitListCtrol()
 		  m_HolidayList.SetExtendedStyle(dwStyle);	//设置扩展风格
 
 		m_HolidayList.InsertColumn(0,"时间",LVCFMT_LEFT,150);        //添加列标题
-		m_HolidayList.InsertColumn(1,"标题",LVCFMT_LEFT,200);
-		m_HolidayList.InsertColumn(2,"详细内容",LVCFMT_LEFT,350);
+		m_HolidayList.InsertColumn(1,"节日",LVCFMT_LEFT,550);
+		m_HolidayList.InsertColumn(2,"详细内容",LVCFMT_LEFT,0);
 	
 }
 
