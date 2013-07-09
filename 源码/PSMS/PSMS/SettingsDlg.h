@@ -34,4 +34,5 @@ public:
 	CComboBox m_SetFrequency;
 //	afx_msg void OnCbnSelchangeSeleteTimegap();
 	afx_msg void OnCbnSelchangeSeleteTimegap();
+	afx_msg void OnBnClickedSelete();
 };

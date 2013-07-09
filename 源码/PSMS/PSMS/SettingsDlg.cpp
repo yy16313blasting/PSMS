@@ -35,6 +35,7 @@ BEGIN_MESSAGE_MAP(CSettingsDlg, CDialog)
 	ON_BN_CLICKED(IDC_SELETE_MUSIC, &CSettingsDlg::OnBnClickedSeleteMusic)
 	ON_CBN_SELCHANGE(IDC_SELETE_TIMEGAP, &CSettingsDlg::OnCbnSelchangeSeleteTimegap)
 	ON_CBN_SELCHANGE(IDC_SELETE_TIMEGAP, &CSettingsDlg::OnCbnSelchangeSeleteTimegap)
+	ON_BN_CLICKED(IDC_SELETE_, &CSettingsDlg::OnBnClickedSelete)
 END_MESSAGE_MAP()
 
 
@@ -163,4 +164,23 @@ void CSettingsDlg::OnCbnSelchangeSeleteTimegap()
 	CString str1;
 	str1.Format("%d",m_user.GetTimeFrequency());
 
+}
+
+
+void CSettingsDlg::OnBnClickedSelete()
+{
+	// TODO: 在此添加控件通知处理程序代码
+   TCHAR m_strFileName[_MAX_PATH];
+    CString str;
+    GetModuleFileName(NULL,m_strFileName,_MAX_PATH);
+    HKEY hRegKey=NULL;
+    str = _T("Software\\Microsoft\\Windows\\CurrentVersion\\Run");
+    if(RegOpenKey(HKEY_LOCAL_MACHINE, str, &hRegKey) == ERROR_SUCCESS) 
+    {
+        str = _T("RALF_MediaServer_Console");    
+        ::RegSetValueEx( hRegKey,str,0,REG_SZ,
+            (CONST BYTE *)m_strFileName,
+            lstrlen(m_strFileName) );
+
+    }
 }
