@@ -36,7 +36,7 @@ bool CUserDA::InitConnection()
 	{
 		CString errorMessage;
 		errorMessage.Format("连接数据库失败！\r\n错误信息：%s", e.Description());
-		AfxMessageBox(errorMessage);
+		//AfxMessageBox(errorMessage);
 		return  false;
 	}
 	return true;
@@ -53,7 +53,7 @@ void CUserDA::test()
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 
@@ -74,9 +74,9 @@ void CUserDA::test()
 		}
 		catch(_com_error e)
 		{
-			AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Description());
 		}
-		AfxMessageBox(info);
+		//AfxMessageBox(info);
 		m_pRecordset->MoveNext();
 	}
 }
@@ -90,7 +90,7 @@ void CUserDA::ExcuteSql(CString sql)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 }
 
@@ -215,7 +215,7 @@ void CUserDA::GetAllDiary(CDiary*& list,CString user)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		////AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 
@@ -239,7 +239,7 @@ void CUserDA::GetAllDiary(CDiary*& list,CString user)
 		}
 		catch(_com_error e)
 		{
-			AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Description());
 		}
 		m_pRecordset->MoveNext();
 		i++;
@@ -258,7 +258,7 @@ void CUserDA::GetAllMemo(CMemo*& list,CString user)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		////AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 
@@ -281,7 +281,7 @@ void CUserDA::GetAllMemo(CMemo*& list,CString user)
 		}
 		catch(_com_error e)
 		{
-			AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Description());
 		}
 		m_pRecordset->MoveNext();
 		i++;
@@ -300,7 +300,7 @@ void CUserDA::GetAllTimeRemind(CTimeRemind*& list,CString user)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -346,7 +346,7 @@ void CUserDA::GetAllDateRemind(CDateRemind*& list,CString user)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -370,7 +370,7 @@ void CUserDA::GetAllDateRemind(CDateRemind*& list,CString user)
 		}
 		catch(_com_error e)
 		{
-			AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Description());
 		}
 		m_pRecordset->MoveNext();
 		i++;
@@ -389,7 +389,7 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -411,7 +411,7 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 		}
 		catch(_com_error e)
 		{
-			AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Description());
 		}
 		m_pRecordset->MoveNext();
 		i++;
@@ -431,7 +431,7 @@ int CUserDA::CountAllDiary(CString user)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -466,7 +466,7 @@ int CUserDA::CountAllMemo(CString user)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -501,7 +501,7 @@ int CUserDA::CountAllTimeRemind(CString user)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -536,7 +536,7 @@ int CUserDA::CountAllDateRemind(CString user)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -571,7 +571,7 @@ int CUserDA::CountAllHoliday()
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -655,7 +655,7 @@ CString CUserDA::GetUserPassword(CString name)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -679,7 +679,7 @@ CString CUserDA::GetUserPassword(CString name)
 		}
 		catch(_com_error e)
 		{
-			AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Description());
 		}
 		m_pRecordset->MoveNext();
 	}
@@ -698,7 +698,7 @@ bool CUserDA::ExistUser(CString name)
 	}
 	catch(_com_error e)
 	{
-		AfxMessageBox(e.Description());
+		//AfxMessageBox(e.Description());
 	}
 	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
@@ -725,7 +725,7 @@ bool CUserDA::ExistUser(CString name)
 		}
 		catch(_com_error e)
 		{
-			AfxMessageBox(e.Description());
+			//AfxMessageBox(e.Description());
 		}
 		m_pRecordset->MoveNext();
 	}
