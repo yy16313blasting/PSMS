@@ -106,6 +106,7 @@
     <ClInclude Include="DateRemindDlg.h" />
     <ClInclude Include="Diary.h" />
     <ClInclude Include="DiaryDlg.h" />
+    <ClInclude Include="DlgFlash.h" />
     <ClInclude Include="EditDlg.h" />
     <ClInclude Include="Holiday.h" />
     <ClInclude Include="HolidayDlg.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="DateRemindDlg.cpp" />
     <ClCompile Include="Diary.cpp" />
     <ClCompile Include="DiaryDlg.cpp" />
+    <ClCompile Include="DlgFlash.cpp" />
     <ClCompile Include="EditDlg.cpp" />
     <ClCompile Include="Holiday.cpp" />
     <ClCompile Include="HolidayDlg.cpp" />

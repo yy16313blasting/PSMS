@@ -1,6 +1,7 @@
 #pragma once
 
 #include "User.h"
+#include "DlgFlash.h"
 // CUpdatePasswordDlg ¶Ô»°¿ò
 
 class CUpdatePasswordDlg : public CDialog
@@ -21,13 +22,14 @@ protected:
 private:
 	CRect m_rect;
 	CUser m_user;
+	CDlgFlash *myFlash;
 public:
-	virtual BOOL OnInitDialog();
-	void Show();
 	void Hide();
+	virtual BOOL OnInitDialog();
 	void SetUser(CUser user);
 	afx_msg void OnClose();
 	afx_msg void OnBnClickedCheck();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };

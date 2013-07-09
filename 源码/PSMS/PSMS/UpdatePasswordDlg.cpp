@@ -29,54 +29,35 @@ void CUpdatePasswordDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CUpdatePasswordDlg, CDialog)
 	ON_WM_CLOSE()
+	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_CHECK, &CUpdatePasswordDlg::OnBnClickedCheck)
 	ON_WM_SYSCOMMAND()
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
 // CUpdatePasswordDlg 消息处理程序
 
 
-void CUpdatePasswordDlg::Show()
-{
-	int swidth= GetSystemMetrics(SM_CXFULLSCREEN);
-	int sheight= GetSystemMetrics(SM_CYFULLSCREEN);
-	this->GetClientRect(&m_rect);
-	m_rect.left=(swidth-m_rect.Width())/2;
-	m_rect.top=(sheight-m_rect.Height())/2;
-	int height = 0;
-	while(height<m_rect.Height())
-	{
-		this->SetWindowPos(NULL,m_rect.left,m_rect.top,m_rect.Width(),height,SWP_SHOWWINDOW);
-		height++;
-		Sleep(1);
-	}
-}
-
-void CUpdatePasswordDlg::Hide()
-{
-	this->GetClientRect(&m_rect);
-	int height=m_rect.Height();
-	while(height>0)
-	{
-		this->SetWindowPos(NULL,m_rect.left,m_rect.top,m_rect.Width(),height,SWP_SHOWWINDOW);
-		height--;
-		Sleep(1);
-	}
-}
-
 BOOL CUpdatePasswordDlg::OnInitDialog()
 {
-	::AfxGetMainWnd()->CenterWindow();
 	CDialog::OnInitDialog();
 	// TODO:  在此添加额外的初始化
+
+	myFlash=new CDlgFlash(this);
+	myFlash->SetFlashCreateSpeed(20,20);
+	//myFlash->SetFlashDestroySpeed(5);
+
+
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
 }
 
 void CUpdatePasswordDlg::OnClose()
 {
-	CDialog::OnClose();
+	//myFlash-> StartFlashDestroyDlg();
+	this->OnOK();
 }
 
 void CUpdatePasswordDlg::OnBnClickedCheck()
@@ -139,4 +120,11 @@ BOOL CUpdatePasswordDlg::PreTranslateMessage(MSG* pMsg)
 void CUpdatePasswordDlg::SetUser(CUser user)
 {
 	m_user.SetName(user.GetName());
+}
+
+void CUpdatePasswordDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	myFlash->OnTimer(nIDEvent);
+	CDialog::OnTimer(nIDEvent);
 }
