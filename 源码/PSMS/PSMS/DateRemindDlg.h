@@ -39,4 +39,6 @@ private:
 public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnClickDateremindList(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	void Remind(CString title,CString content);
 };

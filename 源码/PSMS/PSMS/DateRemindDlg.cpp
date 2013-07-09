@@ -5,6 +5,7 @@
 #include "DateRemindDlg.h"
 #include "afxdialogex.h"
 #include"EditDlg.h"
+#include "RemindDlg.h"
 // CDateRemindDlg 对话框
 
 IMPLEMENT_DYNAMIC(CDateRemindDlg, CDialog)
@@ -30,6 +31,7 @@ BEGIN_MESSAGE_MAP(CDateRemindDlg, CDialog)
 	ON_BN_CLICKED(IDC_DATEREMIND_UPDATE, &CDateRemindDlg::OnBnClickedDateremindUpdate)
 	ON_BN_CLICKED(IDC_DATEREMIND_DELETEALL, &CDateRemindDlg::OnBnClickedDateremindDeleteall)
 	ON_NOTIFY(NM_CLICK, IDC_DATEREMIND_LIST, &CDateRemindDlg::OnClickDateremindList)
+	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 // CDateRemindDlg 消息处理程序
@@ -185,4 +187,40 @@ BOOL CDateRemindDlg::OnInitDialog()
 	hasSelectedItem = false;
 
 	return TRUE;
+}
+
+int CDateRemindDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CDialog::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	// TODO:  在此添加您专用的创建代码
+	CTime time = CTime::GetCurrentTime();   
+    int Year = time.GetYear();     
+    int Month = time.GetMonth();      
+    int Day = time.GetDay();   
+
+	int icount = m_user.CountAllDateRemind();
+	CDateRemind *list = new CDateRemind[icount];
+	m_user.GetAllDateRemind(list);
+	//int j;
+	for(int i = 0;i < icount;i++)
+	{
+		if(Year == list[i].GetYear() && Month == list[i].GetMonth() && Day == list[i].GetDay())
+		{
+			Remind(list[i].GetTitle(),list[i].GetContent());
+		}
+	}
+
+	return 0;
+}
+
+void CDateRemindDlg::Remind(CString title,CString content)
+{
+	CRemindDlg *dlg = new CRemindDlg();
+	dlg->SetType("DateRemind");
+	dlg->SetContent(content);
+	//dlg->SetRemindFrequency(1);
+	dlg->Create(IDD_REMIND_DIALOG,NULL);
+	dlg->ShowWindow(SW_SHOW);
 }
