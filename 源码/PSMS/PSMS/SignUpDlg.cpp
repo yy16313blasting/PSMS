@@ -67,6 +67,7 @@ void CSignUpDlg::OnBnClickedSignUp()
 		return;
 	}
 	userDA.AddUser(name,password);
+	AfxMessageBox("×¢²á³É¹¦£¡");
 	this->SendMessage(WM_CLOSE);
 }
 

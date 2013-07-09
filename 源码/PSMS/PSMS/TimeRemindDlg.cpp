@@ -112,7 +112,11 @@ void CTimeRemindDlg::OnBnClickedTimeremindAdd()
 void CTimeRemindDlg::OnBnClickedTimeremindDelete()
 {
 	POSITION p=m_TimeRemindList.GetFirstSelectedItemPosition();    //获取首选中行位置
-
+	if(!m_hasSelectedItem)
+	{
+		AfxMessageBox("你还没用选中一项！");
+		return;
+	}
 	while (p)      
 	{      
 		int  nSelected=m_TimeRemindList.GetNextSelectedItem(p); //获取选中行的索引  
@@ -131,7 +135,7 @@ void CTimeRemindDlg::OnBnClickedTimeremindUpdate()
 
 	if(!m_hasSelectedItem)
 	{
-		//AfxMessageBox("你还没有选中一项");
+		AfxMessageBox("你还没有选中一项");
 		return;
 	}
 	CEditDlg dlg;
@@ -154,8 +158,11 @@ void CTimeRemindDlg::OnBnClickedTimeremindUpdate()
 
 void CTimeRemindDlg::OnBnClickedTimeremindDeleteall()
 {
-	CleanList();
-	m_user.PurgeTimeRemind();
+	if( AfxMessageBox("删除所有？",MB_YESNO|MB_ICONQUESTION) == IDYES)
+	{
+		CleanList();
+		m_user.PurgeTimeRemind();
+	}
 }
 
 

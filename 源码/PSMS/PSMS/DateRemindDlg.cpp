@@ -110,7 +110,7 @@ void CDateRemindDlg::OnBnClickedDateremindDelete()
 {
 	if(!hasSelectedItem)
 	{
-		//AfxMessageBox("你还没有选中一项");
+		AfxMessageBox("你还没有选中一项");
 		return;
 	}
 	POSITION p=m_DateRemindList.GetFirstSelectedItemPosition();    //获取首选中行位置
@@ -132,7 +132,7 @@ void CDateRemindDlg::OnBnClickedDateremindUpdate()
 {
 	if(!hasSelectedItem)
 	{
-		//AfxMessageBox("你还没有选中一项");
+		AfxMessageBox("你还没有选中一项");
 		return;
 	}
 	CEditDlg dlg;
@@ -155,8 +155,11 @@ void CDateRemindDlg::OnBnClickedDateremindUpdate()
 
 void CDateRemindDlg::OnBnClickedDateremindDeleteall()
 {
-	CleanList();
-	m_user.PurgeDateRemind();
+	if( AfxMessageBox("删除所有？",MB_YESNO|MB_ICONQUESTION) == IDYES)
+	{
+		CleanList();
+		m_user.PurgeDateRemind();
+	}
 }
 
 

@@ -107,7 +107,7 @@ void CDiaryDlg::OnBnClickedDiaryDelete()
 {
 	if(!hasSelectedItem)
 	{
-		//AfxMessageBox("你还没有选中一项");
+		AfxMessageBox("你还没有选中一项");
 		return;
 	}
 	POSITION p=m_DiaryList.GetFirstSelectedItemPosition();    //获取首选中行位置
@@ -128,7 +128,7 @@ void CDiaryDlg::OnBnClickedDiaryUpdate()
 {	
 	if(!hasSelectedItem)
 	{
-		//AfxMessageBox("你还没有选中一项");
+		AfxMessageBox("你还没有选中一项");
 		return;
 	}
 	
@@ -152,8 +152,11 @@ void CDiaryDlg::OnBnClickedDiaryUpdate()
 
 void CDiaryDlg::OnBnClickedDiaryDeleteall()
 {
-	CleanList();
-	m_user.PurgeDiary();
+	if( AfxMessageBox("删除所有？",MB_YESNO|MB_ICONQUESTION) == IDYES)
+	{
+		CleanList();
+		m_user.PurgeDiary();
+	}
 
 }
 

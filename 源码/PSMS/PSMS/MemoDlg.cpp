@@ -110,7 +110,11 @@ void CMemoDlg::OnBnClickedMemoAdd()
 void CMemoDlg::OnBnClickedMemoDelete()
 {
 	POSITION p=m_MemoList.GetFirstSelectedItemPosition();    //获取首选中行位置
-
+	if(!hasSelectedItem)
+	{
+		AfxMessageBox("你还没有选中一项");
+		return;
+	}
 	while (p)      
 	{      
 		int  nSelected=m_MemoList.GetNextSelectedItem(p); //获取选中行的索引
@@ -130,7 +134,7 @@ void CMemoDlg::OnBnClickedMemoUpdate()
 
 	if(!hasSelectedItem)
 	{
-		//AfxMessageBox("你还没有选中一项");
+		AfxMessageBox("你还没有选中一项");
 		return;
 	}
 	
@@ -154,8 +158,11 @@ void CMemoDlg::OnBnClickedMemoUpdate()
 
 void CMemoDlg::OnBnClickedMemoDeleteall()
 {
-	CleanList();
-	m_user.PurgeMemo();
+	if( AfxMessageBox("删除所有？",MB_YESNO|MB_ICONQUESTION) == IDYES)
+	{
+		CleanList();
+		m_user.PurgeMemo();
+	}
 }
 
 
