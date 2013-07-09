@@ -11,7 +11,6 @@ private:
 	int m_nHour;
 	int m_nMinute;
 	int m_nRemindFrequency;
-
 public:
 	int GetHour(void);
 	int GetMinute(void);

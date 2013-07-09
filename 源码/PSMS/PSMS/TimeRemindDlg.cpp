@@ -32,6 +32,7 @@ BEGIN_MESSAGE_MAP(CTimeRemindDlg, CDialog)
 	ON_BN_CLICKED(IDC_TIMEREMIND_DELETE, &CTimeRemindDlg::OnBnClickedTimeremindDelete)
 	ON_BN_CLICKED(IDC_TIMEREMIND_UPDATE, &CTimeRemindDlg::OnBnClickedTimeremindUpdate)
 	ON_BN_CLICKED(IDC_TIMEREMIND_DELETEALL, &CTimeRemindDlg::OnBnClickedTimeremindDeleteall)
+	ON_NOTIFY(NM_CLICK, IDC_TIMEREMIND_LIST, &CTimeRemindDlg::OnClickTimeremindList)
 END_MESSAGE_MAP()
 
 
@@ -96,6 +97,7 @@ void CTimeRemindDlg::OnBnClickedTimeremindAdd()
 	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
 	dlg.SetType("TimeRemind");
+	dlg.Update(false);
 	dlg.DoModal();
 	m_TimeRemindList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
 	m_TimeRemindList.SetItemText(0,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
@@ -125,10 +127,26 @@ void CTimeRemindDlg::OnBnClickedTimeremindDelete()
 
 void CTimeRemindDlg::OnBnClickedTimeremindUpdate()
 {
+
+	if(!m_hasSelectedItem)
+	{
+		//AfxMessageBox("你还没有选中一项");
+		return;
+	}
 	CEditDlg dlg;
 	ShowWindow(SW_HIDE);
+	dlg.SetType("TimeRemind");
+	dlg.Update(true);
 	dlg.SetUser(m_user);
+	dlg.SetDateTime(m_szDateTime);
+	dlg.SetTitle(m_szTitle);
+	dlg.SetContent(m_szContent);
+	dlg.SetID(m_szID);
 	dlg.DoModal();
+	m_TimeRemindList.SetItemText(nItem,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
+	m_TimeRemindList.SetItemText(nItem,1,dlg.GetTitle());
+	m_TimeRemindList.SetItemText(nItem,2,dlg.GetContent());
+	m_TimeRemindList.SetItemText(nItem,3,dlg.GetID());
 	this->ShowWindow(SW_SHOW);
 }
 
@@ -137,4 +155,41 @@ void CTimeRemindDlg::OnBnClickedTimeremindDeleteall()
 {
 	CleanList();
 	m_user.PurgeTimeRemind();
+}
+
+
+BOOL CTimeRemindDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// TODO:  在此添加额外的初始化
+
+	m_hasSelectedItem = false;
+	return TRUE;  // return TRUE unless you set the focus to a control
+	// 异常: OCX 属性页应返回 FALSE
+}
+
+
+void CTimeRemindDlg::OnClickTimeremindList(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+	// TODO: 在此添加控件通知处理程序代码
+	NM_LISTVIEW* pNmListView = (NM_LISTVIEW*)pNMHDR;
+	nItem = pNmListView->iItem;
+	m_szDateTime = m_TimeRemindList.GetItemText(nItem, 0);
+	m_szTitle = m_TimeRemindList.GetItemText(nItem, 1);
+	m_szContent   = m_TimeRemindList.GetItemText(nItem, 2);
+	m_szID  = m_TimeRemindList.GetItemText(nItem, 3);
+	UpdateData(FALSE);
+	*pResult = 0;
+
+	if(-1 == nItem)
+	{
+		m_hasSelectedItem = false;
+	}
+	else
+	{
+		m_hasSelectedItem = true;
+	}
+	*pResult = 0;
 }

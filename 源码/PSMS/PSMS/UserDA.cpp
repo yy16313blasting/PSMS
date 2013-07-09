@@ -190,15 +190,15 @@ void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
 	sql.Format("update DateRemind set szTitle = '%s',szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
-		dateRemind.GetTitle(),dateRemind.GetTitle(),dateRemind.GetContent(), dateRemind.GetDate(), dateRemind.GetRemindFrequency(), dateRemind.GetID());
+		dateRemind.GetTitle(),dateRemind.GetContent(), dateRemind.GetDate(), dateRemind.GetRemindFrequency(), dateRemind.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
-	sql.Format("update TimeRemind setszTitle = '%s',szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
-		timeRemind.GetContent(), timeRemind.GetDate(), timeRemind.GetRemindFrequency(), timeRemind.GetID());
+	sql.Format("update TimeRemind set szTitle = '%s',szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
+		timeRemind.GetTitle(), timeRemind.GetContent(), timeRemind.GetDate(), timeRemind.GetRemindFrequency(),timeRemind.GetID());
 	ExcuteSql(sql);
 }
 

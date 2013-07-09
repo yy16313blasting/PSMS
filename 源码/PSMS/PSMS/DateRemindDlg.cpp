@@ -95,6 +95,7 @@ void CDateRemindDlg::OnBnClickedDateremindAdd()
 	ShowWindow(SW_HIDE);
 	dlg.SetUser(m_user);
 	dlg.SetType("DateRemind");
+	dlg.Update(false);
 	dlg.DoModal();
 	m_DateRemindList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
 	m_DateRemindList.SetItemText(0,0,dlg.GetDateTime());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
@@ -136,6 +137,8 @@ void CDateRemindDlg::OnBnClickedDateremindUpdate()
 	}
 	CEditDlg dlg;
 	ShowWindow(SW_HIDE);
+	dlg.SetType("DateRemind");
+	dlg.Update(true);
 	dlg.SetUser(m_user);
 	dlg.SetDateTime(m_szDateTime);
 	dlg.SetTitle(m_szTitle);

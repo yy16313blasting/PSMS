@@ -33,4 +33,5 @@ public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	virtual BOOL OnInitDialog();
 	void SetContent(CString content);
+	afx_msg void OnClose();
 };

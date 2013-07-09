@@ -226,7 +226,7 @@ void CEditDlg::SetID(int id)
 
 void CEditDlg::Update(bool update)
 {
-	m_isUpdate = true;
+	m_isUpdate = update;
 }
 
 CString CEditDlg::GetID()

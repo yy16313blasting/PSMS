@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "stdafx.h"
-
+#include <MMSystem.h>
+#pragma comment(lib,"WINMM.LIB")
 
 //使用初始化列表的方式初始化
 CMusicPlayer::CMusicPlayer():m_strMuPath(""),m_lpMuPath("")

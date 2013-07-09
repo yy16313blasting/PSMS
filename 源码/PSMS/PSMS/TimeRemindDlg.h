@@ -29,4 +29,14 @@ public:
 	afx_msg void OnBnClickedTimeremindDelete();
 	afx_msg void OnBnClickedTimeremindUpdate();
 	afx_msg void OnBnClickedTimeremindDeleteall();
+	virtual BOOL OnInitDialog();
+private:
+	bool m_hasSelectedItem;
+	int nItem;
+	CString m_szTitle;
+	CString m_szContent;
+	CString m_szDateTime;
+	CString m_szID;
+public:
+	afx_msg void OnClickTimeremindList(NMHDR *pNMHDR, LRESULT *pResult);
 };
