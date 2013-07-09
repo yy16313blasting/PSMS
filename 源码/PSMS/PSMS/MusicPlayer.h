@@ -14,11 +14,11 @@ public:
 	~CMusicPlayer(void);
 
 	//定义成员函数
-	void playAudioOfDiary(LPCTSTR path);
-	void playAudioOfMemo(LPCTSTR path);
-	void playAudioOfTimeRemind(LPCTSTR path);
-	void playAudioOfDateRemind(LPCTSTR path);
-	void playAudioOfHoliday(LPCTSTR path);
+	void playAudioOfDiary();
+	void playAudioOfMemo();
+	void playAudioOfTimeRemind();
+	void playAudioOfDateRemind();
+	void playAudioOfHoliday();
 	//实现路径的读写，以保存
 	void write(LPCTSTR path);
 	void read(LPCTSTR path);

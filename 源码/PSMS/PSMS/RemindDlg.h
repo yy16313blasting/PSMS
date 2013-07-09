@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include "MusicPlayer.h"
 // CRemindDlg ¶Ô»°¿ò
 
 class CRemindDlg : public CDialog
@@ -21,4 +21,16 @@ protected:
 public:
 	afx_msg void OnBnClickedCheck();
 	afx_msg void OnBnClickedRemindLater();
+	void SetRemindFrequency(int frequency);
+	void SetType(CString type);
+private:
+	CString m_szType;
+	int m_nFrequency;
+	int m_nTimerID;
+	CMusicPlayer m_MusicPlayer;
+	CString m_szContent;
+public:
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	virtual BOOL OnInitDialog();
+	void SetContent(CString content);
 };

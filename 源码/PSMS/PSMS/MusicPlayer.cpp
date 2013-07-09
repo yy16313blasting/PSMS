@@ -66,33 +66,33 @@ void CMusicPlayer::read(LPCTSTR path)
 }
 
 //声音调用的接口，实现
-void CMusicPlayer::playAudioOfDiary(LPCTSTR path)
+void CMusicPlayer::playAudioOfDiary()
 {
-	read(path);
+	read(DIARY);
 	PlaySound(m_lpMuPath, NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
-void CMusicPlayer::playAudioOfMemo(LPCTSTR path)
+void CMusicPlayer::playAudioOfMemo()
 {
-	read(path);
+	read(MEMO);
 	PlaySound("..\\PSMS\\res\\002", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
-void CMusicPlayer::playAudioOfTimeRemind(LPCTSTR path)
+void CMusicPlayer::playAudioOfTimeRemind()
 {
-	read(path);
+	read(TIMER);
 	PlaySound("..\\PSMS\\res\\003", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
-void CMusicPlayer::playAudioOfDateRemind(LPCTSTR path)
+void CMusicPlayer::playAudioOfDateRemind()
 {
-	read(path);
+	read(DATER);
 	PlaySound("..\\PSMS\\res\\004", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
-void CMusicPlayer::playAudioOfHoliday(LPCTSTR path)
+void CMusicPlayer::playAudioOfHoliday()
 {
-	read(path);
+	read(HOLIDAY);
 	PlaySound("..\\PSMS\\res\\005", NULL, SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
