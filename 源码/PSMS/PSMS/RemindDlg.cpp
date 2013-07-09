@@ -97,7 +97,7 @@ BOOL CRemindDlg::OnInitDialog()
 	msg+='\n';
 	msg+=m_szContent;
 	GetDlgItem(IDC_STATIC)->SetWindowTextA(msg);
-	if(m_szType == "DateRemind")
+	if(m_szType == "DateRemind" || m_szType == "Holiday")
 		GetDlgItem(IDC_REMIND_LATER)->ShowWindow(SW_HIDE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control

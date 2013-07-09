@@ -5,5 +5,7 @@ class CHoliday : public CRecord
 public:
 	CHoliday(void);
 	~CHoliday(void);
+	CString GetHolidayDate();
+	CString GetHolidayName();
 };
 

@@ -117,6 +117,9 @@
     <ClInclude Include="DlgFlash.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Lunar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PSMS.cpp">
@@ -195,6 +198,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DlgFlash.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Lunar.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

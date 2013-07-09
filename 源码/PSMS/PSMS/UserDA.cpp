@@ -173,32 +173,32 @@ void CUserDA::RemoveDateRemind(CDateRemind dateRemind)
 void CUserDA::UpdateDiary(CDiary diary)
 {
 	CString sql;
-	sql.Format("update Diary set szContent = '%s',[DateTime] = '%s' where szTitle = '%s' & szUser = '%s'",
-		diary.GetContent(), diary.GetDate(), diary.GetTitle(), diary.GetUser());
+	sql.Format("update Diary set szTitle = '%s' szContent = '%s',[DateTime] = '%s' where ID = %d",
+		diary.GetTitle(),diary.GetContent(), diary.GetDate(), diary.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("update [Memo] set szContent = '%s',[DateTime] = '%s' where szTitle = '%s' & szUser = '%s'",
-		memo.GetContent(), memo.GetDate(), memo.GetTitle(), memo.GetUser());
+	sql.Format("update [Memo] setszTitle = '%s' szContent = '%s',[DateTime] = '%s' where ID = %d",
+		memo.GetTitle(),memo.GetContent(), memo.GetDate(), memo.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
-	sql.Format("update DateRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s' & szUser = '%s'",
-		dateRemind.GetContent(), dateRemind.GetDate(), dateRemind.GetRemindFrequency(), dateRemind.GetTitle(), dateRemind.GetUser());
+	sql.Format("update DateRemind set szTitle = '%s' szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
+		dateRemind.GetTitle(),dateRemind.GetTitle(),dateRemind.GetContent(), dateRemind.GetDate(), dateRemind.GetRemindFrequency(), dateRemind.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
-	sql.Format("update TimeRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s' & szUser = '%s'",
-		timeRemind.GetContent(), timeRemind.GetDate(), timeRemind.GetRemindFrequency(), timeRemind.GetTitle(), timeRemind.GetUser());
+	sql.Format("update TimeRemind setszTitle = '%s' szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where ID = %d",
+		timeRemind.GetContent(), timeRemind.GetDate(), timeRemind.GetRemindFrequency(), timeRemind.GetID());
 	ExcuteSql(sql);
 }
 

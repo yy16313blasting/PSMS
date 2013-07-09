@@ -121,6 +121,12 @@ BOOL CPSMSDlg::OnInitDialog()
 	m_tab.InsertItem(4, _T("固定节假日"));
 	m_tab.InsertItem(5, _T("设置"));
 
+	m_TimeRemindDlg.SetUser(m_user);
+	m_DateRemindDlg.SetUser(m_user);
+	m_DiaryDlg.SetUser(m_user);
+	m_MemoDlg.SetUser(m_user);
+	m_SettingsDlg.SetUser(m_user);
+
 	m_TimeRemindDlg.Create(IDD_TIMEREMIND,&m_tab);
 	m_DateRemindDlg.Create(IDD_DATEREMIND,&m_tab);
 	m_DiaryDlg.Create(IDD_DIARY,&m_tab);
@@ -130,12 +136,6 @@ BOOL CPSMSDlg::OnInitDialog()
 
 	m_TimeRemindDlg.MoveWindow(&tabRect);
 	m_DateRemindDlg.MoveWindow(&tabRect);
-
-	m_TimeRemindDlg.SetUser(m_user);
-	m_DateRemindDlg.SetUser(m_user);
-	m_DiaryDlg.SetUser(m_user);
-	m_MemoDlg.SetUser(m_user);
-	m_SettingsDlg.SetUser(m_user);
 
 	m_tab.GetClientRect(&tabRect);    // 获取标签控件客户区Rect   
 

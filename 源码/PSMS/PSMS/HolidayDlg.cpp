@@ -5,6 +5,7 @@
 #include "PSMS.h"
 #include "HolidayDlg.h"
 #include "afxdialogex.h"
+#include "Lunar.h"
 // CHolidayDlg 对话框
 
 IMPLEMENT_DYNAMIC(CHolidayDlg, CDialog)
@@ -30,6 +31,7 @@ BEGIN_MESSAGE_MAP(CHolidayDlg, CDialog)
 	ON_BN_CLICKED(IDC_HOLIDAY_DELETE, &CHolidayDlg::OnBnClickedHolidayDelete)
 	ON_BN_CLICKED(IDC_HOLIDAY_UPDATE, &CHolidayDlg::OnBnClickedHolidayUpdate)
 	ON_BN_CLICKED(IDC_HOLIDAY_DELETEALL, &CHolidayDlg::OnBnClickedHolidayDeleteall)
+	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 
@@ -68,8 +70,8 @@ void CHolidayDlg::ShowList()
 	while(icount != i) 
 	{	
 		m_HolidayList.InsertItem(0,"");//开辟一个行，并且设置行的内容为i的内容
-		m_HolidayList.SetItemText(0,0,list[i].GetDate());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
-		m_HolidayList.SetItemText(0,1,list[i].GetTitle());
+		m_HolidayList.SetItemText(0,0,list[i].GetHolidayDate());//i代指在第几行插入数据，第二个参数代指第几列，第三个参数代指插入数据的值
+		m_HolidayList.SetItemText(0,1,list[i].GetHolidayName());
 		m_HolidayList.SetItemText(0,2,list[i].GetContent());
 		++i;
 	}
@@ -115,4 +117,86 @@ void CHolidayDlg::OnBnClickedHolidayDeleteall()
 {
 	AfxMessageBox("节假日提醒不能删除");
 	// TODO: 在此添加控件通知处理程序代码
+}
+
+
+BOOL CHolidayDlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// TODO:  在此添加额外的初始化
+	//GetDlgItem(IDC_HOLIDAY_DELETE)->ShowWindow(SW_HIDE);
+	//GetDlgItem(IDC_HOLIDAY_UPDATE)->ShowWindow(SW_HIDE);
+	//GetDlgItem(IDC_HOLIDAY_DELETEALL)->ShowWindow(SW_HIDE);
+	return TRUE;  // return TRUE unless you set the focus to a control
+	// 异常: OCX 属性页应返回 FALSE
+}
+
+
+int CHolidayDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CDialog::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	CUser user;
+	// TODO:  在此添加您专用的创建代码
+	CTime time = CTime::GetCurrentTime();  
+    int Year = time.GetYear();     
+    int Month = time.GetMonth();      
+    int Day = time.GetDay();   
+
+	int icount = user.CountAllHoliday();
+	CHoliday *list = new CHoliday[icount];
+	user.GetAllHoliday(list);
+	//int j;
+	int i=0;
+	for(; i < icount; i++)
+	{
+		if(list[i].GetTitle() == "母亲节")
+		{
+			if(list[i].GetMonth() == 5)
+			{
+				if(time.GetDayOfWeek() == 7 && (Day >= 8 && Day <= 14))
+					Remind("母亲节",list[i].GetContent());
+			}
+			continue;
+		}
+		if(list[i].GetTitle() == "父亲节")
+		{
+			if(list[i].GetMonth() == 6)
+			{
+				if(time.GetDayOfWeek() == 7 && (Day >= 15 && Day <= 21))
+					Remind("父亲节",list[i].GetContent());
+			}
+			continue;
+		}
+		if(list[i].GetTitle().Left(1) == "L")
+		{
+			WORD year,month,day;
+			CLunar lunar;
+			lunar.GetLunarDate(Year,Month,Day,year,month,day);
+			if( month == list[i].GetMonth() && day == list[i].GetDay() )
+			{
+				Remind(list[i].GetTitle(),list[i].GetContent());
+			}
+			continue;
+		}
+		if( Month == list[i].GetMonth() && Day == list[i].GetDay() )
+		{
+			Remind(list[i].GetTitle(),list[i].GetContent());
+		}
+	}
+
+	return 0;
+}
+
+void CHolidayDlg::Remind(CString title,CString content)
+{
+	CRemindDlg *dlg = new CRemindDlg();
+	dlg->SetType("Holiday");
+	dlg->SetContent(content);
+	//dlg->SetRemindFrequency(1);
+	dlg->Create(IDD_REMIND_DIALOG,NULL);
+	dlg->ShowWindow(SW_SHOW);
+
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include"User.h"
+#include "RemindDlg.h"
 // CHolidayDlg ¶Ô»°¿ò
 
 class CHolidayDlg : public CDialog
@@ -27,4 +28,7 @@ public:
 	afx_msg void OnBnClickedHolidayDelete();
 	afx_msg void OnBnClickedHolidayUpdate();
 	afx_msg void OnBnClickedHolidayDeleteall();
+	virtual BOOL OnInitDialog();
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	void Remind(CString title,CString content);
 };
