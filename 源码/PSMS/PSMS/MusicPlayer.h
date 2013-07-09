@@ -20,8 +20,8 @@ public:
 	void playAudioOfDateRemind();
 	void playAudioOfHoliday();
 	//实现路径的读写，以保存
-	void write(LPCTSTR path);
-	void read(LPCTSTR path);
+	void write(void);
+	void read(void);
 	void transferPath(void);
 	CString BootOpenDialog(void);
 	void CloseMusic(void);

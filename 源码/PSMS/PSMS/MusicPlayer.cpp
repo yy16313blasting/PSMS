@@ -36,18 +36,18 @@ void CMusicPlayer::transferPath(void)
 }
 
 //修改声音的接口和实现
-void CMusicPlayer::write(LPCTSTR path)
+void CMusicPlayer::write(void)
 {
-	WritePrivateProfileString("Path",path,m_strMuPath,ROAD);
+	WritePrivateProfileString("Path","path",m_strMuPath,ROAD);
 }
 
 
 
 //传出路径
-void CMusicPlayer::read(LPCTSTR path)
+void CMusicPlayer::read()
 {
 	m_lpMuPath = new char[MAX_PATH];//new
-	GetPrivateProfileString("Path",path,"",m_lpMuPath,MAX_PATH,ROAD);
+	GetPrivateProfileString("Path","path","",m_lpMuPath,MAX_PATH,ROAD);
 
 	
 	/*
@@ -68,37 +68,37 @@ void CMusicPlayer::read(LPCTSTR path)
 //声音调用的接口，实现
 void CMusicPlayer::playAudioOfDiary()
 {
-	read(DIARY);
+	read();
 	
-	PlaySound("..\\PSMS\\res\\001", NULL,SND_LOOP | SND_FILENAME | SND_ASYNC|SND_NOWAIT);//使用局部变量
+	PlaySound(m_lpMuPath, NULL,SND_LOOP | SND_FILENAME | SND_ASYNC|SND_NOWAIT);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfMemo()
 {
-	read(MEMO);
+	read();
 	
-	PlaySound("..\\PSMS\\res\\002", NULL,SND_LOOP |  SND_FILENAME | SND_ASYNC);//使用局部变量
+	PlaySound(m_lpMuPath, NULL,SND_LOOP |  SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfTimeRemind()
 {
-	read(TIMER);
+	read();
 	
-	PlaySound("..\\PSMS\\res\\003", NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
+	PlaySound(m_lpMuPath, NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfDateRemind()
 {
-	read(DATER);
+	read();
 	
-	PlaySound("..\\PSMS\\res\\004", NULL, SND_LOOP | SND_FILENAME |SND_ASYNC);//使用局部变量
+	PlaySound(m_lpMuPath, NULL, SND_LOOP | SND_FILENAME |SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 void CMusicPlayer::playAudioOfHoliday()
 {
-	read(HOLIDAY);
+	read();
 	
-	PlaySound("..\\PSMS\\res\\005", NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
+	PlaySound(m_lpMuPath, NULL, SND_LOOP | SND_FILENAME | SND_ASYNC);//使用局部变量
 	delete [] m_lpMuPath;//delete
 }
 
