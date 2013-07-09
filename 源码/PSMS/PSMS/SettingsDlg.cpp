@@ -31,6 +31,7 @@ BEGIN_MESSAGE_MAP(CSettingsDlg, CDialog)
 	ON_BN_CLICKED(IDC_UPDATE_PASSWORD, &CSettingsDlg::OnBnClickedUpdatePassword)
 	ON_BN_CLICKED(IDC_BUTTON1, &CSettingsDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_EDIT, &CSettingsDlg::OnBnClickedEdit)
+	ON_BN_CLICKED(IDC_SELETE_MUSIC, &CSettingsDlg::OnBnClickedSeleteMusic)
 END_MESSAGE_MAP()
 
 
@@ -114,4 +115,12 @@ BOOL CSettingsDlg::PreTranslateMessage(MSG* pMsg)
 	else
 		return CDialog::PreTranslateMessage(pMsg);
 	return CDialog::PreTranslateMessage(pMsg);
+}
+
+
+void CSettingsDlg::OnBnClickedSeleteMusic()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CMusicPlayer player;
+	player.transferPath();
 }

@@ -30,4 +30,5 @@ public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedEdit();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnBnClickedSeleteMusic();
 };
