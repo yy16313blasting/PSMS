@@ -13,7 +13,7 @@ class CUser
 private:
 	CString m_szName;
 	BOOL  isOnline;
-	CUserDA usrDA;
+	CUserDA userDA;
 
 public:
 	CUser(void);
@@ -44,12 +44,14 @@ public:
 	void  UpdateMemo(CMemo memo);
 	void  UpdateTimeRemind(CTimeRemind timeRemind);
 	void  UpdatePassword(CString password);
+	void  UpdateMotto(CString motto);
 
 	void GetAllDiary(CDiary*& list);
 	void GetAllMemo(CMemo*& list);
 	void GetAllTimeRemind(CTimeRemind*& list);
 	void GetAllDateRemind(CDateRemind*& list);
 	void GetAllHoliday(CHoliday*& list);
+	CString GetMotto();
 
 	int CountAllDiary();
 	int CountAllMemo();

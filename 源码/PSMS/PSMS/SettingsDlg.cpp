@@ -30,6 +30,7 @@ void CSettingsDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CSettingsDlg, CDialog)
 	ON_BN_CLICKED(IDC_UPDATE_PASSWORD, &CSettingsDlg::OnBnClickedUpdatePassword)
 	ON_BN_CLICKED(IDC_BUTTON1, &CSettingsDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_EDIT, &CSettingsDlg::OnBnClickedEdit)
 END_MESSAGE_MAP()
 
 
@@ -53,25 +54,7 @@ void CSettingsDlg::SetUser(CUser user)
 void CSettingsDlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	CString text;
-	GetDlgItem(IDC_BUTTON1)->GetWindowTextA(text);
-	if(text == "编辑")
-	{
-		//((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(false);
-		((CEdit*)GetDlgItem(IDC_SIGNATURE))->SetReadOnly(false);
-		//((CEdit*)GetWindow(IDC_SELETE_SEX))->SetReadOnly(false);
-		GetDlgItem(IDC_SELETE_SEX)->ShowWindow(SW_SHOW);
-		//((CComboBox*)GetDlgItem(IDC_SELETE_SEX))->DropDownStyle(
-		GetDlgItem(IDC_BUTTON1)->SetWindowTextA("完成");
-	}
-	else if(text == "完成")
-	{
-		//((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(true);
-		((CEdit*)GetDlgItem(IDC_SIGNATURE))->SetReadOnly(true);
-		GetDlgItem(IDC_SELETE_SEX)->ShowWindow(SW_HIDE);
-		//((CComb*)
-		GetDlgItem(IDC_BUTTON1)->SetWindowTextA("编辑");
-	}
+	
 }
 
 
@@ -90,6 +73,45 @@ BOOL CSettingsDlg::OnInitDialog()
 	((CEdit*)GetDlgItem(IDC_SIGNATURE))->SetReadOnly(true);
 	// TODO:  在此添加额外的初始化
 	GetDlgItem(IDC_OUTPUT_USERNAME)->SetWindowTextA("用户名："+m_user.GetName());
+	GetDlgItem(IDC_SIGNATURE)->SetWindowTextA(m_user.GetMotto());
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
+}
+
+
+void CSettingsDlg::OnBnClickedEdit()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CString text;
+	GetDlgItem(IDC_EDIT)->GetWindowTextA(text);
+	if(text == "编辑")
+	{
+		//((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(false);
+		((CEdit*)GetDlgItem(IDC_SIGNATURE))->SetReadOnly(false);
+		//((CEdit*)GetWindow(IDC_SELETE_SEX))->SetReadOnly(false);
+		//GetDlgItem(IDC_SIGNATURE)->SetWindowTextA("HEHE");
+		//((CComboBox*)GetDlgItem(IDC_SELETE_SEX))->DropDownStyle(
+		GetDlgItem(IDC_EDIT)->SetWindowTextA("完成");
+	}
+	else if(text == "完成")
+	{
+		//((CEdit*)GetDlgItem(IDC_EDIT2))->SetReadOnly(true);
+		((CEdit*)GetDlgItem(IDC_SIGNATURE))->SetReadOnly(true);
+		//((CComb*)
+		GetDlgItem(IDC_EDIT)->SetWindowTextA("编辑");
+		CString str;
+		GetDlgItem(IDC_SIGNATURE)->GetWindowTextA(str);
+		m_user.UpdateMotto(str);
+	}
+}
+
+
+BOOL CSettingsDlg::PreTranslateMessage(MSG* pMsg)
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_ESCAPE) return TRUE;
+	if(pMsg->message==WM_KEYDOWN && pMsg->wParam==VK_RETURN) return TRUE;
+	else
+		return CDialog::PreTranslateMessage(pMsg);
+	return CDialog::PreTranslateMessage(pMsg);
 }

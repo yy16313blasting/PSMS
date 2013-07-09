@@ -663,10 +663,13 @@ CString CUserDA::GetUserPassword(CString name)
 	{
 		return "";
 	}
+	if(m_pRecordset->adoEOF)
+	{
+		return "";
+	}
 	m_pRecordset->MoveFirst();
 	while(!m_pRecordset->adoEOF)
 	{
-		CString password;
 		CString tmp_name;
 		try
 		{
@@ -685,6 +688,55 @@ CString CUserDA::GetUserPassword(CString name)
 	}
 	return password;
 }
+
+CString CUserDA::GetUserMotto(CString name)
+{
+	CString motto;
+	CString sql;
+	sql.Format("SELECT * FROM [User]");
+	
+	
+	try
+	{
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
+	}
+	catch(_com_error e)
+	{
+		//AfxMessageBox(e.Description());
+	}
+	int count = m_pRecordset->GetRecordCount();
+	//count值为-1为成功
+	if(0 == count)
+	{
+		return "";
+	}
+	if(m_pRecordset->adoEOF)
+	{
+		return "";
+	}
+	m_pRecordset->MoveFirst();
+	while(!m_pRecordset->adoEOF)
+	{
+		CString tmp_name;
+		try
+		{
+			tmp_name = (char*)(_bstr_t)m_pRecordset->GetCollect("szName");
+			if(tmp_name == name)
+			{
+				motto = (char*)(_bstr_t)m_pRecordset->GetCollect("szMotto");
+				return motto;
+			}
+		}
+		catch(_com_error e)
+		{
+			//AfxMessageBox(e.Description());
+		}
+		m_pRecordset->MoveNext();
+	}
+	return motto;
+}
+
 
 bool CUserDA::ExistUser(CString name)
 {
@@ -738,6 +790,13 @@ void CUserDA::UpdatePassword(CString name,CString password)
 	md5.GenerateCMD5((unsigned char*)(LPCTSTR)password, password.GetLength());
 	password = md5.ToString();
 	CString sql;
-	sql.Format("update [User] set szPassword = '%s' where szName = '%s' ", password, name);
+	sql.Format("update [User] set szPassword = '%s' where szName = '%s'", password, name);
+	ExcuteSql(sql);
+}
+
+void CUserDA::UpdateMotto(CString name,CString motto)
+{
+	CString sql;
+	sql.Format("update [User] set szMotto = '%s' where szName = '%s'", motto, name);
 	ExcuteSql(sql);
 }

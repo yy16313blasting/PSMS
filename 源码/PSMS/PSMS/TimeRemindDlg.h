@@ -1,5 +1,6 @@
 #pragma once
 #include"User.h"
+#include"RemindDlg.h"
 
 // CTimeRemindDlg ¶Ô»°¿ò
 
@@ -37,6 +38,9 @@ private:
 	CString m_szContent;
 	CString m_szDateTime;
 	CString m_szID;
+	int m_nTimerID;
 public:
 	afx_msg void OnClickTimeremindList(NMHDR *pNMHDR, LRESULT *pResult);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	void Remind(CString title,CString content);
 };

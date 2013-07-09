@@ -12,135 +12,140 @@ CUser::~CUser(void)
 CString CUser::GetUserPassword(CString name)
 {   
 	CString m_szPassword;
-	m_szPassword=usrDA.GetUserPassword(name);
+	m_szPassword=userDA.GetUserPassword(name);
 	return m_szPassword;
+}
+
+CString CUser::GetMotto()
+{
+	return userDA.GetUserMotto(m_szName);
 }
 
 bool CUser::ExistUser(CString name)
 {   
 	bool m_ExistUser;
-	m_ExistUser=usrDA.ExistUser(name);
+	m_ExistUser=userDA.ExistUser(name);
 	return m_ExistUser;
 }
 
 void CUser::AddDiary(CDiary diary)
 {   
-	usrDA.AddDiary(diary);
+	userDA.AddDiary(diary);
 }
 
 void CUser::AddMemo(CMemo memo)
 {
-	usrDA.AddMemo(memo);
+	userDA.AddMemo(memo);
 }
 
 void CUser::AddTimeRemind(CTimeRemind timeRemind)
 {
-	usrDA.AddTimeRemind(timeRemind);
+	userDA.AddTimeRemind(timeRemind);
 }
 
 void CUser::AddDateRemind(CDateRemind dateRemind)
 {
-	usrDA.AddDateRemind(dateRemind);
+	userDA.AddDateRemind(dateRemind);
 }
 
 
 void CUser::RemoveDiary(CDiary diary)
 {
-	usrDA.RemoveDiary(diary);
+	userDA.RemoveDiary(diary);
 }
 
 void CUser::RemoveMemo(CMemo memo)
 {
-		usrDA.RemoveMemo(memo);
+		userDA.RemoveMemo(memo);
 }
 
 void CUser::RemoveTimeRemind(CTimeRemind timeRemind)
 {
-	usrDA.RemoveTimeRemind(timeRemind);
+	userDA.RemoveTimeRemind(timeRemind);
 }
 
 void CUser::RemoveDateRemind(CDateRemind dateRemind)
 {
-	usrDA.RemoveDateRemind(dateRemind);
+	userDA.RemoveDateRemind(dateRemind);
 }
 
 void CUser::UpdateDiary(CDiary diary)
 {
-	usrDA.UpdateDiary(diary);
+	userDA.UpdateDiary(diary);
 }
 
 void CUser::UpdateMemo(CMemo memo)
 {
-	usrDA.UpdateMemo(memo);
+	userDA.UpdateMemo(memo);
 }
 
 void CUser::UpdateDateRemind(CDateRemind dateRemind)
 {
-	usrDA.UpdateDateRemind(dateRemind);
+	userDA.UpdateDateRemind(dateRemind);
 }
 
 void CUser::UpdateTimeRemind(CTimeRemind timeRemind)
 {
-	usrDA.UpdateTimeRemind(timeRemind);
+	userDA.UpdateTimeRemind(timeRemind);
 }
 
 void CUser::GetAllDiary(CDiary*& list)
 {
-	usrDA.GetAllDiary(list,m_szName);
+	userDA.GetAllDiary(list,m_szName);
 }
 
 void CUser::GetAllMemo(CMemo*& list)
 {
-	usrDA.GetAllMemo(list,m_szName);
+	userDA.GetAllMemo(list,m_szName);
 }
 
 void CUser::GetAllTimeRemind(CTimeRemind*& list)
 {
-	usrDA.GetAllTimeRemind(list,m_szName);
+	userDA.GetAllTimeRemind(list,m_szName);
 }
 
 void CUser::GetAllDateRemind(CDateRemind*& list)
 {
-	usrDA.GetAllDateRemind(list,m_szName);
+	userDA.GetAllDateRemind(list,m_szName);
 }
 
 void CUser::GetAllHoliday(CHoliday*& list)
 {
-	usrDA.GetAllHoliday(list);
+	userDA.GetAllHoliday(list);
 }
 
 int CUser::CountAllDiary()
 {
 		int CountAllDiary;
-		CountAllDiary=usrDA.CountAllDiary(m_szName);
+		CountAllDiary=userDA.CountAllDiary(m_szName);
 		return CountAllDiary;
 }
 
 int CUser::CountAllMemo()
 {
 		int CountAllMemo;
-		CountAllMemo=usrDA.CountAllMemo(m_szName);
+		CountAllMemo=userDA.CountAllMemo(m_szName);
 		return CountAllMemo;
 }
 
 int CUser::CountAllTimeRemind()
 {
 		int CountAllTimeRemind;
-		CountAllTimeRemind=usrDA.CountAllTimeRemind(m_szName);
+		CountAllTimeRemind=userDA.CountAllTimeRemind(m_szName);
 		return CountAllTimeRemind;
 }
 
 int CUser::CountAllDateRemind()
 {
 		int CountAllDateRemind;
-		CountAllDateRemind=usrDA.CountAllDateRemind(m_szName);
+		CountAllDateRemind=userDA.CountAllDateRemind(m_szName);
 		return CountAllDateRemind;
 }
 
 int CUser::CountAllHoliday()
 {
 		int CountAllHoliday;
-		CountAllHoliday=usrDA.CountAllHoliday();
+		CountAllHoliday=userDA.CountAllHoliday();
 		return CountAllHoliday;
 }
 bool CUser:: ExistDiary(CDiary diary)
@@ -165,22 +170,22 @@ bool CUser:: ExistDateRemind(CDateRemind dateRemind)
 
 void CUser::PurgeDiary()
 {
-	usrDA.PurgeDiary(m_szName);
+	userDA.PurgeDiary(m_szName);
 }
 
 void CUser::PurgeMemo()
 {
-	usrDA.PurgeMemo(m_szName);
+	userDA.PurgeMemo(m_szName);
 }
 
 void CUser::PurgeTimeRemind()
 {
-	usrDA.PurgeTimeRemind(m_szName);
+	userDA.PurgeTimeRemind(m_szName);
 }
 
 void CUser::PurgeDateRemind()
 {
-	usrDA.PurgeDateRemind(m_szName);
+	userDA.PurgeDateRemind(m_szName);
 }
 
 void CUser::SetName(CString name)
@@ -194,5 +199,10 @@ CString CUser::GetName()
 }
 void CUser::UpdatePassword(CString password)
 {
-	usrDA.UpdatePassword(m_szName,password);
+	userDA.UpdatePassword(m_szName,password);
  }
+
+void CUser::UpdateMotto(CString motto)
+{
+	userDA.UpdateMotto(m_szName,motto);
+}

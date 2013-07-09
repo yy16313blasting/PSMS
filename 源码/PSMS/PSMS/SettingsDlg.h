@@ -28,4 +28,6 @@ public:
 	afx_msg void OnBnClickedButton1();
 //	virtual void PreInitDialog();
 	virtual BOOL OnInitDialog();
+	afx_msg void OnBnClickedEdit();
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

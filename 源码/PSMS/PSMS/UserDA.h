@@ -36,6 +36,7 @@ public:
 	void UpdateTimeRemind(CTimeRemind timeRemind);
 	void UpdateDateRemind(CDateRemind dateRemind);
 	void UpdatePassword(CString name, CString password);
+	void UpdateMotto(CString name,CString motto);
 
 	void GetAllDiary(CDiary*& list, CString user);
 	void GetAllMemo(CMemo*& list, CString user);
@@ -60,6 +61,7 @@ public:
 	bool ExistDateRemind(CDateRemind dateRemind);
 
 	CString GetUserPassword(CString name);
+	CString GetUserMotto(CString name);
 	bool ExistUser(CString name);
 
 	void ExcuteSql(CString sql);

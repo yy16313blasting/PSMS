@@ -33,6 +33,7 @@ BEGIN_MESSAGE_MAP(CTimeRemindDlg, CDialog)
 	ON_BN_CLICKED(IDC_TIMEREMIND_UPDATE, &CTimeRemindDlg::OnBnClickedTimeremindUpdate)
 	ON_BN_CLICKED(IDC_TIMEREMIND_DELETEALL, &CTimeRemindDlg::OnBnClickedTimeremindDeleteall)
 	ON_NOTIFY(NM_CLICK, IDC_TIMEREMIND_LIST, &CTimeRemindDlg::OnClickTimeremindList)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -164,6 +165,8 @@ BOOL CTimeRemindDlg::OnInitDialog()
 
 	// TODO:  在此添加额外的初始化
 
+	m_nTimerID = 0;
+	SetTimer(m_nTimerID,10000,NULL);
 	m_hasSelectedItem = false;
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// 异常: OCX 属性页应返回 FALSE
@@ -192,4 +195,40 @@ void CTimeRemindDlg::OnClickTimeremindList(NMHDR *pNMHDR, LRESULT *pResult)
 		m_hasSelectedItem = true;
 	}
 	*pResult = 0;
+}
+
+
+void CTimeRemindDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	CTime time = CTime::GetCurrentTime();   
+    int Year = time.GetYear();     
+    int Month = time.GetMonth();      
+    int Day = time.GetDay();   
+
+	int icount = m_user.CountAllTimeRemind();
+	if( icount == 0)
+		return;
+	CTimeRemind *list = new CTimeRemind[icount];
+	m_user.GetAllTimeRemind(list);
+	//int j;
+	for(int i = 0;i < icount;i++)
+	{
+		if(time.GetHour() == list[i].GetHour() && time.GetMinute() == list[i].GetMinute() )
+		{
+			Remind(list[i].GetTitle(),list[i].GetContent());
+		}
+	}
+	CDialog::OnTimer(nIDEvent);
+}
+
+void CTimeRemindDlg::Remind(CString title,CString content)
+{
+	CRemindDlg *dlg = new CRemindDlg();
+	dlg->SetType("TimeRemind");
+	dlg->SetContent(content);
+	dlg->SetRemindFrequency(10);
+	//dlg->SetRemindFrequency(1);
+	dlg->Create(IDD_REMIND_DIALOG,NULL);
+	dlg->ShowWindow(SW_SHOW);
 }
