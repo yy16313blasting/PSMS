@@ -24,7 +24,7 @@ public:
 	void AddMemo(CMemo memo);
 	void AddTimeRemind(CTimeRemind timeRemind);
 	void AddDateRemind(CDateRemind dateRemind);
-	void AddUser(CString name,CString password);
+	void AddUser(CString name, CString password);
 
 	void RemoveDiary(CDiary diary);
 	void RemoveMemo(CMemo memo);
@@ -35,12 +35,12 @@ public:
 	void UpdateMemo(CMemo memo);
 	void UpdateTimeRemind(CTimeRemind timeRemind);
 	void UpdateDateRemind(CDateRemind dateRemind);
-	void UpdatePassword(CString name,CString password);
+	void UpdatePassword(CString name, CString password);
 
-	void GetAllDiary(CDiary*& list,CString user);
-	void GetAllMemo(CMemo*& list,CString user);
-	void GetAllTimeRemind(CTimeRemind*& list,CString user);
-	void GetAllDateRemind(CDateRemind*& list,CString user);
+	void GetAllDiary(CDiary*& list, CString user);
+	void GetAllMemo(CMemo*& list, CString user);
+	void GetAllTimeRemind(CTimeRemind*& list, CString user);
+	void GetAllDateRemind(CDateRemind*& list, CString user);
 	void GetAllHoliday(CHoliday*& list);
 
 	int CountAllDiary(CString user);

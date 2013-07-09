@@ -5,19 +5,12 @@
 
 CUserDA::CUserDA(void)
 {
-	m_pRecordset=NULL;
+	m_pRecordset = NULL;
 	InitConnection();
 }
 
 CUserDA::~CUserDA(void)
 {
-	/*if(m_pConnection->State)
-		m_pConnection->Close();
-	if(m_pRecordset!=NULL)
-	{
-		m_pRecordset->Close();
-		m_pRecordset.Release();
-	}*/
 	::CoUninitialize();
 }
 
@@ -32,19 +25,18 @@ bool CUserDA::InitConnection()
 		if( SUCCEEDED( hr ) )
 		{
 			//设置等待连接打开的时间为20s	
-			m_pConnection->ConnectionTimeout=20; 
+			m_pConnection->ConnectionTimeout = WAITOPENTIME; 
 
 			m_pConnection->Open((_bstr_t)"Provider=Microsoft.Jet.OLEDB.4.0;\
 								Data Source=DataBase.mdb;\
 								Jet OLEDB:Database Password=","","",adModeUnknown);
 		}
-		//AfxMessageBox("连接成功！！");
 	}
 	catch(_com_error e)
 	{
-		CString errormessage;
-		errormessage.Format("连接数据库失败！\r\n错误信息：%s",e.Description());
-		AfxMessageBox(errormessage);
+		CString errorMessage;
+		errorMessage.Format("连接数据库失败！\r\n错误信息：%s", e.Description());
+		AfxMessageBox(errorMessage);
 		return  false;
 	}
 	return true;
@@ -52,18 +44,19 @@ bool CUserDA::InitConnection()
 
 void CUserDA::test()
 {
-	CString sql="SELECT * FROM [User]";
+	CString sql = "SELECT * FROM [User]";
 	
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
+
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -93,18 +86,17 @@ void CUserDA::ExcuteSql(CString sql)
 	m_pRecordset.CreateInstance(__uuidof(Recordset));
 	try
 	{
-		m_pConnection->Execute((_bstr_t)sql,NULL,adCmdText);
+		m_pConnection->Execute((_bstr_t)sql, NULL, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	//m_pRecordset.Release();
 }
 
 void CUserDA::CreateTable(CString tableName)
 {
-	CString sql="CREATE TABLE "+tableName;
+	CString sql = "CREATE TABLE " + tableName;
 	ExcuteSql(sql);
 }
 
@@ -112,15 +104,15 @@ void CUserDA::AddDiary(CDiary diary)
 {
 	CString sql;
 	sql.Format("insert into Diary (szTitle,szContent,[DateTime],szUser) values ('%s','%s','%s','%s')",
-		diary.GetTitle(),diary.GetContent(),diary.GetDate(),diary.GetUser());
+		diary.GetTitle(), diary.GetContent(), diary.GetDate(), diary.GetUser());
 	ExcuteSql(sql);
 }
 
 void CUserDA::AddMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("insert into [Memo] (szTitle,szContent,[DateTime],szUser) values ('%s','%s','%s','%s')",
-		memo.GetTitle(),memo.GetContent(),memo.GetDate(),memo.GetUser());
+	sql.Format("insert into [Memo] (szTitle,szContent,[DateTime],szUser) values ('%s', '%s', '%s', '%s')",
+		memo.GetTitle(), memo.GetContent(), memo.GetDate(), memo.GetUser());
 	ExcuteSql(sql);
 }
 
@@ -128,7 +120,7 @@ void CUserDA::AddTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
 	sql.Format("insert into TimeRemind (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
-		timeRemind.GetTitle(),timeRemind.GetContent(),timeRemind.GetDate(),timeRemind.GetRemindFrequency(),timeRemind.GetUser());
+		timeRemind.GetTitle(), timeRemind.GetContent(), timeRemind.GetDate(), timeRemind.GetRemindFrequency(), timeRemind.GetUser());
 	ExcuteSql(sql);
 }
 
@@ -136,7 +128,7 @@ void CUserDA::AddDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
 	sql.Format("insert into DateRemind (szTitle,szContent,[DateTime],nRemindFrequency,szUser) values ('%s','%s','%s',%d,'%s')",
-		dateRemind.GetTitle(),dateRemind.GetContent(),dateRemind.GetDate(),dateRemind.GetRemindFrequency(),dateRemind.GetUser());
+		dateRemind.GetTitle(), dateRemind.GetContent(), dateRemind.GetDate(), dateRemind.GetRemindFrequency(), dateRemind.GetUser());
 	ExcuteSql(sql);
 }
 
@@ -144,37 +136,37 @@ void CUserDA::AddUser(CString name,CString password)
 {
 	CString sql;
 	CMD5 md5;
-	md5.GenerateCMD5((unsigned char*)(LPCTSTR)password,password.GetLength());
-	password=md5.ToString();
-	sql.Format("insert into [User] ( szName,szPassword) values ('%s','%s')",name,password);
+	md5.GenerateCMD5((unsigned char*)(LPCTSTR)password, password.GetLength());
+	password = md5.ToString();
+	sql.Format("insert into [User] ( szName,szPassword) values ('%s','%s')", name, password);
 	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveDiary(CDiary diary)
 {
 	CString sql;
-	sql.Format("delete * from Diary where ID=%d",diary.GetID());
+	sql.Format("delete * from Diary where ID = %d", diary.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveMemo(CMemo memo)
 {
 	CString sql;
-	sql.Format("delete * from [Memo] where ID = %d",memo.GetID());
+	sql.Format("delete * from [Memo] where ID = %d", memo.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
-	sql.Format("delete * from TimeRemind where ID = %d",timeRemind.GetID());
+	sql.Format("delete * from TimeRemind where ID = %d", timeRemind.GetID());
 	ExcuteSql(sql);
 }
 
 void CUserDA::RemoveDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
-	sql.Format("delete * from DateRemind where ID = %d",dateRemind.GetID());
+	sql.Format("delete * from DateRemind where ID = %d", dateRemind.GetID());
 	ExcuteSql(sql);
 }
 
@@ -182,7 +174,7 @@ void CUserDA::UpdateDiary(CDiary diary)
 {
 	CString sql;
 	sql.Format("update Diary set szContent = '%s',[DateTime] = '%s' where szTitle = '%s' & szUser = '%s'",
-		diary.GetContent(),diary.GetDate(),diary.GetTitle(),diary.GetUser());
+		diary.GetContent(), diary.GetDate(), diary.GetTitle(), diary.GetUser());
 	ExcuteSql(sql);
 }
 
@@ -190,7 +182,7 @@ void CUserDA::UpdateMemo(CMemo memo)
 {
 	CString sql;
 	sql.Format("update [Memo] set szContent = '%s',[DateTime] = '%s' where szTitle = '%s' & szUser = '%s'",
-		memo.GetContent(),memo.GetDate(),memo.GetTitle(),memo.GetUser());
+		memo.GetContent(), memo.GetDate(), memo.GetTitle(), memo.GetUser());
 	ExcuteSql(sql);
 }
 
@@ -198,7 +190,7 @@ void CUserDA::UpdateDateRemind(CDateRemind dateRemind)
 {
 	CString sql;
 	sql.Format("update DateRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s' & szUser = '%s'",
-		dateRemind.GetContent(),dateRemind.GetDate(),dateRemind.GetRemindFrequency(),dateRemind.GetTitle(),dateRemind.GetUser());
+		dateRemind.GetContent(), dateRemind.GetDate(), dateRemind.GetRemindFrequency(), dateRemind.GetTitle(), dateRemind.GetUser());
 	ExcuteSql(sql);
 }
 
@@ -206,7 +198,7 @@ void CUserDA::UpdateTimeRemind(CTimeRemind timeRemind)
 {
 	CString sql;
 	sql.Format("update TimeRemind set szContent = '%s',[DateTime] = '%s',nRemindFrequency = %d where szTitle = '%s' & szUser = '%s'",
-		timeRemind.GetContent(),timeRemind.GetDate(),timeRemind.GetRemindFrequency(),timeRemind.GetTitle(),timeRemind.GetUser());
+		timeRemind.GetContent(), timeRemind.GetDate(), timeRemind.GetRemindFrequency(), timeRemind.GetTitle(), timeRemind.GetUser());
 	ExcuteSql(sql);
 }
 
@@ -219,13 +211,14 @@ void CUserDA::GetAllDiary(CDiary*& list,CString user)
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
+
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -233,7 +226,7 @@ void CUserDA::GetAllDiary(CDiary*& list,CString user)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		try
@@ -256,12 +249,12 @@ void CUserDA::GetAllDiary(CDiary*& list,CString user)
 void CUserDA::GetAllMemo(CMemo*& list,CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM [Memo] where szUser='%s'",user);
+	sql.Format("SELECT * FROM [Memo] where szUser = '%s'", user);
 
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open(_variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open(_variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
@@ -275,7 +268,7 @@ void CUserDA::GetAllMemo(CMemo*& list,CString user)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		try
@@ -298,18 +291,18 @@ void CUserDA::GetAllMemo(CMemo*& list,CString user)
 void CUserDA::GetAllTimeRemind(CTimeRemind*& list,CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM TimeRemind where szUser = '%s'",user);
+	sql.Format("SELECT * FROM TimeRemind where szUser = '%s'", user);
 	
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -321,7 +314,7 @@ void CUserDA::GetAllTimeRemind(CTimeRemind*& list,CString user)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		try
@@ -335,8 +328,6 @@ void CUserDA::GetAllTimeRemind(CTimeRemind*& list,CString user)
 		}
 		catch(_com_error e)
 		{
-			//AfxMessageBox(e.Description());
-			//AfxMessageBox(e.Error());
 		}
 		m_pRecordset->MoveNext();
 		i++;
@@ -346,18 +337,18 @@ void CUserDA::GetAllTimeRemind(CTimeRemind*& list,CString user)
 void CUserDA::GetAllDateRemind(CDateRemind*& list,CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM DateRemind where szUser = '%s'",user);
+	sql.Format("SELECT * FROM DateRemind where szUser = '%s'", user);
 	
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -365,7 +356,7 @@ void CUserDA::GetAllDateRemind(CDateRemind*& list,CString user)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		try
@@ -400,7 +391,7 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -408,14 +399,13 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		try
 		{
 			list[i].SetTitle((char*)(_bstr_t)m_pRecordset->GetCollect("szTitle"));
 			list[i].SetContent((char*)(_bstr_t)m_pRecordset->GetCollect("Message"));
-		//	list[i].SetUser((char*)(_bstr_t)m_pRecordset->GetCollect("szUser"));
 			list[i].SetDate((char*)(_bstr_t)m_pRecordset->GetCollect("DateTime"));
 			list[i].SetID(atoi((char*)(_bstr_t)m_pRecordset->GetCollect("ID")));
 		}
@@ -432,18 +422,18 @@ void CUserDA::GetAllHoliday(CHoliday*& list)
 int CUserDA::CountAllDiary(CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM Diary where szUser = '%s'",user);
+	sql.Format("SELECT * FROM Diary where szUser = '%s'", user);
 	
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -455,7 +445,7 @@ int CUserDA::CountAllDiary(CString user)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		m_pRecordset->MoveNext();
@@ -472,13 +462,13 @@ int CUserDA::CountAllMemo(CString user)
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -490,7 +480,7 @@ int CUserDA::CountAllMemo(CString user)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		m_pRecordset->MoveNext();
@@ -502,18 +492,18 @@ int CUserDA::CountAllMemo(CString user)
 int CUserDA::CountAllTimeRemind(CString user)
 {
 	CString sql;
-	sql.Format("SELECT * FROM TimeRemind where szUser = '%s'",user);
+	sql.Format("SELECT * FROM TimeRemind where szUser = '%s'", user);
 	
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -525,7 +515,7 @@ int CUserDA::CountAllTimeRemind(CString user)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		m_pRecordset->MoveNext();
@@ -548,7 +538,7 @@ int CUserDA::CountAllDateRemind(CString user)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -560,7 +550,7 @@ int CUserDA::CountAllDateRemind(CString user)
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		m_pRecordset->MoveNext();
@@ -577,13 +567,13 @@ int CUserDA::CountAllHoliday()
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -595,7 +585,7 @@ int CUserDA::CountAllHoliday()
 	}
 	m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
-	int i=0;
+	int i = 0;
 	while(!m_pRecordset->adoEOF)
 	{
 		m_pRecordset->MoveNext();
@@ -607,28 +597,28 @@ int CUserDA::CountAllHoliday()
 void CUserDA::PurgeDiary(CString user)
 {
 	CString sql;
-	sql.Format("delete * from Diary where szUser = '%s'",user);
+	sql.Format("delete * from Diary where szUser = '%s'", user);
 	ExcuteSql(sql);
 }
 
 void CUserDA::PurgeMemo(CString user)
 {
 	CString sql;
-	sql.Format("delete * from [Memo] where szUser = '%s'",user);
+	sql.Format("delete * from [Memo] where szUser = '%s'", user);
 	ExcuteSql(sql);
 }
 
 void CUserDA::PurgeTimeRemind(CString user)
 {
 	CString sql;
-	sql.Format("delete * from TimeRemind where szUser = '%s'",user);
+	sql.Format("delete * from TimeRemind where szUser = '%s'", user);
 	ExcuteSql(sql);
 }
 
 void CUserDA::PurgeDateRemind(CString user)
 {
 	CString sql;
-	sql.Format("delete * from DateRemind where szUser = '%s'",user);
+	sql.Format("delete * from DateRemind where szUser = '%s'", user);
 	ExcuteSql(sql);
 }
 
@@ -661,19 +651,18 @@ CString CUserDA::GetUserPassword(CString name)
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
 		return "";
 	}
-	//m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
 	while(!m_pRecordset->adoEOF)
 	{
@@ -681,11 +670,10 @@ CString CUserDA::GetUserPassword(CString name)
 		CString tmp_name;
 		try
 		{
-			tmp_name=(char*)(_bstr_t)m_pRecordset->GetCollect("szName");
+			tmp_name = (char*)(_bstr_t)m_pRecordset->GetCollect("szName");
 			if(tmp_name == name)
 			{
-				password=(char*)(_bstr_t)m_pRecordset->GetCollect("szPassword");
-			//	AfxMessageBox(password);
+				password = (char*)(_bstr_t)m_pRecordset->GetCollect("szPassword");
 				return password;
 			}
 		}
@@ -695,7 +683,6 @@ CString CUserDA::GetUserPassword(CString name)
 		}
 		m_pRecordset->MoveNext();
 	}
-	//m_pRecordset->Release();
 	return password;
 }
 
@@ -707,13 +694,13 @@ bool CUserDA::ExistUser(CString name)
 	try
 	{
 		m_pRecordset.CreateInstance(__uuidof(Recordset));
-		m_pRecordset->Open( _variant_t(sql),m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+		m_pRecordset->Open( _variant_t(sql), m_pConnection.GetInterfacePtr(), adOpenDynamic, adLockOptimistic, adCmdText);
 	}
 	catch(_com_error e)
 	{
 		AfxMessageBox(e.Description());
 	}
-	int count=m_pRecordset->GetRecordCount();
+	int count = m_pRecordset->GetRecordCount();
 	//count值为-1为成功
 	if(0 == count)
 	{
@@ -723,7 +710,6 @@ bool CUserDA::ExistUser(CString name)
 	{
 		return false;
 	}
-	//m_pRecordset->MoveLast();
 	m_pRecordset->MoveFirst();
 	while(!m_pRecordset->adoEOF)
 	{
@@ -731,7 +717,7 @@ bool CUserDA::ExistUser(CString name)
 		CString tmp_name;
 		try
 		{
-			tmp_name=(char*)(_bstr_t)m_pRecordset->GetCollect("szName");
+			tmp_name = (char*)(_bstr_t)m_pRecordset->GetCollect("szName");
 			if(tmp_name == name)
 			{
 				return true;
@@ -743,16 +729,15 @@ bool CUserDA::ExistUser(CString name)
 		}
 		m_pRecordset->MoveNext();
 	}
-	//m_pRecordset->Release();
 	return false;
 }
 
 void CUserDA::UpdatePassword(CString name,CString password)
 {
 	CMD5 md5;
-	md5.GenerateCMD5((unsigned char*)(LPCTSTR)password,password.GetLength());
+	md5.GenerateCMD5((unsigned char*)(LPCTSTR)password, password.GetLength());
 	password = md5.ToString();
 	CString sql;
-	sql.Format("update [User] set szPassword = '%s' where szName = '%s' ",password,name);
+	sql.Format("update [User] set szPassword = '%s' where szName = '%s' ", password, name);
 	ExcuteSql(sql);
 }
